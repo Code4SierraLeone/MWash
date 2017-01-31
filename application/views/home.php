@@ -17,7 +17,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 </head>
 
-<body>
+<body class="welcome">
+<span id="splash-overlay" class="splash"></span>
+<span id="welcome" class="z-depth-4"></span>
 
 <header class="navbar-fixed">
     <nav class="row indigo darken-4">
