@@ -5805,7 +5805,7 @@ h1, h2, h3, h4, h5, h6 {
   color: #87a1ad; }
 
 h2, h4, h6 {
-  color: #aeea00; }
+  color:  #283593; }
 
 h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
   font-weight: inherit; }
@@ -6146,7 +6146,7 @@ small {
     position: absolute;
     bottom: 0;
     height: 2px;
-    background-color: #97cb00;
+    background-color: #3d499e;
     will-change: left, right; }
 
 .hide-tab-scrollbar {
