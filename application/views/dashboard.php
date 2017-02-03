@@ -36,7 +36,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
     <div id="slide-menu" class="side-nav fixed" data-simplebar-direction="vertical">
         <ul class="side-nav-main">
-            <li class="logo hide-on-med-and-down"></li>
+            <li class="logo hide-on-med-and-down indigo darken-3"></li>
             <li class="side-nav-inline hide-on-med-only"> <a href="login.html" class="inline waves-effect" target="_blank"><i class="material-icons">exit_to_app</i></a> <a href="account.html" class="inline waves-effect"><i class="material-icons">perm_identity</i></a> </li>
             <li><a href="#" class="waves-effect"><span>Dashboard</span></a></li>
         </ul>
@@ -53,7 +53,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 <div class="col s12">
                     <div class="z-depth-1">
                         <nav class="z-depth-0">
-                            <div class="nav-wrapper">
+                            <div class="nav-wrapper indigo darken-3">
                                 <div class="col s10 m7">
                                     <form>
                                         <div class="input-field round-in-box">
@@ -196,13 +196,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <!-- container END -->
 
     <!-- New message Modal Trigger -->
-    <div class="fixed-action-btn" style="bottom: 45px; right: 24px;"> <a class="btn-floating btn-large primary-color modal-trigger" href="#modal1"> <i class="material-icons">edit</i> </a> </div>
+    <div class="fixed-action-btn" style="bottom: 45px; right: 24px;"> <a class="btn-floating btn-large indigo darken-3 modal-trigger" href="#modal1"> <i class="material-icons">edit</i> </a> </div>
 
     <!-- New message Structure -->
     <div id="modal1" class="modal">
         <div class="modal-content no-padding">
             <nav class="">
-                <div class="nav-wrapper">
+                <div class="nav-wrapper indigo darken-3">
                     <div class="left col s7">
                         <p class="blue-grey-text text-lighten-4" style="margin:0; padding-left:20px;">New message </p>
                     </div>

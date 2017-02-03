@@ -5681,13 +5681,13 @@ nav {
       transition: background-color 0.3s;
       float: left;
       padding: 0;
-      background-color: #63818f; }
+      background-color: #283593; }
       nav ul li:hover, nav ul li.active {
-        background-color: #5c7986; }
+        background-color: #1f2870; }
       nav ul li.toogle-side-nav {
-        background-color: #546e7a; }
+        background-color: #283593; }
         nav ul li.toogle-side-nav:hover {
-          background-color: #4c636e; }
+          background-color: #2f3eac; }
     nav ul a {
       font-size: 1rem;
       color: #fff;
