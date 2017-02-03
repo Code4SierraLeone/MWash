@@ -205,7 +205,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     </div>
                     <div class="col s5">
                         <ul class="right">
-                            <li><a href="#!"><i class="material-icons">attach_file</i></a> </li>
                             <li><a href="#!"><i class="material-icons">close</i></a> </li>
                         </ul>
                     </div>
@@ -223,7 +222,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     </div>
             </div>
         </div>
-        <div class="modal-footer"> <a href="#!" class=" modal-action modal-close waves-effect btn-flat left">Save draft</a> <a href="#!" class=" modal-action modal-close waves-effect btn-flat right">Send</a> </div>
+        <div class="modal-footer"> <a href="#!" class=" modal-action modal-close waves-effect btn-flat right">Send</a> </div>
         </form>
     </div>
 </main>
