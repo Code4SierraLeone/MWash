@@ -21,7 +21,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 <header>
 
-    <div class="brand-logo hide-on-large-only"></div>
+    <div class="brand-logo hide-on-large-only indigo darken-3"></div>
     <div class="navbar-fixed hide-on-large-only">
         <nav>
             <div class="nav-wrapper">
@@ -37,7 +37,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <div id="slide-menu" class="side-nav fixed" data-simplebar-direction="vertical">
         <ul class="side-nav-main">
             <li class="logo hide-on-med-and-down indigo darken-3"></li>
-            <li class="side-nav-inline hide-on-med-only"> <a href="login.html" class="inline waves-effect" target="_blank"><i class="material-icons">exit_to_app</i></a> <a href="account.html" class="inline waves-effect"><i class="material-icons">perm_identity</i></a> </li>
+            <li class="side-nav-inline hide-on-med-only"> <a href="login.html" style="height: 52px !important;" class="inline waves-effect" target="_blank"><i class="material-icons">exit_to_app</i></a> <a href="account.html" style="height: 52px !important;" class="inline waves-effect"><i class="material-icons">perm_identity</i></a> </li>
             <li><a href="#" class="waves-effect"><span>Dashboard</span></a></li>
         </ul>
     </div>
@@ -145,28 +145,26 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                     </tr>
                                     </thead>
                                     <tbody>
-                                    <tr>
+                                    <tr class="unreaded">
                                         <td class="check-col"><input type="checkbox" id="checkbox1" class="filled-in" />
                                             <label for="checkbox1"></label></td>
                                         <td><a href="#!" class="cell-row">
                                                 <div class="cell">
-                                                    <img src="imgs/gplus.svg" alt="" class="simple-avatar small circle left">
-                                                    <h6 class="red-text text-darken-1">+Abbie Nicolson</h6>
+                                                    <h6>Abbie Nicolsonn</h6>
                                                     <p>Todays trends in webdesign</p>
                                                 </div>
-                                                <div class="cell w2 last"> <span class="datetime">4h ago</span> </div>
+                                                <div class="cell w2 last"> <span class="new badge static"></span> <span class="datetime">17min ago</span> </div>
                                             </a></td>
                                     </tr>
-                                    <tr>
-                                        <td class="check-col"><input type="checkbox" id="checkbox2"  class="filled-in" checked="checked" />
+                                    <tr class="unreaded">
+                                        <td class="check-col"><input type="checkbox" id="checkbox2"  class="filled-in"  />
                                             <label for="checkbox2"></label></td>
                                         <td><a href="#!" class="cell-row">
                                                 <div class="cell">
-                                                    <img src="imgs/twitter.svg" alt="" class="simple-avatar small circle left">
-                                                    <h6 class="light-blue-text text-lighten-2">@Dany Redmont</h6>
-                                                    <p>Css Framework comparision</p>
+                                                    <h6>Dany Redmontt</h6>
+                                                    <p>Cards are a convenient means of displaying content composed of different types of objects. They’re also well-suited for presenting similar objects whose size or supported actions can vary considerably, like photos with captions of variable length.</p>
                                                 </div>
-                                                <div class="cell w2 last"> <span class="datetime">7h ago </span> </div>
+                                                <div class="cell w2 last"> <span class="new badge static"></span> <span class="datetime">2h ago </span> </div>
                                             </a></td>
                                     </tr>
                                     <tr>
@@ -174,11 +172,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                             <label for="checkbox3"></label></td>
                                         <td><a href="#!" class="cell-row">
                                                 <div class="cell">
-                                                    <img src="imgs/facebook.svg" alt="" class="simple-avatar small circle left">
-                                                    <h6 class="indigo-text text-lighten-1">Sonia Niedermeyer</h6>
+                                                    <h6>Sonia Niedermeyerr</h6>
                                                     <p>Donec eget dolor fermentum, venenatis dolor</p>
                                                 </div>
-                                                <div class="cell w2 last"> <span class="datetime">10h ago</span> </div>
+                                                <div class="cell w2 last"> <span class="datetime">23 hours ago</span> </div>
                                             </a></td>
                                     </tr>
                                     </tbody>
@@ -217,15 +214,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <div class="form-pad">
                 <form>
                     <div class="input-field">
-                        <input id="to_email" type="email" class="validate">
-                        <label for="to_email">To</label>
-                    </div>
-                    <div class="input-field">
                         <input id="subject" type="text" class="validate">
                         <label for="subject">Subject</label>
                     </div>
                     <div class="input-field">
-                        <textarea id="message" class="materialize-textarea" length="500"></textarea>
+                        <textarea id="message" class="materialize-textarea" length="50"></textarea>
                         <label for="message">Message</label>
                     </div>
             </div>

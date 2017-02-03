@@ -6819,8 +6819,8 @@ textarea.materialize-textarea {
   input[type=number]:focus:not([readonly]),
   input[type=search]:focus:not([readonly]),
   textarea.materialize-textarea:focus:not([readonly]) {
-    border-bottom: 1px solid #97cb00;
-    box-shadow: 0 1px 0 0 #97cb00; }
+    border-bottom: 1px solid #26a69a;
+    box-shadow: 0 1px 0 0 #26a69a; }
   input[type=text]:focus:not([readonly]) + label,
   input[type=password]:focus:not([readonly]) + label,
   input[type=email]:focus:not([readonly]) + label,
@@ -6832,7 +6832,7 @@ textarea.materialize-textarea {
   input[type=number]:focus:not([readonly]) + label,
   input[type=search]:focus:not([readonly]) + label,
   textarea.materialize-textarea:focus:not([readonly]) + label {
-    color: #97cb00; }
+    color: #26a69a; }
   input[type=text].valid, input[type=text]:focus.valid,
   input[type=password].valid,
   input[type=password]:focus.valid,
@@ -6854,8 +6854,8 @@ textarea.materialize-textarea {
   input[type=search]:focus.valid,
   textarea.materialize-textarea.valid,
   textarea.materialize-textarea:focus.valid {
-    border-bottom: 1px solid #8bc34a;
-    box-shadow: 0 1px 0 0 #8bc34a; }
+    border-bottom: 1px solid #26a69a;
+    box-shadow: 0 1px 0 0 #26a69a; }
   input[type=text].valid + label:after, input[type=text]:focus.valid + label:after,
   input[type=password].valid + label:after,
   input[type=password]:focus.valid + label:after,
@@ -6878,7 +6878,7 @@ textarea.materialize-textarea {
   textarea.materialize-textarea.valid + label:after,
   textarea.materialize-textarea:focus.valid + label:after {
     content: attr(data-success);
-    color: #8bc34a;
+    color: #26a69a;
     opacity: 1; }
   input[type=text].invalid, input[type=text]:focus.invalid,
   input[type=password].invalid,
