@@ -26,7 +26,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <nav>
             <div class="nav-wrapper">
                 <ul class="right">
-                    <li class="hide-on-small-only"><a href="#search-in-modal" class="modal-trigger"><i class="material-icons">search</i></a></li>
                     <li class="hide-on-small-only"><a href="account.html"><i class="material-icons">perm_identity</i></a></li>
                     <li class="hide-on-small-only"><a href="login.html" target="_blank"><i class="material-icons">exit_to_app</i></a></li>
                     <li class="toogle-side-nav"><a href="#" data-activates="slide-menu" class="button-collapse"><i class="material-icons">menu</i></a></li>
@@ -43,26 +42,197 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         </ul>
     </div>
 
-    <div id="search-in-modal" class="modal">
-        <div class="modal-content">
-            <nav class="flat">
-                <div class="nav-wrapper">
-                    <form>
-                        <div class="input-field">
-                            <input id="search" type="search" class="secondary-color-text white" style="margin:0;" required>
-                            <label for="search"><i class="material-icons secondary-color-text">search</i></label>
-                            <i class="material-icons modal-action modal-close">close</i> </div>
-                    </form>
-                </div>
-            </nav>
-        </div>
-        <div class="modal-footer"> <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Search now</a> </div>
-    </div>
-
 </header>
 
 <main>
+    <div class="container">
+        <h1 class="thin">Messages</h1>
+        <!--  Tables Section-->
+        <div id="messages" class="mailbox section">
+            <div class="row">
+                <div class="col s12">
+                    <div class="z-depth-1">
+                        <nav class="z-depth-0">
+                            <div class="nav-wrapper">
+                                <div class="col s10 m7">
+                                    <form>
+                                        <div class="input-field round-in-box">
+                                            <input id="search" type="search" required>
+                                            <label for="search"><i class="material-icons">search</i></label>
+                                            <i class="material-icons">close</i> </div>
+                                    </form>
+                                </div>
+                                <div class="col s2 m5">
+                                    <ul class="right">
+                                        <li class="hide-on-small-only"><a href="#!"><i class="material-icons">archive</i></a></li>
+                                        <li class="hide-on-small-only"><a href="#!"><i class="material-icons">delete</i></a></li>
+                                        <li class="hide-on-small-only"><a href="#!"><i class="material-icons">settings</i></a></li>
+                                        <li class="hide-on-med-and-up"> <a href="#!" class="dropdown-button" data-activates="dropdown1"><i class="mdi-navigation-more-vert"></i></a>
+                                            <ul id="dropdown1" class="dropdown-content slim">
+                                                <li><a href="#!"><i class="mdi-content-archive"></i></a></li>
+                                                <li><a href="#!"><i class="mdi-action-delete"></i></a></li>
+                                                <li class="divider"></li>
+                                                <li><a href="#!"><i class="mdi-action-settings"></i></a></li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </nav>
+                        <ul class="tabs tab-demo">
+                            <li class="tab col s6"><a class="active" href="#main-mailbox">Main<span class="new badge">2</span></a></li>
+                            <li class="tab col s6"><a href="#social-mailbox">Community Feeback</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col s12">
+                    <div class="card-panel no-padding">
+                        <!--  MAIN mailbox START-->
+                        <div id="main-mailbox">
+                            <form action="#">
+                                <table class="list bordered highlight">
+                                    <thead>
+                                    <tr>
+                                        <th colspan="2" class="first">Today</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr class="unreaded">
+                                        <td class="check-col"><input type="checkbox" id="checkbox1" class="filled-in" />
+                                            <label for="checkbox1"></label></td>
+                                        <td><a href="#!" class="cell-row">
+                                                <div class="cell"> <span class="simple-avatar small circle left cyan accent-4">A</span>
+                                                    <h6>Abbie Nicolson</h6>
+                                                    <p>Todays trends in webdesign</p>
+                                                </div>
+                                                <div class="cell w2 last"> <span class="new badge static"></span> <span class="datetime">17min ago</span> </div>
+                                            </a></td>
+                                    </tr>
+                                    <tr class="unreaded">
+                                        <td class="check-col"><input type="checkbox" id="checkbox2"  class="filled-in"  />
+                                            <label for="checkbox2"></label></td>
+                                        <td><a href="#!" class="cell-row">
+                                                <div class="cell"> <span class="simple-avatar small circle left cyan accent-4">D</span>
+                                                    <h6>Dany Redmont</h6>
+                                                    <p>Css Framework comparision</p>
+                                                </div>
+                                                <div class="cell w2 last"> <span class="new badge static"></span> <span class="datetime">2h ago </span> </div>
+                                            </a></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="check-col"><input type="checkbox" id="checkbox3"  class="filled-in" />
+                                            <label for="checkbox3"></label></td>
+                                        <td><a href="#!" class="cell-row">
+                                                <div class="cell"> <span class="simple-avatar small circle left amber accent-2">S</span>
+                                                    <h6>Sonia Niedermeyer</h6>
+                                                    <p>Donec eget dolor fermentum, venenatis dolor</p>
+                                                </div>
+                                                <div class="cell w2 last"> <span class="datetime">23 hours ago</span> </div>
+                                            </a></td>
+                                    </tr>
+                                    </tbody>
+                                </table>
 
+                            </form>
+                        </div>
+
+                        <div id="social-mailbox">
+                            <form action="#">
+                                <table class="list bordered highlight">
+                                    <thead>
+                                    <tr>
+                                        <th colspan="2" class="first">Today</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr>
+                                        <td class="check-col"><input type="checkbox" id="checkbox1" class="filled-in" />
+                                            <label for="checkbox1"></label></td>
+                                        <td><a href="#!" class="cell-row">
+                                                <div class="cell">
+                                                    <img src="imgs/gplus.svg" alt="" class="simple-avatar small circle left">
+                                                    <h6 class="red-text text-darken-1">+Abbie Nicolson</h6>
+                                                    <p>Todays trends in webdesign</p>
+                                                </div>
+                                                <div class="cell w2 last"> <span class="datetime">4h ago</span> </div>
+                                            </a></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="check-col"><input type="checkbox" id="checkbox2"  class="filled-in" checked="checked" />
+                                            <label for="checkbox2"></label></td>
+                                        <td><a href="#!" class="cell-row">
+                                                <div class="cell">
+                                                    <img src="imgs/twitter.svg" alt="" class="simple-avatar small circle left">
+                                                    <h6 class="light-blue-text text-lighten-2">@Dany Redmont</h6>
+                                                    <p>Css Framework comparision</p>
+                                                </div>
+                                                <div class="cell w2 last"> <span class="datetime">7h ago </span> </div>
+                                            </a></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="check-col"><input type="checkbox" id="checkbox3"  class="filled-in" />
+                                            <label for="checkbox3"></label></td>
+                                        <td><a href="#!" class="cell-row">
+                                                <div class="cell">
+                                                    <img src="imgs/facebook.svg" alt="" class="simple-avatar small circle left">
+                                                    <h6 class="indigo-text text-lighten-1">Sonia Niedermeyer</h6>
+                                                    <p>Donec eget dolor fermentum, venenatis dolor</p>
+                                                </div>
+                                                <div class="cell w2 last"> <span class="datetime">10h ago</span> </div>
+                                            </a></td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </form>
+                        </div>
+                    </div>
+
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <!-- container END -->
+
+    <!-- New message Modal Trigger -->
+    <div class="fixed-action-btn" style="bottom: 45px; right: 24px;"> <a class="btn-floating btn-large primary-color modal-trigger" href="#modal1"> <i class="material-icons">edit</i> </a> </div>
+
+    <!-- New message Structure -->
+    <div id="modal1" class="modal">
+        <div class="modal-content no-padding">
+            <nav class="">
+                <div class="nav-wrapper">
+                    <div class="left col s7">
+                        <p class="blue-grey-text text-lighten-4" style="margin:0; padding-left:20px;">New message </p>
+                    </div>
+                    <div class="col s5">
+                        <ul class="right">
+                            <li><a href="#!"><i class="material-icons">attach_file</i></a> </li>
+                            <li><a href="#!"><i class="material-icons">close</i></a> </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+            <div class="form-pad">
+                <form>
+                    <div class="input-field">
+                        <input id="to_email" type="email" class="validate">
+                        <label for="to_email">To</label>
+                    </div>
+                    <div class="input-field">
+                        <input id="subject" type="text" class="validate">
+                        <label for="subject">Subject</label>
+                    </div>
+                    <div class="input-field">
+                        <textarea id="message" class="materialize-textarea" length="500"></textarea>
+                        <label for="message">Message</label>
+                    </div>
+            </div>
+        </div>
+        <div class="modal-footer"> <a href="#!" class=" modal-action modal-close waves-effect btn-flat left">Save draft</a> <a href="#!" class=" modal-action modal-close waves-effect btn-flat right">Send</a> </div>
+        </form>
+    </div>
 </main>
 
 <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
@@ -70,7 +240,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 <script type="text/javascript" src="<?php echo base_url(); ?>assets/js/admin/simplebar.min.js"></script>
 <!--materialize js-->
-<script type="text/javascript" src="<?php echo base_url(); ?>assets/js/materialize.min.js"></script>
+<script type="text/javascript" src="<?php echo base_url(); ?>assets/js/admin/materialize.min.js"></script>
+<script type="text/javascript" src="<?php echo base_url(); ?>assets/js/admin/custom.js"></script>
+
 
 </body>
 </html>
