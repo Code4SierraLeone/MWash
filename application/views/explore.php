@@ -35,13 +35,20 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             var height = Math.max( body.scrollHeight, body.offsetHeight,
                 html.clientHeight, html.scrollHeight, html.offsetHeight );
 
+            var rheight = height - 64;
+
             var mapDiv = document.getElementById('googft-mapCanvas');
             mapDiv.style.width = isMobile ? '100%' : '100%';
-            mapDiv.style.height = isMobile ? '100%' : height +'px';
+            mapDiv.style.height = isMobile ? '100%' : rheight +'px';
             var map = new google.maps.Map(mapDiv, {
                 center: new google.maps.LatLng(8.646785826402805, -11.696121582031306),
                 zoom: 8,
-                mapTypeId: google.maps.MapTypeId.ROADMAP
+                mapTypeId: google.maps.MapTypeId.ROADMAP,
+                streetViewControl: false,
+                zoomControl: true,
+                zoomControlOptions: {
+                    position: google.maps.ControlPosition.LEFT_TOP
+                }
             });
 
             layer = new google.maps.FusionTablesLayer({
@@ -80,12 +87,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     </script>
 
 </head>
-<body class="welcome">
-<span id="splash-overlay" class="splash"></span>
-<span id="welcome" class="z-depth-4"></span>
+<body>
 
-<header class="navbar-fixed">
-    <nav class="row indigo darken-4">
+<header>
+    <nav class="nav-wrapper indigo darken-4">
+        <div class="container"><a href="#" data-activates="nav-mobile" class="button-collapse top-nav waves-effect waves-light circle hide-on-large-only"><i class="material-icons">menu</i></a></div>
         <div class="col s12">
             <ul class="right">
                 <li class="right">
@@ -100,11 +106,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             </ul>
         </div>
     </nav>
+    <ul id="slide-out" class="side-nav fixed">
+    </ul>
 </header>
+
 <main>
-
     <div id="googft-mapCanvas"></div>
-
 </main>
 
 <!-- Modal Structure -->

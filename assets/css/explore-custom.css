@@ -3,3 +3,13 @@ html, body, #googft-mapCanvas {
     padding: 0;
     width: 100%;
 }
+
+header, main, footer {
+    padding-left: 0px;
+}
+
+@media screen and (min-width: 736px) {
+    header, main, footer {
+        padding-left: 300px;
+    }
+}
