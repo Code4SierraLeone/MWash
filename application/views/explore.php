@@ -57,7 +57,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 query: {
                     select: "col50",
                     from: "1aHLU3Qqsl9X_W_BEvZaPn_dkNV8UtXtJPnKedgKB",
+                    <?php if(isset($_REQUEST['pr'])){ $pr = $_REQUEST['pr']; ?>
+                    where: "province = <?php echo "'".$pr."'"; ?>"
+                    <?php }else{ ?>
                     where: ""
+                    <?php } ?>
+
                 },
                 options: {
                     styleId: 2,
@@ -106,7 +111,18 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             </ul>
         </div>
     </nav>
-    <ul id="slide-out" class="side-nav fixed">
+    <ul id="nav-mobile" class="side-nav fixed collapsible collapsible-accordion">
+        <li class="bold"><a class="collapsible-header  waves-effect waves-teal"><i class="material-icons">location_on</i>Province</a>
+            <div class="collapsible-body">
+                <ul>
+                    <li><a href="<?php echo base_url(); ?>index.php/explore">All Provinces</a></li>
+                    <li><a href="<?php echo base_url(); ?>index.php/explore?pr=Northern">Nothern</a></li>
+                    <li><a href="<?php echo base_url(); ?>index.php/explore?pr=Southern">Southern</a></li>
+                    <li><a href="<?php echo base_url(); ?>index.php/explore?pr=Eastern">Eastern</a></li>
+                    <li><a href="<?php echo base_url(); ?>index.php/explore?pr=Western">Western</a></li>
+                </ul>
+            </div>
+        </li>
     </ul>
 </header>
 

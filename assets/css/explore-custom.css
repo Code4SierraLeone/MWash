@@ -8,7 +8,7 @@ header, main, footer {
     padding-left: 0px;
 }
 
-@media screen and (min-width: 736px) {
+@media screen and (min-width: 915px) {
     header, main, footer {
         padding-left: 300px;
     }
