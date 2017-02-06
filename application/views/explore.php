@@ -17,6 +17,68 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
     <link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/explore-custom.css">
 
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDYHe93URHILf69tc1EtK7wuVd0rwKEOHw"></script>
+
+    <script type="text/javascript">
+        function initialize() {
+            google.maps.visualRefresh = true;
+            var isMobile = (navigator.userAgent.toLowerCase().indexOf('android') > -1) ||
+                (navigator.userAgent.match(/(iPod|iPhone|iPad|BlackBerry|Windows Phone|iemobile)/));
+            if (isMobile) {
+                var viewport = document.querySelector("meta[name=viewport]");
+                viewport.setAttribute('content', 'initial-scale=1.0, user-scalable=no');
+            }
+
+            var body = document.body,
+                html = document.documentElement;
+
+            var height = Math.max( body.scrollHeight, body.offsetHeight,
+                html.clientHeight, html.scrollHeight, html.offsetHeight );
+
+            var mapDiv = document.getElementById('googft-mapCanvas');
+            mapDiv.style.width = isMobile ? '100%' : '100%';
+            mapDiv.style.height = isMobile ? '100%' : height +'px';
+            var map = new google.maps.Map(mapDiv, {
+                center: new google.maps.LatLng(8.646785826402805, -11.696121582031306),
+                zoom: 8,
+                mapTypeId: google.maps.MapTypeId.ROADMAP
+            });
+
+            layer = new google.maps.FusionTablesLayer({
+                map: map,
+                heatmap: { enabled: false },
+                query: {
+                    select: "col50",
+                    from: "1aHLU3Qqsl9X_W_BEvZaPn_dkNV8UtXtJPnKedgKB",
+                    where: ""
+                },
+                options: {
+                    styleId: 2,
+                    templateId: 2
+                }
+            });
+
+            if (isMobile) {
+                var legend = document.getElementById('googft-legend');
+                var legendOpenButton = document.getElementById('googft-legend-open');
+                var legendCloseButton = document.getElementById('googft-legend-close');
+                legend.style.display = 'none';
+                legendOpenButton.style.display = 'block';
+                legendCloseButton.style.display = 'block';
+                legendOpenButton.onclick = function() {
+                    legend.style.display = 'block';
+                    legendOpenButton.style.display = 'none';
+                }
+                legendCloseButton.onclick = function() {
+                    legend.style.display = 'none';
+                    legendOpenButton.style.display = 'block';
+                }
+            }
+        }
+
+        google.maps.event.addDomListener(window, 'load', initialize);
+    </script>
+
 </head>
 <body class="welcome">
 <span id="splash-overlay" class="splash"></span>
@@ -41,10 +103,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 </header>
 <main>
 
-    <div class="container section" style="width: 85% !important;">
-        <iframe id="main_iframe" width="100%" height="620" frameborder="0" src="https://13arturius91.carto.com/builder/4f131d46-d3d8-11e6-891f-0ee66e2c9693/embed" allowfullscreen webkitallowfullscreen mozallowfullscreen oallowfullscreen msallowfullscreen></iframe>
-    </div>
-
+    <div id="googft-mapCanvas"></div>
 
 </main>
 
@@ -74,11 +133,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <i class="large material-icons">mode_edit</i>
     </a>
 </div>
-<!--<div class="fixed-action-btn" style="top: 23px !important; left: 23px !important;">-->
-<!--    <a class="btn-floating indigo btn-large red" href="--><?php //echo base_url(); ?><!--index.php">-->
-<!--        <i class="large material-icons">arrow_back</i>-->
-<!--    </a>-->
-<!--</div>-->
 
 <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
 <script>if (!window.jQuery) { document.write('<script src="<?php echo base_url(); ?>assets/js/jquery-2.1.4.min.js"><\/script>'); }
