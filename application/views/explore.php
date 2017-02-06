@@ -57,7 +57,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 query: {
                     select: "col50",
                     from: "1aHLU3Qqsl9X_W_BEvZaPn_dkNV8UtXtJPnKedgKB",
-                    <?php if(isset($_REQUEST['pr'])){ $pr = $_REQUEST['pr']; ?>
+                    <?php if(isset($_REQUEST['pr']) && $_REQUEST['pr'] != ''){ $pr = $_REQUEST['pr']; ?>
                     where: "province = <?php echo "'".$pr."'"; ?>"
                     <?php }else{ ?>
                     where: ""
@@ -111,15 +111,44 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             </ul>
         </div>
     </nav>
-    <ul id="nav-mobile" class="side-nav fixed collapsible collapsible-accordion">
+    <ul id="nav-mobile" style="border: 0px !important;" class="side-nav fixed collapsible collapsible-accordion">
+        <li>
+            <div class="row">
+                <div style="margin: 0px;" class="card">
+                    <div class="card-image">
+                        <?php if(isset($_REQUEST['pr'])){ $pr = $_REQUEST['pr']; ?>
+                        <?php if($pr == ''){ ?>
+                            <img src="<?php echo base_url(); ?>assets/img/sierraleone-c.jpg">
+                            <span class="card-title">Sierra Leone</span>
+                        <?php }else if($pr == 'Northern'){ ?>
+                            <img src="<?php echo base_url(); ?>assets/img/northern-p.jpg">
+                            <span class="card-title">Northern Province</span>
+                        <?php }else if($pr == 'Southern'){ ?>
+                            <img src="<?php echo base_url(); ?>assets/img/southern-p.jpg">
+                            <span class="card-title">Southern Province</span>
+                        <?php }else if($pr == 'Eastern'){ ?>
+                            <img src="<?php echo base_url(); ?>assets/img/eastern-p.jpg">
+                            <span class="card-title">Eastern Province</span>
+                        <?php }else if($pr == 'Western'){ ?>
+                            <img src="<?php echo base_url(); ?>assets/img/western-p.jpg">
+                            <span class="card-title">Western Province</span>
+                        <?php } }else{ ?>
+                            <img src="<?php echo base_url(); ?>assets/img/sierraleone-c.jpg">
+                            <span class="card-title">Sierra Leone</span>
+                        <?php } ?>
+
+                    </div>
+                </div>
+            </div>
+        </li>
         <li class="bold"><a class="collapsible-header  waves-effect waves-teal"><i class="material-icons">location_on</i>Province</a>
-            <div class="collapsible-body">
+            <div class="collapsible-body" style="padding: 0px !important;">
                 <ul>
-                    <li><a href="<?php echo base_url(); ?>index.php/explore">All Provinces</a></li>
-                    <li><a href="<?php echo base_url(); ?>index.php/explore?pr=Northern">Nothern</a></li>
-                    <li><a href="<?php echo base_url(); ?>index.php/explore?pr=Southern">Southern</a></li>
-                    <li><a href="<?php echo base_url(); ?>index.php/explore?pr=Eastern">Eastern</a></li>
-                    <li><a href="<?php echo base_url(); ?>index.php/explore?pr=Western">Western</a></li>
+                    <li id="allp"><a href="<?php echo base_url(); ?>index.php/explore">All Provinces</a></li>
+                    <li id="nth"><a href="<?php echo base_url(); ?>index.php/explore?pr=Northern">Nothern</a></li>
+                    <li id="sth"><a href="<?php echo base_url(); ?>index.php/explore?pr=Southern">Southern</a></li>
+                    <li id="est"><a href="<?php echo base_url(); ?>index.php/explore?pr=Eastern">Eastern</a></li>
+                    <li id="wst"><a href="<?php echo base_url(); ?>index.php/explore?pr=Western">Western</a></li>
                 </ul>
             </div>
         </li>
