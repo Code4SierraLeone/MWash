@@ -53,5 +53,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 $route['default_controller'] = 'home';
 $route['explore'] = 'explore';
 $route['admin'] = 'admin';
+$route['google_fusion/(:num)'] = 'google_fusion/get_data/$1';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
