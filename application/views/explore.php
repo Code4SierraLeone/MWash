@@ -92,7 +92,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     </script>
 
 </head>
-<body>
+<body site-url="<?php echo base_url(); ?>">
 
 <header>
     <nav class="nav-wrapper indigo darken-4">
@@ -166,7 +166,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <form id="update-form" class="col s12">
                 <div class="row">
                     <div class="input-field col s12">
-                        <input name="waterpoint_id" id="wp_id" type="text" class="validate">
+                        <input name="wp_id" id="wp_id" type="text" class="validate">
                         <label for="text">Provide WaterPoint ID</label>
                     </div>
                 </div>
@@ -176,7 +176,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
     </div>
     <div class="modal-footer">
-        <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Close</a>
+        <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat left">Close</a>
+        <a style="color: #ffffff !important;" class="waves-effect indigo lighten-1 waves-green btn-flat" id="submit-wp-id">Submit</a>
     </div>
 </div>
 
