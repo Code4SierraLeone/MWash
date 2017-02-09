@@ -13,3 +13,7 @@ header, main, footer {
         padding-left: 300px;
     }
 }
+
+.hidden {
+    display: none;
+}

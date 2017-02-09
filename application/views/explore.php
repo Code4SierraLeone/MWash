@@ -162,22 +162,46 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <!-- Modal Structure -->
 <div id="modal1" class="modal">
     <div class="modal-content">
+        <h4>Water Point Update</h4>
+        <p id="init_msg">Hi, you can take part in providing update about the condition of water points where you live. You will only be able to update only some few attributes. Select which attribute you want to update. Below</p>
         <div class="row">
             <form id="update-form" class="col s12">
                 <div class="row">
+                    <div class="input-field col s12">
+                        <select id="wpu" name="wpu">
+                            <option value="" disabled selected>Choose your option</option>
+                            <option value="wsm">Water Source Mechanic</option>
+                            <option value="mngr">Manager</option>
+                            <option value="chw">Chlorinated Water</option>
+                            <option value="wsq">Water Source Quality</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="row" style="display: none;">
                     <div class="input-field col s12">
                         <input name="wp_id" id="wp_id" type="text" class="validate">
                         <label for="text">Provide WaterPoint ID</label>
                     </div>
                 </div>
-
+                <div class="row" style="display: none;">
+                    <div class="input-field col s12">
+                        <input name="wsm_update" id="wsm_update" type="text" class="validate">
+                        <label for="text">Is the water source mechanic available?</label>
+                    </div>
+                </div>
+<!--                <div class="row" style="display: none;">-->
+<!--                    <div class="input-field col s12">-->
+<!--                        <input name="wp_id" id="wp_id" type="text" class="validate">-->
+<!--                        <label for="text">Provide WaterPoint ID</label>-->
+<!--                    </div>-->
+<!--                </div>-->
             </form>
         </div>
 
     </div>
     <div class="modal-footer">
         <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat left">Close</a>
-        <a style="color: #ffffff !important;" class="waves-effect indigo lighten-1 waves-green btn-flat" id="submit-wp-id">Submit</a>
+        <a style="color: #ffffff !important;" class="waves-effect indigo lighten-1 waves-green btn-flat" id="submit-wpu">Submit</a>
     </div>
 </div>
 
@@ -186,6 +210,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <i class="large material-icons">mode_edit</i>
     </a>
 </div>
+
+<div class="rowid hidden"></div>
+<div class="wp_column_name hidden"></div>
 
 <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
 <script>if (!window.jQuery) { document.write('<script src="<?php echo base_url(); ?>assets/js/jquery-2.1.4.min.js"><\/script>'); }
