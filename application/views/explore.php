@@ -189,12 +189,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         <label for="text">Is the water source mechanic available?</label>
                     </div>
                 </div>
-<!--                <div class="row" style="display: none;">-->
-<!--                    <div class="input-field col s12">-->
-<!--                        <input name="wp_id" id="wp_id" type="text" class="validate">-->
-<!--                        <label for="text">Provide WaterPoint ID</label>-->
-<!--                    </div>-->
-<!--                </div>-->
+                <div class="row" style="display: none;">
+                    <div class="input-field col s12">
+                        <input name="mngr_update" id="mngr_update" type="text" class="validate">
+                        <label for="text">Who manages the water point?</label>
+                    </div>
+                </div>
             </form>
         </div>
 

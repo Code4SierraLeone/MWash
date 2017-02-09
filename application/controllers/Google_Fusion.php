@@ -84,6 +84,15 @@ class Google_Fusion extends CI_Controller {
 
             echo json_encode(combineColumnsAndRows($result));
 
+        }elseif ($parameter1 == 'manager'){
+
+            $service = new Google_Service_Fusiontables($client);
+
+            $selectQuery = "UPDATE 1aHLU3Qqsl9X_W_BEvZaPn_dkNV8UtXtJPnKedgKB SET manager = '".$parameter3."' WHERE ROWID = '".$parameter2."'";
+
+            $result = $service->query->sql($selectQuery);
+
+            echo json_encode(combineColumnsAndRows($result));
         }
 
     }

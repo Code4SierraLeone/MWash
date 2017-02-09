@@ -81,15 +81,20 @@ $(function(){
                     $('.rowid').html(data[0].rowid);
 
                     $("#wp_id").parent().parent().hide();
-                    $("#wsm_update").parent().parent().show();
 
                     if(wp == 'wsm'){
+                        $("#wsm_update").parent().parent().show();
                         $('.wp_column_name').html('mechanic');
                         if(data[0].mechanic == 'No' || data[0].mechanic == null){
                             $('#init_msg').empty().append('The water point currently does not have a Mechanic. If you wish to update type the word Yes then click the update button');
                         }else if(data[0].mechanic == 'Yes'){
                             $('#init_msg').empty().append('The water point currently has a Mechanic. If you wish to update type the word No then click the update button');
                         }
+                    }else if(wp == 'mngr'){
+                        $("#mngr_update").parent().parent().show();
+                        $('.wp_column_name').html('manager');
+                        $('#init_msg').empty().append('The water point is managed by '+data[0].manager+'. If you wish to update type either (Community committee, Private Person, SALWACO, Religious Group, None Or Other)');
+
                     }
 
                 }
@@ -105,12 +110,17 @@ $(function(){
 
     $(document).on('click', '#submit-wp-update', function () {
 
-        var wsm_update = $('#wsm_update').val();
-        //console.log(wsm_update);
         var rowid = $('.rowid').text();
-        //console.log(rowid);
         var colnm = $('.wp_column_name').text();
-        //console.log(colnm);
+        var wsm_update;
+
+        var wp = $("#wpu").val();
+
+        if(wp == 'wsm'){
+            wsm_update = $('#wsm_update').val();
+        }else if(wp == 'mngr'){
+            wsm_update = $('#mngr_update').val();
+        }
 
         $.ajax({
 
@@ -136,7 +146,11 @@ $(function(){
 
                 if(data[0].affected_rows == '1'){
                     $("#submit-wp-update").remove();
-                    $("#wsm_update").parent().parent().hide();
+                    if(wp == 'wsm'){
+                        $("#wsm_update").parent().parent().hide();
+                    }else if(wp == 'mngr'){
+                        $("#mngr_update").parent().parent().hide();
+                    }
                     $('#init_msg').empty();
                     $('div.modal-content h4').css('text-align','center');
                     $('div.modal-content h4').html('Thank You For Your Contribution');
