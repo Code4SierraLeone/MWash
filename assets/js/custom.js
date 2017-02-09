@@ -48,10 +48,7 @@ $(function(){
                 url: site_url + 'index.php/google_fusion/'+wpid,
                 dataType: 'json',
                 beforeSend: function () {
-                    // background-color: rgba(0, 0, 0, 0.37);
-                    // background-image: url(../assets/img/loader.gif);
-                    // background-position: center;
-                    // background-repeat: no-repeat;
+
                     $('div.modal-content div.row').css({'opacity':'0'});
                     $('.modal-content').css({
                         'background-color':'rgba(0, 0, 0, 0.37)',
@@ -67,14 +64,14 @@ $(function(){
                         'background-image':'',
                         'background-position':'',
                         'background-repeat':''});
-                    console.log(data);
+                    console.log(data[0].age);
 
                 }
             });
 
         } else {
 
-            alert('Please Provide Water Point ID');
+            Materialize.toast('Please Provide Water Point ID!', 4000);
 
         }
 
