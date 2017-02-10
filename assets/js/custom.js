@@ -3,6 +3,7 @@ $(function(){
     $('select').material_select();
 
     var site_url = $('body').attr('site-url');
+    var wp;
 
     $('.modal').modal();
 
@@ -18,7 +19,7 @@ $(function(){
             var temp = params[i].split('=');
             var key   = temp[0];
             var value = temp[1];
-            console.log(key +':'+value);
+            //console.log(key +':'+value);
         }
     }else{
         $('#allp').addClass('active indigo lighten-1');
@@ -36,17 +37,24 @@ $(function(){
 
     $(document).on('click', '#submit-wpu', function () {
 
-        $('#submit-wpu').attr('id', 'submit-wp-id');
+        wp = $("#wpu").val();
 
-        $("#wp_id").parent().parent().show();
-        $("#wpu").parent().parent().hide();
+        if(wp == null){
+            Materialize.toast('You have not selected an attribute!', 4000);
+        }else{
+            $('#submit-wpu').attr('id', 'submit-wp-id');
+
+            $("#wp_id").parent().parent().show();
+            $("#wpu").parent().parent().hide();
+        }
+
 
     });
 
     $(document).on('click', '#submit-wp-id', function () {
 
         var wpid = $("#wp_id").val();
-        var wp = $("#wpu").val();
+        wp = $("#wpu").val();
 
         if (wpid.length > 0 && wp.length != null) {
 
@@ -94,6 +102,16 @@ $(function(){
                         $("#mngr_update").parent().parent().show();
                         $('.wp_column_name').html('manager');
                         $('#init_msg').empty().append('The water point is managed by '+data[0].manager+'. If you wish to update type either (Community committee, Private Person, SALWACO, Religious Group, None Or Other)');
+                    }else if(wp == 'chw'){
+                        $("#chw_update").parent().parent().show();
+                        $('.wp_column_name').html('chlorine');
+                        if(data[0].chlorine == 'Yes'){
+                            $('#init_msg').empty().append('The water point is chlorinated. If you wish to update type either (No Or Unknown)');
+                        }else if(data[0].chlorine == 'No'){
+                            $('#init_msg').empty().append('The water point is not chlorinated. If you wish to update type (Yes Or Unknown)');
+                        }else if(data[0].chlorine == 'Unknown' || data[0].chlorine == 'UNKNOWN' || data[0].chlorine == null || data[0].chlorine == undefined){
+                            $('#init_msg').empty().append('Their is no sufficient info about the condition of the water. If you wish to update type either (Yes Or No)');
+                        }
 
                     }
 
@@ -114,12 +132,14 @@ $(function(){
         var colnm = $('.wp_column_name').text();
         var wsm_update;
 
-        var wp = $("#wpu").val();
+        wp = $("#wpu").val();
 
         if(wp == 'wsm'){
             wsm_update = $('#wsm_update').val();
         }else if(wp == 'mngr'){
             wsm_update = $('#mngr_update').val();
+        }else if(wp == 'chw'){
+            wsm_update = $('#chw_update').val();
         }
 
         $.ajax({
@@ -150,6 +170,8 @@ $(function(){
                         $("#wsm_update").parent().parent().hide();
                     }else if(wp == 'mngr'){
                         $("#mngr_update").parent().parent().hide();
+                    }else if(wp == 'chw'){
+                        $("#chw_update").parent().parent().hide();
                     }
                     $('#init_msg').empty();
                     $('div.modal-content h4').css('text-align','center');

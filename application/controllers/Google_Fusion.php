@@ -93,6 +93,17 @@ class Google_Fusion extends CI_Controller {
             $result = $service->query->sql($selectQuery);
 
             echo json_encode(combineColumnsAndRows($result));
+
+        }elseif ($parameter1 == 'chlorine'){
+
+            $service = new Google_Service_Fusiontables($client);
+
+            $selectQuery = "UPDATE 1aHLU3Qqsl9X_W_BEvZaPn_dkNV8UtXtJPnKedgKB SET chlorine = '".$parameter3."' WHERE ROWID = '".$parameter2."'";
+
+            $result = $service->query->sql($selectQuery);
+
+            echo json_encode(combineColumnsAndRows($result));
+
         }
 
     }

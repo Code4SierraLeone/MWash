@@ -195,6 +195,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         <label for="text">Who manages the water point?</label>
                     </div>
                 </div>
+                <div class="row" style="display: none;">
+                    <div class="input-field col s12">
+                        <input name="chw_update" id="chw_update" type="text" class="validate">
+                        <label for="text">Is the water chlorinated?</label>
+                    </div>
+                </div>
             </form>
         </div>
 
