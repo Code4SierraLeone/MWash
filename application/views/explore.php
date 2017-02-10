@@ -225,7 +225,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <div class="col s12 m6">
                 <div class="card white">
                     <div class="card-content black-text">
-                        <span class="card-title">Am Not Familia</span>
+                        <span class="card-title" style="text-align: center !important;">Easy</span>
                         <p id="countregusers" style="text-align: center;">By selecting this option you will have to provide the names of your province, district and chiefdom including your phone number.</p>
                     </div>
                 </div>
@@ -233,7 +233,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <div class="col s12 m6">
                 <div class="card white">
                     <div class="card-content black-text">
-                        <span class="card-title">Am Familia</span>
+                        <span class="card-title" style="text-align: center !important;">Very Easy</span>
                         <p id="countregusers" style="text-align: center;">By selecting this option you will provide the water point id from which i presume you found it on map and your phone number. Very Easy.</p>
                     </div>
                 </div>
