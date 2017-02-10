@@ -220,30 +220,66 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <div id="modal2" class="modal">
     <div class="modal-content">
         <h4>Subscribe</h4>
-        <p id="init_msg">Start getting updates on your phone via SMS about the condition of the water points around your area. There are two options below, select the one you are most convenient with.</p>
+        <p id="init_sub_msg">Start getting updates on your phone via SMS about the condition of the water points around your area. There are two options below, select the one you are most convenient with.</p>
         <div class="row">
             <div class="col s12 m6">
                 <div class="card white">
+                    <a id="sub1" class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">add</i></a>
                     <div class="card-content black-text">
                         <span class="card-title" style="text-align: center !important;">Easy</span>
-                        <p id="countregusers" style="text-align: center;">By selecting this option you will have to provide the names of your province, district and chiefdom including your phone number.</p>
+                        <p id="countregusers" style="text-align: center;">By selecting red button below in this option you will have to provide the names of your province, district and chiefdom including your phone number.</p>
                     </div>
                 </div>
             </div>
             <div class="col s12 m6">
                 <div class="card white">
+                    <a id="sub2" class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">add</i></a>
                     <div class="card-content black-text">
                         <span class="card-title" style="text-align: center !important;">Very Easy</span>
-                        <p id="countregusers" style="text-align: center;">By selecting this option you will provide the water point id from which i presume you found it on map and your phone number. Very Easy.</p>
+                        <p id="countregusers" style="text-align: center;">By selecting red button below in this option you will provide the water point id from which i presume you found it on map and your phone number. Very Easy.</p>
                     </div>
                 </div>
             </div>
         </div>
 
+        <div class="row">
+            <form id="subcription-form" class="col s12">
+                <div class="row" style="display: none;">
+                    <div class="input-field col s12">
+                        <input name="waterp_id" id="waterp_id" type="text" class="validate">
+                        <label for="text">Water Point ID</label>
+                    </div>
+                </div>
+                <div class="row" style="display: none;">
+                    <div class="input-field col s12">
+                        <input name="prov_id" id="prov_id" type="text" class="validate">
+                        <label for="text">Province Name</label>
+                    </div>
+                </div>
+                <div class="row" style="display: none;">
+                    <div class="input-field col s12">
+                        <input name="dist_id" id="dist_id" type="text" class="validate">
+                        <label for="text">District Name</label>
+                    </div>
+                </div>
+                <div class="row" style="display: none;">
+                    <div class="input-field col s12">
+                        <input name="chief_id" id="chief_id" type="text" class="validate">
+                        <label for="text">Chiefdom Name</label>
+                    </div>
+                </div>
+                <div class="row" style="display: none;">
+                    <div class="input-field col s12">
+                        <input name="phone" id="phone" type="text" class="validate">
+                        <label for="text">Phone Number</label>
+                    </div>
+                </div>
+            </form>
+        </div>
     </div>
     <div class="modal-footer">
         <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat left">Close</a>
-        <a style="color: #ffffff !important;" class="waves-effect indigo lighten-1 waves-green btn-flat" id="submit-wpu">Submit</a>
+        <a style="color: #ffffff !important; display: none;" class="waves-effect indigo lighten-1 waves-green btn-flat" id="submit-subscription">Submit</a>
     </div>
 </div>
 

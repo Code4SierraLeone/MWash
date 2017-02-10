@@ -206,4 +206,137 @@ $(function(){
         });
 
     });
+
+    $('#sub1').on('click', function () {
+
+        $('#submit-subscription').attr('id', 'submit-subscription-sub1').show();
+
+        $(this).parent().parent().hide();
+        $('#sub2').parent().parent().hide();
+        $('#prov_id').parent().parent().show();
+        $('#dist_id').parent().parent().show();
+        $('#chief_id').parent().parent().show();
+        $('#phone').parent().parent().show();
+
+    });
+    $('#sub2').on('click', function () {
+
+        $('#submit-subscription').attr('id', 'submit-subscription-sub2').show();
+
+        $(this).parent().parent().hide();
+        $('#sub1').parent().parent().hide();
+        $('#waterp_id').parent().parent().show();
+        $('#phone').parent().parent().show();
+
+    });
+
+    $(document).on('click', '#submit-subscription-sub1', function () {
+
+        var data = $("#subcription-form").serialize();
+
+        var provid = $('#prov_id').val();
+        var distid = $('#dist_id').val();
+        var chiefid = $('#chief_id').val();
+        var phone = $('#phone').val();
+
+        if(provid.length > 0 && distid.length > 0 && chiefid.length > 0 && phone.length > 0){
+
+            $.ajax({
+
+                type : 'POST',
+                url  : site_url+'index.php/sub_service/add/one',
+                data : data,
+                dataType: 'json',
+                beforeSend: function()
+                {
+                    $('div.modal-content div.row').css({'opacity':'0'});
+                    $('.modal-content').css({
+                        'background-color':'rgba(0, 0, 0, 0.37)',
+                        'background-image':'url('+site_url+'/assets/img/loader.gif',
+                        'background-position':'center',
+                        'background-repeat':'no-repeat'});
+                },
+                success :  function(data)
+                {
+                    $('div.modal-content div.row').css({'opacity':''});
+                    $('.modal-content').css({
+                        'background-color':'',
+                        'background-image':'',
+                        'background-position':'',
+                        'background-repeat':''});
+
+                    $('#init_sub_msg').empty();
+                    $('#prov_id').parent().parent().hide();
+                    $('#dist_id').parent().parent().hide();
+                    $('#chief_id').parent().parent().hide();
+                    $('#phone').parent().parent().hide();
+                    $('div.modal-content h4').css('text-align','center');
+                    $('div.modal-content h4').html('Awesome, check your phone later for a confirmation message...');
+                    window.setTimeout(function(){
+
+                        window.location.href = site_url+'index.php/explore';
+
+                    }, 3000);
+
+                    console.log(data);
+                }
+            });
+
+        }else{
+            Materialize.toast('Please fill all inputs!', 4000);
+        }
+    });
+
+    $(document).on('click', '#submit-subscription-sub2', function () {
+
+        var data = $("#subcription-form").serialize();
+
+        var waterpid = $('#waterp_id').val();
+        var phone = $('#phone').val();
+
+        if(waterpid.length > 0 && phone.length > 0){
+
+            $.ajax({
+
+                type : 'POST',
+                url  : site_url+'index.php/sub_service/add/two',
+                data : data,
+                dataType: 'json',
+                beforeSend: function()
+                {
+                    $('div.modal-content div.row').css({'opacity':'0'});
+                    $('.modal-content').css({
+                        'background-color':'rgba(0, 0, 0, 0.37)',
+                        'background-image':'url('+site_url+'/assets/img/loader.gif',
+                        'background-position':'center',
+                        'background-repeat':'no-repeat'});
+                },
+                success :  function(data)
+                {
+                    $('div.modal-content div.row').css({'opacity':''});
+                    $('.modal-content').css({
+                        'background-color':'',
+                        'background-image':'',
+                        'background-position':'',
+                        'background-repeat':''});
+
+                    $('#init_sub_msg').empty();
+                    $('#waterp_id').parent().parent().hide();
+                    $('#phone').parent().parent().hide();
+                    $('div.modal-content h4').css('text-align','center');
+                    $('div.modal-content h4').html('Awesome, check your phone later for a confirmation message...');
+                    window.setTimeout(function(){
+
+                        window.location.href = site_url+'index.php/explore';
+
+                    }, 3000);
+
+                    console.log(data);
+                }
+            });
+
+        }else{
+            Materialize.toast('Please fill all inputs!', 4000);
+        }
+    });
 });
