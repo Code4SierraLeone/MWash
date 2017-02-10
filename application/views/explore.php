@@ -218,8 +218,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 </div>
 
 <div class="fixed-action-btn modal-trigger">
-    <a class="btn-floating indigo btn-large red" data-target="modal1" href="#modal1">
+    <a class="btn-floating indigo btn-large" data-target="modal1" href="#modal1">
         <i class="large material-icons">mode_edit</i>
+    </a>
+</div>
+<div style="position: absolute !important; left: 0px !important; top: 0px !important; padding-top: 4px !important; z-index: 999 !important;">
+    <a style="background-color: #fff0 !important;" class="btn-floating indigo btn-large"  href="<?php echo base_url(); ?>">
+        <i class="large material-icons">arrow_back</i>
     </a>
 </div>
 
