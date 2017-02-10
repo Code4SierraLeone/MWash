@@ -19,3 +19,15 @@ CREATE TABLE IF NOT EXISTS `ci_sessions` (
   PRIMARY KEY (id),
   KEY `ci_sessions_timestamp` (`timestamp`)
 );
+
+CREATE TABLE IF NOT EXISTS `subscribers` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `water_point_id` varchar(255) DEFAULT NULL,
+  `province` varchar(255) DEFAULT NULL,
+  `district` varchar(255) DEFAULT NULL,
+  `chiefdom` varchar(255)DEFAULT NULL,
+  `phone_number` varchar(255) NOT NULL DEFAULT '',
+  `created_at` datetime NOT NULL,
+  `updated_at` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`)
+);

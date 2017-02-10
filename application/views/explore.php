@@ -141,7 +141,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 </div>
             </div>
         </li>
-        <li class="bold"><a class="collapsible-header  waves-effect waves-teal"><i class="material-icons">location_on</i>Province</a>
+        <li class="bold"><a class="collapsible-header waves-effect waves-teal"><i class="material-icons">location_on</i>Filter By Province</a>
             <div class="collapsible-body" style="padding: 0px !important;">
                 <ul>
                     <li id="allp"><a href="<?php echo base_url(); ?>index.php/explore">All Provinces</a></li>
@@ -152,6 +152,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 </ul>
             </div>
         </li>
+        <li class="bold"><a class="collapsible-header waves-effect waves-teal" data-target="modal2" href="#modal2"><i class="material-icons">phone_android</i>Subscribe</a></li>
     </ul>
 </header>
 
@@ -159,11 +160,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <div id="googft-mapCanvas"></div>
 </main>
 
-<!-- Modal Structure -->
 <div id="modal1" class="modal">
     <div class="modal-content">
         <h4>Water Point Update</h4>
-        <p id="init_msg">Hi, you can take part in providing update about the condition of water points where you live. You will only be able to update only some few attributes. Select which attribute you want to update. Below</p>
+        <p id="init_msg">Hi, you can take part in providing an update about the condition of water points where you live. You will only be able to update only some few attributes. Select which attribute you want to update. Below</p>
         <div class="row">
             <form id="update-form" class="col s12">
                 <div class="row">
@@ -208,6 +208,36 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     </div>
                 </div>
             </form>
+        </div>
+
+    </div>
+    <div class="modal-footer">
+        <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat left">Close</a>
+        <a style="color: #ffffff !important;" class="waves-effect indigo lighten-1 waves-green btn-flat" id="submit-wpu">Submit</a>
+    </div>
+</div>
+
+<div id="modal2" class="modal">
+    <div class="modal-content">
+        <h4>Subscribe</h4>
+        <p id="init_msg">Start getting updates on your phone via SMS about the condition of the water points around your area. There are two options below, select the one you are most convenient with.</p>
+        <div class="row">
+            <div class="col s12 m6">
+                <div class="card white">
+                    <div class="card-content black-text">
+                        <span class="card-title">Am Not Familia</span>
+                        <p id="countregusers" style="text-align: center;">By selecting this option you will have to provide the names of your province, district and chiefdom including your phone number.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col s12 m6">
+                <div class="card white">
+                    <div class="card-content black-text">
+                        <span class="card-title">Am Familia</span>
+                        <p id="countregusers" style="text-align: center;">By selecting this option you will provide the water point id from which i presume you found it on map and your phone number. Very Easy.</p>
+                    </div>
+                </div>
+            </div>
         </div>
 
     </div>
