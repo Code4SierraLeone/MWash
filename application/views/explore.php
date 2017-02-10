@@ -201,6 +201,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         <label for="text">Is the water chlorinated?</label>
                     </div>
                 </div>
+                <div class="row" style="display: none;">
+                    <div class="input-field col s12">
+                        <input name="wsq_update" id="wsq_update" type="text" class="validate">
+                        <label for="text">What is the quality of the Water Source?</label>
+                    </div>
+                </div>
             </form>
         </div>
 

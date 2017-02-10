@@ -91,6 +91,7 @@ $(function(){
                     $("#wp_id").parent().parent().hide();
 
                     if(wp == 'wsm'){
+
                         $("#wsm_update").parent().parent().show();
                         $('.wp_column_name').html('mechanic');
                         if(data[0].mechanic == 'No' || data[0].mechanic == null){
@@ -98,21 +99,38 @@ $(function(){
                         }else if(data[0].mechanic == 'Yes'){
                             $('#init_msg').empty().append('The water point currently has a Mechanic. If you wish to update type the word No then click the update button');
                         }
+
                     }else if(wp == 'mngr'){
+
                         $("#mngr_update").parent().parent().show();
                         $('.wp_column_name').html('manager');
                         $('#init_msg').empty().append('The water point is managed by '+data[0].manager+'. If you wish to update type either (Community committee, Private Person, SALWACO, Religious Group, None Or Other)');
+
                     }else if(wp == 'chw'){
+
                         $("#chw_update").parent().parent().show();
                         $('.wp_column_name').html('chlorine');
                         if(data[0].chlorine == 'Yes'){
                             $('#init_msg').empty().append('The water point is chlorinated. If you wish to update type either (No Or Unknown)');
                         }else if(data[0].chlorine == 'No'){
                             $('#init_msg').empty().append('The water point is not chlorinated. If you wish to update type (Yes Or Unknown)');
-                        }else if(data[0].chlorine == 'Unknown' || data[0].chlorine == 'UNKNOWN' || data[0].chlorine == null || data[0].chlorine == undefined){
+                        }else if(data[0].chlorine == 'unknown' || data[0].chlorine == null || data[0].chlorine == undefined){
                             $('#init_msg').empty().append('Their is no sufficient info about the condition of the water. If you wish to update type either (Yes Or No)');
                         }
 
+                    }else if(wp == 'wsq'){
+
+                        //@todo find a solution for codeigniter url error for disallowed characters
+
+                        $("#wsq_update").parent().parent().show();
+                        $('.wp_column_name').html('qual');
+                        if(data[0].qual == 'Clean (good smell- taste and color)' || data[0].qual == 'Clean'){
+                            $('#init_msg').empty().append('The water quality is clean. If you wish to update type (Not Clean)');
+                        }else if(data[0].chlorine == 'Not clean' || data[0].chlorine == 'Not Clean'){
+                            $('#init_msg').empty().append('The water quality is not clean. If you wish to update type Clean');
+                        }else if(data[0].chlorine == null || data[0].chlorine == undefined){
+                            $('#init_msg').empty().append('The water quality is unknown. If you wish to update type either (Clean Or Not Clean)');
+                        }
                     }
 
                 }
@@ -130,22 +148,24 @@ $(function(){
 
         var rowid = $('.rowid').text();
         var colnm = $('.wp_column_name').text();
-        var wsm_update;
+        var wp_update;
 
         wp = $("#wpu").val();
 
         if(wp == 'wsm'){
-            wsm_update = $('#wsm_update').val();
+            wp_update = $('#wsm_update').val();
         }else if(wp == 'mngr'){
-            wsm_update = $('#mngr_update').val();
+            wp_update = $('#mngr_update').val();
         }else if(wp == 'chw'){
-            wsm_update = $('#chw_update').val();
+            wp_update = $('#chw_update').val();
+        }else if(wp == 'wsq'){
+            wp_update = $('#wsq_update').val();
         }
 
         $.ajax({
 
             type: 'GET',
-            url: site_url + 'index.php/google_fusion/update/'+colnm+'/'+rowid+'/'+wsm_update,
+            url: site_url + 'index.php/google_fusion/update/'+colnm+'/'+rowid+'/'+wp_update,
             dataType: 'json',
             beforeSend: function () {
 
@@ -172,6 +192,8 @@ $(function(){
                         $("#mngr_update").parent().parent().hide();
                     }else if(wp == 'chw'){
                         $("#chw_update").parent().parent().hide();
+                    }else if(wp == 'wsq'){
+                        $("#wsq_update").parent().parent().hide();
                     }
                     $('#init_msg').empty();
                     $('div.modal-content h4').css('text-align','center');
