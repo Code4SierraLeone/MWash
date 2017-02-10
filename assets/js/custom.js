@@ -126,9 +126,9 @@ $(function(){
                         $('.wp_column_name').html('qual');
                         if(data[0].qual == 'Clean (good smell- taste and color)' || data[0].qual == 'Clean'){
                             $('#init_msg').empty().append('The water quality is clean. If you wish to update type (Not Clean)');
-                        }else if(data[0].chlorine == 'Not clean' || data[0].chlorine == 'Not Clean'){
+                        }else if(data[0].qual == 'Not clean' || data[0].qual == 'Not Clean'){
                             $('#init_msg').empty().append('The water quality is not clean. If you wish to update type Clean');
-                        }else if(data[0].chlorine == null || data[0].chlorine == undefined){
+                        }else if(data[0].qual == null || data[0].qual == undefined){
                             $('#init_msg').empty().append('The water quality is unknown. If you wish to update type either (Clean Or Not Clean)');
                         }
                     }
