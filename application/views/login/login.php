@@ -26,9 +26,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             </div>
         </div>
         <?php endif; ?>
-        <!--  Tables Section-->
+
         <div id="login" class="row">
-            <!-- <h1 class="thin">Login</h1> -->
+
             <div class="col s12 m8 l6 offset-m2 offset-l3 card-panel">
                 <?= form_open() ?>
                     <div class="form-body">
@@ -59,6 +59,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 </form>
             </div>
         </div>
-    </div><!-- container end -->
+    </div>
 
 </main>

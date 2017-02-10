@@ -1,8 +1,6 @@
 $(function(){
 
-    //"use strict";
-
     $('.button-collapse').sideNav();
-    $('.modal-trigger').leanModal();
+    //$('.modal-trigger').leanModal();
 
 });

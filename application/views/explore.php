@@ -15,7 +15,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <link rel='stylesheet prefetch' href='https://fonts.googleapis.com/css?family=Architects+Daughter|Roboto&subset=latin,devanagari'>
     <link rel='stylesheet prefetch' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css'>
 
-    <link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/explore-custom.css">
+    <link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/custom.css">
 
     <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDYHe93URHILf69tc1EtK7wuVd0rwKEOHw"></script>
 
