@@ -54,7 +54,7 @@ $route['default_controller'] = 'home';
 $route['explore'] = 'explore';
 
 $route['subserv/add/one'] = 'subscription/addsubscriberone';
-$route['subserv/test'] = 'subscription/test';
+$route['subserv/test'] = 'subscription/test_one';
 $route['sub_service/add/two'] = 'subscription_service/add_subscriber_two';
 
 $route['google_fusion/get/(:num)'] = 'google_fusion/get_data/$1';

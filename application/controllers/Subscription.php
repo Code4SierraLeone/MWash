@@ -50,7 +50,7 @@ class Subscription extends CI_Controller {
 
     }
 	
-	public function test(){
+	public function test_one(){
 		echo 'test';
 	}
 }
