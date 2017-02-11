@@ -10,7 +10,7 @@ class Subscription extends CI_Controller {
         $this->load->model('subscribers_model');
     }
 
-    public function addsubscriberone(){
+    public function add_subscriber_one(){
 
         $province = $this->input->post('prov_id');
         $district = $this->input->post('dist_id');
@@ -49,8 +49,4 @@ class Subscription extends CI_Controller {
         }
 
     }
-	
-	public function test_one(){
-		echo 'test';
-	}
 }
