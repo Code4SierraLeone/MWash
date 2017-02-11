@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Google_Fusion extends CI_Controller {
+class Fusion extends CI_Controller {
 
     public function __construct()
     {
