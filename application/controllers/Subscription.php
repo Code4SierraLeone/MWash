@@ -49,4 +49,8 @@ class Subscription extends CI_Controller {
         }
 
     }
+	
+	public function test(){
+		echo 'test';
+	}
 }
