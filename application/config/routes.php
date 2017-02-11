@@ -53,7 +53,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 $route['default_controller'] = 'home';
 $route['explore'] = 'explore';
 
-$route['sub_service/add/one'] = 'subscription_service/add_subscriber_one';
+$route['subserv/add/one'] = 'subscription_service/add_subscriber_one';
 $route['sub_service/add/two'] = 'subscription_service/add_subscriber_two';
 
 $route['google_fusion/get/(:num)'] = 'google_fusion/get_data/$1';

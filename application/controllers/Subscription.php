@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Subscription_Service extends CI_Controller {
+class Subscription extends CI_Controller {
 
     public function __construct()
     {
@@ -10,7 +10,7 @@ class Subscription_Service extends CI_Controller {
         $this->load->model('subscribers_model');
     }
 
-    public function add_subscriber_one(){
+    public function addsubscriberone(){
 
         $province = $this->input->post('prov_id');
         $district = $this->input->post('dist_id');
