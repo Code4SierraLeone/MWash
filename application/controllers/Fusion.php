@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Google_Fusion extends CI_Controller {
+class Fusion extends CI_Controller {
 
     public function __construct()
     {
@@ -107,8 +107,6 @@ class Google_Fusion extends CI_Controller {
             echo json_encode(combineColumnsAndRows($result));
 
         }elseif ($parameter1 == 'qual'){
-
-            //@todo find a solution for codeigniter url error for disallowed characters
 
             $service = new Google_Service_Fusiontables($client);
 

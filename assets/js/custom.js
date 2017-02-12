@@ -61,7 +61,7 @@ $(function(){
             $.ajax({
 
                 type: 'GET',
-                url: site_url + 'index.php/google_fusion/get/'+wpid,
+                url: site_url + 'index.php/fusion/get/'+wpid,
                 dataType: 'json',
                 beforeSend: function () {
 
@@ -166,7 +166,7 @@ $(function(){
         $.ajax({
 
             type: 'GET',
-            url: site_url + 'index.php/google_fusion/update/'+colnm+'/'+rowid+'/'+wp_update,
+            url: site_url + 'index.php/fusion/update/'+colnm+'/'+rowid+'/'+wp_update,
             dataType: 'json',
             beforeSend: function () {
 
@@ -245,7 +245,7 @@ $(function(){
             $.ajax({
 
                 type : 'POST',
-                url  : site_url+'index.php/sub_service/add/one',
+                url  : site_url+'index.php/subserv/add/one',
                 data : data,
                 dataType: 'json',
                 beforeSend: function()
@@ -300,7 +300,7 @@ $(function(){
             $.ajax({
 
                 type : 'POST',
-                url  : site_url+'index.php/sub_service/add/two',
+                url  : site_url+'index.php/subserv/add/two',
                 data : data,
                 dataType: 'json',
                 beforeSend: function()
