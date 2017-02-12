@@ -13,26 +13,36 @@ $(function(){
 
     var url = window.location.href;
 
-    if(url.indexOf("?") > -1) {
-        var params = url.split('?')[1].split('&');
-        for(var i =0;i<params.length;i++){
-            var temp = params[i].split('=');
-            var key   = temp[0];
-            var value = temp[1];
-            //console.log(key +':'+value);
-        }
-    }else{
+    var urllength = url.split('/').length;
+
+    var season_array = url.split('/')[urllength-1];
+
+    var province_array = url.split('/')[urllength-2];
+
+    console.log(province_array+' '+season_array);
+
+    if(province_array == 'Northern'){
+        $('#nth').addClass('active indigo lighten-1');
+    }else if(province_array == 'Southern'){
+        $('#sth').addClass('active indigo lighten-1');
+    }else if(province_array == 'Eastern'){
+        $('#est').addClass('active indigo lighten-1');
+    }else if(province_array == 'Western'){
+        $('#wst').addClass('active indigo lighten-1');
+    }else if(province_array == 'all'){
         $('#allp').addClass('active indigo lighten-1');
     }
 
-    if(value == 'Northern'){
-        $('#nth').addClass('active indigo lighten-1');
-    }else if(value == 'Southern'){
-        $('#sth').addClass('active indigo lighten-1');
-    }else if(value == 'Eastern'){
-        $('#est').addClass('active indigo lighten-1');
-    }else if(value == 'Western'){
-        $('#wst').addClass('active indigo lighten-1');
+    if(season_array == 'Water'){
+        $('#wyr').addClass('active indigo lighten-1');
+    }else if(season_array == 'Seasonal'){
+        $('#sea').addClass('active indigo lighten-1');
+    }else if(season_array == 'Dry'){
+        $('#dry').addClass('active indigo lighten-1');
+    }else if(season_array == 'Unknown'){
+        $('#unk').addClass('active indigo lighten-1');
+    }else if(season_array == 'all'){
+        $('#alls').addClass('active indigo lighten-1');
     }
 
     $(document).on('click', '#submit-wpu', function () {
@@ -119,8 +129,6 @@ $(function(){
                         }
 
                     }else if(wp == 'wsq'){
-
-                        //@todo find a solution for codeigniter url error for disallowed characters
 
                         $("#wsq_update").parent().parent().show();
                         $('.wp_column_name').html('qual');

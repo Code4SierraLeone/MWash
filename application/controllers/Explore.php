@@ -9,9 +9,19 @@ class Explore extends CI_Controller {
         $this->load->helper('url_helper');
     }
 
-    public function index()
+    public function index($parameter1, $parameter2)
     {
-        $this->load->view('explore');
+
+        if(isset($parameter1) && isset($parameter2)){
+            $data['province'] = $parameter1;
+
+            $data['season'] = $parameter2;
+
+            $this->load->view('explore', $data);
+        }else{
+            $this->load->view('errors/html/error_404');
+        }
+
     }
 
 }

@@ -51,7 +51,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 */
 //$route['default_controller'] = 'welcome';
 $route['default_controller'] = 'home';
-$route['explore'] = 'explore';
+$route['explore/(:any)/(:any)'] = 'explore/index/$1/$2';
 
 $route['subserv/add/one'] = 'subscription/add_subscriber_one';
 $route['subserv/add/two'] = 'subscription/add_subscriber_two';
