@@ -49,7 +49,7 @@ class Google_Fusion extends CI_Controller {
     }
 
     /**
-     * $parameter1 => column name (e.g. mechanic)
+     * $parameter1 => column name (e.g. mechanic,manager)
      * $parameter2 => row id
      * $paramter3 => row update (e.g yes,no,clean,empty)
      **/
@@ -87,8 +87,10 @@ class Google_Fusion extends CI_Controller {
         }elseif ($parameter1 == 'manager'){
 
             $service = new Google_Service_Fusiontables($client);
+			
+			$eachword = preg_split('/(?=[A-Z])/',$parameter3);
 
-            $selectQuery = "UPDATE 1aHLU3Qqsl9X_W_BEvZaPn_dkNV8UtXtJPnKedgKB SET manager = '".$parameter3."' WHERE ROWID = '".$parameter2."'";
+            $selectQuery = "UPDATE 1aHLU3Qqsl9X_W_BEvZaPn_dkNV8UtXtJPnKedgKB SET manager = '".$eachword[1]." ".$eachword[2]."' WHERE ROWID = '".$parameter2."'";
 
             $result = $service->query->sql($selectQuery);
 

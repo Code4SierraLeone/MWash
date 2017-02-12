@@ -155,7 +155,8 @@ $(function(){
         if(wp == 'wsm'){
             wp_update = $('#wsm_update').val();
         }else if(wp == 'mngr'){
-            wp_update = $('#mngr_update').val();
+            var caps = capitalize_Words($('#mngr_update').val());
+            wp_update = caps.replace(/ /g, '');
         }else if(wp == 'chw'){
             wp_update = $('#chw_update').val();
         }else if(wp == 'wsq'){
@@ -340,3 +341,8 @@ $(function(){
         }
     });
 });
+
+function capitalize_Words(str)
+{
+    return str.replace(/\w\S*/g, function(txt){return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();});
+}
