@@ -57,7 +57,7 @@ $route['subserv/add/one'] = 'subscription/add_subscriber_one';
 $route['subserv/add/two'] = 'subscription/add_subscriber_two';
 
 $route['fusion/get/(:num)'] = 'fusion/get_data/$1';
-$route['fusion/update/(:any)/(:num)/(:any)'] = 'google_fusion/update_row/$1/$2/$3';
+$route['fusion/update/(:any)/(:num)/(:any)'] = 'fusion/update_row/$1/$2/$3';
 
 $route['login'] = 'admin/login';
 $route['register'] = 'admin/register';
