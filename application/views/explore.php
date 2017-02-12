@@ -57,11 +57,32 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 query: {
                     select: "col50",
                     from: "1aHLU3Qqsl9X_W_BEvZaPn_dkNV8UtXtJPnKedgKB",
-                    <?php if(isset($_REQUEST['pr']) && $_REQUEST['pr'] != ''){ $pr = $_REQUEST['pr']; ?>
-                    where: "province = <?php echo "'".$pr."'"; ?>"
-                    <?php }else{ ?>
-                    where: ""
-                    <?php } ?>
+                    where: "<?php
+
+                    $conditions = array();
+
+                    if($province != 'all'){
+                        $conditions[] = "province = '$province'";
+                    }
+
+                    if ($season == 'Unknown'){
+                        $conditions[] = "season = ''";
+                    }elseif ($season == 'Water'){
+                        $conditions[] = "season = 'Water year-round'";
+                    }elseif ($season == 'Dry'){
+                        $conditions[] = "season = 'Dry Always / Never water'";
+                    }elseif($season == 'Seasonal'){
+                        $conditions[] = "season = 'Seasonal'";
+                    }
+
+                    if (count($conditions) > 0) {
+
+                        $sql = implode(' and ', $conditions);
+
+                        echo $sql;
+                    }
+
+                    ?>"
 
                 },
                 options: {
@@ -144,11 +165,22 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <li class="bold"><a class="collapsible-header waves-effect waves-teal"><i class="material-icons">location_on</i>Filter By Province</a>
             <div class="collapsible-body" style="padding: 0px !important;">
                 <ul>
-                    <li id="allp"><a href="<?php echo base_url(); ?>index.php/explore">All Provinces</a></li>
-                    <li id="nth"><a href="<?php echo base_url(); ?>index.php/explore?pr=Northern">Nothern</a></li>
-                    <li id="sth"><a href="<?php echo base_url(); ?>index.php/explore?pr=Southern">Southern</a></li>
-                    <li id="est"><a href="<?php echo base_url(); ?>index.php/explore?pr=Eastern">Eastern</a></li>
-                    <li id="wst"><a href="<?php echo base_url(); ?>index.php/explore?pr=Western">Western</a></li>
+                    <li id="allp"><a href="<?php echo base_url(); ?>index.php/explore/all/<?= $season ?>">All Provinces</a></li>
+                    <li id="nth"><a href="<?php echo base_url(); ?>index.php/explore/Northern/<?= $season ?>">Nothern</a></li>
+                    <li id="sth"><a href="<?php echo base_url(); ?>index.php/explore/Southern/<?= $season ?>">Southern</a></li>
+                    <li id="est"><a href="<?php echo base_url(); ?>index.php/explore/Eastern/<?= $season ?>">Eastern</a></li>
+                    <li id="wst"><a href="<?php echo base_url(); ?>index.php/explore/Western/<?= $season ?>">Western</a></li>
+                </ul>
+            </div>
+        </li>
+        <li class="bold"><a class="collapsible-header waves-effect waves-teal"><i class="material-icons">cloud</i>Filter By Season</a>
+            <div class="collapsible-body" style="padding: 0px !important;">
+                <ul>
+                    <li id="alls"><a href="<?php echo base_url(); ?>index.php/explore/<?= $province ?>/all">All Seasons</a></li>
+                    <li id="wyr"><a href="<?php echo base_url(); ?>index.php/explore/<?= $province ?>/Water">Water Year Round</a></li>
+                    <li id="sea"><a href="<?php echo base_url(); ?>index.php/explore/<?= $province ?>/Seasonal">Seasonal</a></li>
+                    <li id="dry"><a href="<?php echo base_url(); ?>index.php/explore/<?= $province ?>/Dry">Dry Always / Never Water</a></li>
+                    <li id="unk"><a href="<?php echo base_url(); ?>index.php/explore/<?= $province ?>/Unknown">Unknown</a></li>
                 </ul>
             </div>
         </li>
