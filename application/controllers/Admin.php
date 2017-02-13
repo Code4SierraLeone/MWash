@@ -120,7 +120,11 @@ class Admin extends CI_Controller {
 
     public function dash()
     {
-        $this->load->view('dashboard');
+        if(isset($_SESSION['user_id']) && isset($_SESSION['username']) && isset($_SESSION['logged_in'])){
+            $this->load->view('dashboard');
+        }else{
+            redirect('/login');
+        }
     }
 
     public function logout() {
