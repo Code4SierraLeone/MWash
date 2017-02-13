@@ -25,15 +25,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <nav class="row indigo darken-4">
         <div class="col s12">
             <ul class="right">
+<!--                <li class="right">-->
+<!--                    <a href="" target="_blank" class="fa fa-facebook-square fa-2x waves-effect waves-light"><span class="icon-text"></span></a>-->
+<!--                </li>-->
                 <li class="right">
-                    <a href="" target="_blank" class="fa fa-facebook-square fa-2x waves-effect waves-light"><span class="icon-text"></span></a>
+                    <a href="https://github.com/Code4SierraLeone/MWash/" target="_blank" class="fa fa-github-square fa-2x waves-effect waves-light"><span class="icon-text"></span></a>
                 </li>
-                <li class="right">
-                    <a href="" target="_blank" class="fa fa-github-square fa-2x waves-effect waves-light"><span class="icon-text"></span></a>
-                </li>
-                <li class="right">
-                    <a href="" target="_blank" class="fa fa-twitter-square fa-2x waves-effect waves-light"><span class="icon-text"></span></a>
-                </li>
+<!--                <li class="right">-->
+<!--                    <a href="" target="_blank" class="fa fa-twitter-square fa-2x waves-effect waves-light"><span class="icon-text"></span></a>-->
+<!--                </li>-->
             </ul>
         </div>
     </nav>
