@@ -23,7 +23,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 
 </head>
-<body>
+<body site_url="<?= base_url() ?>">
 
 <header>
 
@@ -33,7 +33,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <div class="col s12">
             <ul class="right">
                 <li class="right">
-                    <a href="<?= base_url() ?>index.php/logout" target="_blank" class="fa fa-sign-out fa-2x waves-effect waves-light"><span class="icon-text"></span></a>
+                    <a href="<?= base_url() ?>index.php/logout" class="fa fa-sign-out fa-2x waves-effect waves-light"><span class="icon-text"></span></a>
                 </li>
             </ul>
         </div>
@@ -46,8 +46,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         <img src="<?php echo base_url(); ?>assets/img/office.jpg">
                     </div>
                     <a href="#!user"><img class="circle" src="<?php echo base_url(); ?>assets/img/avatar.jpg"></a>
-                    <a href="#!name"><span class="white-text name">Jordan Capa</span></a>
-                    <a href="#!email"><span class="white-text email">jcapas.cs@gmail.com</span></a>
+                    <a href="#!name"><span class="white-text name"><?= ucfirst($username); ?></span></a>
+                    <a href="#!email"><span class="white-text email"></span></a>
                 </div></li>
             <li>
                 <a href="#!"><i class="material-icons">dashboard</i>Dashboard</a>
@@ -63,8 +63,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <div class="col s12 m6">
                 <div class="card white">
                     <div class="card-content black-text">
-                        <span class="card-title">Alert Subscribers</span>
-                        <p id="countregusers" style="text-align: center;font-size: xx-large;">0</p>
+                        <span class="card-title">MWash Subscribers</span>
+                        <p id="alertscount" style="text-align: center;font-size: xx-large;"></p>
                     </div>
                 </div>
             </div>
@@ -72,7 +72,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 <div class="card white">
                     <div class="card-content black-text">
                         <span class="card-title">Updates By Community</span>
-                        <p id="countregusers" style="text-align: center;font-size: xx-large;">0</p>
+                        <p id="comupdatescount" style="text-align: center;font-size: xx-large;">0</p>
                     </div>
                 </div>
             </div>

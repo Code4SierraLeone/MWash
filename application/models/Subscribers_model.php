@@ -3,12 +3,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Subscribers_model extends CI_Model {
 
-    /**
-     * __construct function.
-     *
-     * @access public
-     * @return void
-     */
     public function __construct() {
 
         parent::__construct();
@@ -40,5 +34,12 @@ class Subscribers_model extends CI_Model {
 
         return $this->db->insert('subscribers', $data);
 
+    }
+
+    public function get_subscribers_number(){
+
+        $query = $this->db->query('SELECT * FROM subscribers');
+
+        return $query->num_rows();
     }
 }

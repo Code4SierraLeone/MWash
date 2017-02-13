@@ -49,4 +49,12 @@ class Subscription extends CI_Controller {
         }
 
     }
+
+    public function get_subscribers(){
+
+        $subno = $this->subscribers_model->get_subscribers_number();
+
+        echo json_encode($subno);
+
+    }
 }

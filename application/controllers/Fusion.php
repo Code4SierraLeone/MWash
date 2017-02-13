@@ -7,6 +7,7 @@ class Fusion extends CI_Controller {
     {
         parent::__construct();
         $this->load->helper('url_helper');
+        $this->load->model('community_model');
     }
 
     public function get_data($parameter = null)
@@ -82,6 +83,8 @@ class Fusion extends CI_Controller {
 
             $result = $service->query->sql($selectQuery);
 
+            $this->create_contribution($parameter2, $parameter1, $parameter3);
+
             echo json_encode(combineColumnsAndRows($result));
 
         }elseif ($parameter1 == 'manager'){
@@ -94,6 +97,8 @@ class Fusion extends CI_Controller {
 
             $result = $service->query->sql($selectQuery);
 
+            $this->create_contribution($parameter2, $parameter1, $parameter3);
+
             echo json_encode(combineColumnsAndRows($result));
 
         }elseif ($parameter1 == 'chlorine'){
@@ -103,6 +108,8 @@ class Fusion extends CI_Controller {
             $selectQuery = "UPDATE 1aHLU3Qqsl9X_W_BEvZaPn_dkNV8UtXtJPnKedgKB SET chlorine = '".$parameter3."' WHERE ROWID = '".$parameter2."'";
 
             $result = $service->query->sql($selectQuery);
+
+            $this->create_contribution($parameter2, $parameter1, $parameter3);
 
             echo json_encode(combineColumnsAndRows($result));
 
@@ -114,9 +121,17 @@ class Fusion extends CI_Controller {
 
             $result = $service->query->sql($selectQuery);
 
+            $this->create_contribution($parameter2, $parameter1, $parameter3);
+
             echo json_encode(combineColumnsAndRows($result));
 
         }
+
+    }
+
+    public function create_contribution($waterpointid, $column, $condition){
+
+        $this->community_model->contribution($waterpointid, $column, $condition);
 
     }
 
