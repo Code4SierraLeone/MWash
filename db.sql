@@ -30,3 +30,11 @@ CREATE TABLE IF NOT EXISTS `subscribers` (
   `updated_at` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
 );
+CREATE TABLE IF NOT EXISTS `community_updates` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `water_point_id` varchar(255) DEFAULT NULL,
+  `attribute` varchar(255) DEFAULT NULL,
+  `condition` varchar(255) DEFAULT NULL,
+  `created_at` datetime NOT NULL,
+  PRIMARY KEY (`id`)
+);

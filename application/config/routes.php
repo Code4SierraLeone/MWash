@@ -55,6 +55,9 @@ $route['explore/(:any)/(:any)'] = 'explore/index/$1/$2';
 
 $route['subserv/add/one'] = 'subscription/add_subscriber_one';
 $route['subserv/add/two'] = 'subscription/add_subscriber_two';
+$route['sub/getsubno'] = 'subscription/get_subscribers';
+
+$route['community/getupdates'] = 'community/get_updates';
 
 $route['fusion/get/(:num)'] = 'fusion/get_data/$1';
 $route['fusion/update/(:any)/(:num)/(:any)'] = 'fusion/update_row/$1/$2/$3';

@@ -3,7 +3,12 @@ $(function(){
     $('select').material_select();
 
     var site_url = $('body').attr('site-url');
-    var wp;
+
+    var wp; //water-point-id variable
+
+    var season_array;
+
+    var province_array
 
     $('.modal').modal();
 
@@ -13,11 +18,11 @@ $(function(){
 
     var url = window.location.href;
 
-    var urllength = url.split('/').length;
+    var url_length = url.split('/').length;
 
-    var season_array = url.split('/')[urllength-1];
+    season_array = url.split('/')[url_length-1];
 
-    var province_array = url.split('/')[urllength-2];
+    province_array = url.split('/')[url_length-2];
 
     console.log(province_array+' '+season_array);
 
@@ -207,7 +212,7 @@ $(function(){
                     $('#init_msg').empty();
                     $('div.modal-content h4').css('text-align','center');
                     $('div.modal-content h4').html('Thank You For Your Contribution');
-                    window.location.href = site_url+'index.php/explore';
+                    window.location.href = site_url+'index.php/explore/'+province_array+'/'+season_array;
                 }
                 console.log(data);
             }
@@ -283,7 +288,7 @@ $(function(){
                     $('div.modal-content h4').html('Awesome, check your phone later for a confirmation message...');
                     window.setTimeout(function(){
 
-                        window.location.href = site_url+'index.php/explore';
+                        window.location.href = site_url+'index.php/explore/'+province_array+'/'+season_array;
 
                     }, 3000);
 
@@ -336,7 +341,7 @@ $(function(){
                     $('div.modal-content h4').html('Awesome, check your phone later for a confirmation message...');
                     window.setTimeout(function(){
 
-                        window.location.href = site_url+'index.php/explore';
+                        window.location.href = site_url+'index.php/explore/'+province_array+'/'+season_array;
 
                     }, 3000);
 
