@@ -18,6 +18,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/custom.css">
 
     <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDYHe93URHILf69tc1EtK7wuVd0rwKEOHw"></script>
+    <script type="text/javascript" src="https://raw.githubusercontent.com/googlemaps/v3-utility-library/master/markerclusterer/src/markerclusterer.js"></script>
 
     <script type="text/javascript">
         function initialize() {
@@ -316,7 +317,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 </div>
 
 <div class="fixed-action-btn modal-trigger">
-    <a class="btn-floating indigo btn-large" data-target="modal1" href="#modal1">
+    <a class="btn-floating tooltipped indigo btn-large" data-position="left" data-delay="1" data-tooltip="Contribute" data-target="modal1" href="#modal1">
         <i class="large material-icons">mode_edit</i>
     </a>
 </div>

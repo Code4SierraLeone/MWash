@@ -2,6 +2,8 @@ $(function(){
 
     $('select').material_select();
 
+    $('.tooltipped').tooltip({delay: 1});
+
     var site_url = $('body').attr('site-url');
 
     var wp; //water-point-id variable
@@ -24,7 +26,7 @@ $(function(){
 
     province_array = url.split('/')[url_length-2];
 
-    console.log(province_array+' '+season_array);
+    //console.log(province_array+' '+season_array);
 
     if(province_array == 'Northern'){
         $('#nth').addClass('active indigo lighten-1');

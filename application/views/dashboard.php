@@ -50,7 +50,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     <a href="#!email"><span class="white-text email"></span></a>
                 </div></li>
             <li>
-                <a href="#!"><i class="material-icons">dashboard</i>Dashboard</a>
+                <a style="cursor: pointer;" id="dash_menu"><i class="material-icons">dashboard</i>Dashboard</a>
+            </li>
+            <li>
+                <a style="cursor: pointer;" id="add_wp_menu"><i class="material-icons">add_circle</i>Add New Water Point</a>
             </li>
         </ul>
     </div>
@@ -58,7 +61,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 </header>
 
 <main>
-    <div class="container section">
+    <div class="container section" id="dashboard">
         <div class="row">
             <div class="col s12 m6">
                 <div class="card white">
@@ -76,6 +79,82 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     </div>
                 </div>
             </div>
+        </div>
+    </div>
+    <div class="container section" id="addwp" style="display: none;">
+        <div class="row">
+            <form id="subcription-form" class="col s12">
+                <input disabled name="newid" id="newid" type="hidden" class="validate">
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input name="nw_name" id="nw_name" type="text" class="validate">
+                        <label for="nw_name">Name</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s6">
+                        <input name="nw_prov" id="nw_prov" type="text" class="validate">
+                        <label for="nw_prov">Province Name</label>
+                    </div>
+                    <div class="input-field col s6">
+                        <input name="nw_dist" id="nw_dist" type="text" class="validate">
+                        <label for="nw_dist">District Name</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s6">
+                        <input name="nw_chief" id="nw_chief" type="text" class="validate">
+                        <label for="nw_chief">Chiefdom Name</label>
+                    </div>
+                    <div class="input-field col s6">
+                        <input name="nw_section" id="nw_section" type="text" class="validate">
+                        <label for="nw_section">Section</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s6">
+                        <select name="nw_parts" id="nw_parts">
+                            <option value="" disabled selected>Choose your option</option>
+                            <option value="More than 20 miles">More Than 20 Miles</option>
+                            <option value="Within 20 mile">Within 20 Miles</option>
+                            <option value="In this community">In This Community</option>
+                        </select>
+                        <label>Repair Parts Availability</label>
+                    </div>
+                    <div class="input-field col s6">
+                        <select name="nw_mechanic" id="nw_mechanic">
+                            <option value="" disabled selected>Choose your option</option>
+                            <option value="Yes">Yes</option>
+                            <option value="No">No</option>
+                            <option value="Unknown">Unknown</option>
+                        </select>
+                        <label>Water Point Mechanic</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s6">
+                        <select name="nw_money" id="nw_money">
+                            <option value="" disabled selected>Choose your option</option>
+                            <option value="No- water is free">No - Water Is Free</option>
+                            <option value="Only if there is a breakdown">Only If There Is A Breakdown</option>
+                            <option value="No water">No Water</option>
+                            <option value="Yes- regularly">Yes - Regularly</option>
+                            <option value="Other">Other</option>
+                        </select>
+                        <label>Does The Community Pay For Water?</label>
+                    </div>
+                    <div class="input-field col s6">
+                        <input name="nw_age" id="nw_age" type="text" class="validate">
+                        <label for="nw_age">Year Built or Constructed or Discovered?</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input name="nw_manager" id="nw_manager" type="text" class="validate">
+                        <label for="nw_manager">Water Point Management</label>
+                    </div>
+                </div>
+            </form>
         </div>
     </div>
 </main>
