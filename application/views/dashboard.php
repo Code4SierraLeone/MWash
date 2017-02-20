@@ -83,7 +83,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     </div>
     <div class="container section" id="addwp" style="display: none;">
         <div class="row">
-            <form id="subcription-form" class="col s12">
+            <form id="nwp-form" class="col s12">
                 <input disabled name="newid" id="newid" type="hidden" class="validate">
                 <div class="row">
                     <div class="input-field col s12">
@@ -149,9 +149,67 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     </div>
                 </div>
                 <div class="row">
-                    <div class="input-field col s12">
+                    <div class="input-field col s6">
                         <input name="nw_manager" id="nw_manager" type="text" class="validate">
                         <label for="nw_manager">Water Point Management</label>
+                    </div>
+                    <div class="input-field col s6">
+                        <select name="nw_functionality" id="nw_functionality">
+                            <option value="" disabled selected>Choose your option</option>
+                            <option value="Yes- functional">Yes- Functional</option>
+                            <option value="No- still under construction">No - Still Under Construction</option>
+                        </select>
+                        <label>Water Point Functionality</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s6">
+                        <select name="nw_wtype" id="nw_wtype">
+                            <option value="" disabled selected>Choose your option</option>
+                            <option value="Pump on hand-dug well">Pump On Hand-Dug Well</option>
+                            <option value="Protected Well (no pump)">Protected Well (No Pump)</option>
+                            <option value="Standpipe or Tapstand">Standpipe or Tapstand</option>
+                            <option value="Pump on borehole">Pump On Borehole</option>
+                            <option value="Water Kiosk with Tank">Water Kiosk With Tank</option>
+                            <option value="Other">Other</option>
+                        </select>
+                        <label for="nw_wtype">What Method Is Used To Supply Water At The Water Point?</label>
+                    </div>
+                    <div class="input-field col s6">
+                        <select name="nw_funct" id="nw_funct">
+                            <option value="" disabled selected>Choose your option</option>
+                            <option value="Yes- functional">Yes - Functional</option>
+                            <option value="No- broken down">No - Broken Down</option>
+                            <option value="Yes- but partly damaged">Yes - But Partly Damaged</option>
+                            <option value="No- still under construction">No - Still Under Construction</option>
+                        </select>
+                        <label for="nw_funct">Is The Water Point Functional?</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s6">
+                        <select name="nw_chlorine" id="nw_chlorine">
+                            <option value="" disabled selected>Choose your option</option>
+                            <option value="Yes">Yes</option>
+                            <option value="No">No</option>
+                            <option value="Unknown">Unknown</option>
+                        </select>
+                        <label for="nw_chlorine">Is The Water Chlorinated?</label>
+                    </div>
+                    <div class="input-field col s6">
+                        <select name="nw_season" id="nw_season">
+                            <option value="" disabled selected>Choose your option</option>
+                            <option value="Water year-round">Water Year-Round</option>
+                            <option value="Seasonal">Seasonal</option>
+                            <option value="Dry Always / Never water">Dry Always / Never Water</option>
+                            <option value="Unknown">Unknown</option>
+                        </select>
+                        <label for="nw_chlorine">Season</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <a class="waves-effect indigo lighten-1 waves-green btn-flat" id="submit-nwp">Submit</a>
                     </div>
                 </div>
             </form>
