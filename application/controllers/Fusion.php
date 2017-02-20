@@ -102,13 +102,6 @@ class Fusion extends CI_Controller {
 
         }elseif ($parameter1 == 'qual'){
 
-<<<<<<< HEAD
-            //@todo find a solution for codeigniter url error for disallowed characters
-
-            $service = new Google_Service_Fusiontables($client);
-
-=======
->>>>>>> d5634b3... created feature to add a new water point
             $selectQuery = "UPDATE 1aHLU3Qqsl9X_W_BEvZaPn_dkNV8UtXtJPnKedgKB SET qual = '".$parameter3."' WHERE ROWID = '".$parameter2."'";
 
             $result = $service->query->sql($selectQuery);
