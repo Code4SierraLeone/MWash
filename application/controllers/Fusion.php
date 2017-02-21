@@ -132,4 +132,36 @@ class Fusion extends CI_Controller {
         echo json_encode($this->combineColumnsAndRows($result));
     }
 
+    public function insert_newrow()
+    {
+        $newid = $this->input->post('newid');
+        $longitude = $this->input->post('nw_lon');
+        $latitude = $this->input->post('nw_lat');
+        $name = $this->input->post('nw_name');
+        $used = $this->input->post('nw_used');
+        $province = $this->input->post('nw_prov');
+        $district = $this->input->post('nw_dist');
+        $chiefdom = $this->input->post('nw_chief');
+        $section = $this->input->post('nw_section');
+        $parts = $this->input->post('nw_parts');
+        $mechanic = $this->input->post('nw_mechanic');
+        $money = $this->input->post('nw_money');
+        $age = $this->input->post('nw_age');
+        $manager = $this->input->post('nw_manager');
+        $wtype = $this->input->post('nw_wtype');
+        $funct = $this->input->post('nw_funct');
+        $chlorine = $this->input->post('nw_chlorine');
+        $season = $this->input->post('nw_season');
+        $quality = $this->input->post('nw_quality');
+
+        $service = $this->fusion_service();
+
+        $selectQuery = "INSERT INTO 1aHLU3Qqsl9X_W_BEvZaPn_dkNV8UtXtJPnKedgKB (cartodb_id, used, sectionn, chiefdom, district, province, namee, parts, mechanic, money, manager, chlorine, qual, season, age, wtype, funct, lon, lat, y, x) VALUES ('$newid', '$used', '$section', '$chiefdom', '$district', '$province', '$name', '$parts', '$mechanic', '$money', '$manager', '$chlorine', '$quality', '$season', '$age', '$wtype', '$funct', '$longitude', '$latitude', '$latitude', '$longitude')";
+
+        $result = $service->query->sql($selectQuery);
+
+        echo json_encode($this->combineColumnsAndRows($result));
+        //echo json_encode($selectQuery);
+    }
+
 }

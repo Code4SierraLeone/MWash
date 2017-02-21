@@ -9,17 +9,42 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
     <!-- CSS  -->
     <link rel='stylesheet prefetch' href='<?php echo base_url(); ?>assets/css/materialize.min.css'>
+    <link rel='stylesheet prefetch' href='<?php echo base_url(); ?>assets/css/admin/custom.css'>
     <link rel='stylesheet prefetch' href='https://fonts.googleapis.com/icon?family=Material+Icons'>
     <link rel='stylesheet prefetch' href='https://fonts.googleapis.com/css?family=Architects+Daughter|Roboto&subset=latin,devanagari'>
     <link rel='stylesheet prefetch' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css'>
 
-    <link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/custom.css">
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDYHe93URHILf69tc1EtK7wuVd0rwKEOHw"></script>
 
-    <style>
-        body{
-            background: #eee;
+    <script type="text/javascript">
+        function initialize() {
+            var mapDiv = document.getElementById('mapCanvas');
+            var map = new google.maps.Map(mapDiv, {
+                zoom: 8,
+                center: new google.maps.LatLng(8.646785826402805, -11.696121582031306),
+                mapTypeId: google.maps.MapTypeId.ROADMAP
+            });
+
+            var myMarker = new google.maps.Marker({
+                position: new google.maps.LatLng(8.646785826402805, -11.696121582031306),
+                draggable: true
+            });
+
+            google.maps.event.addListener(myMarker, 'dragend', function (evt) {
+                document.getElementById('nw_lon').value = evt.latLng.lng().toFixed(7);
+                document.getElementById('nw_lat').value = evt.latLng.lat().toFixed(7);
+            });
+
+//        google.maps.event.addListener(myMarker, 'dragstart', function (evt) {
+//            document.getElementById('current').innerHTML = '<p>Currently dragging marker...</p>';
+//        });
+
+            map.setCenter(myMarker.position);
+            myMarker.setMap(map);
         }
-    </style>
+
+        google.maps.event.addDomListener(window, 'load', initialize);
+    </script>
 
 
 </head>
@@ -81,14 +106,25 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             </div>
         </div>
     </div>
-    <div class="container section" id="addwp" style="display: none;">
+    <div class="container section" id="addwp">
         <div class="row">
             <form id="nwp-form" class="col s12">
-                <input disabled name="newid" id="newid" type="hidden" class="validate">
+                <input name="newid" id="newid" type="hidden" class="validate">
+                <input name="nw_lon" id="nw_lon" type="hidden" class="validate">
+                <input name="nw_lat" id="nw_lat" type="hidden" class="validate">
                 <div class="row">
-                    <div class="input-field col s12">
+                    <div class="input-field col s6">
                         <input name="nw_name" id="nw_name" type="text" class="validate">
                         <label for="nw_name">Name</label>
+                    </div>
+                    <div class="input-field col s6">
+                        <select name="nw_used" id="nw_used">
+                            <option value="" disabled selected>Choose your option</option>
+                            <option value="true">True</option>
+                            <option value="false">False</option>
+                            <option value="Unknown">Unknown</option>
+                        </select>
+                        <label for="nw_used">The Water Point Is being used?</label>
                     </div>
                 </div>
                 <div class="row">
@@ -154,16 +190,18 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         <label for="nw_manager">Water Point Management</label>
                     </div>
                     <div class="input-field col s6">
-                        <select name="nw_functionality" id="nw_functionality">
+                        <select name="nw_funct" id="nw_funct">
                             <option value="" disabled selected>Choose your option</option>
-                            <option value="Yes- functional">Yes- Functional</option>
+                            <option value="Yes- functional">Yes - Functional</option>
+                            <option value="No- broken down">No - Broken Down</option>
+                            <option value="Yes- but partly damaged">Yes - But Partly Damaged</option>
                             <option value="No- still under construction">No - Still Under Construction</option>
                         </select>
-                        <label>Water Point Functionality</label>
+                        <label for="nw_funct">Is The Water Point Functional?</label>
                     </div>
                 </div>
                 <div class="row">
-                    <div class="input-field col s6">
+                    <div class="input-field col s12">
                         <select name="nw_wtype" id="nw_wtype">
                             <option value="" disabled selected>Choose your option</option>
                             <option value="Pump on hand-dug well">Pump On Hand-Dug Well</option>
@@ -174,16 +212,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                             <option value="Other">Other</option>
                         </select>
                         <label for="nw_wtype">What Method Is Used To Supply Water At The Water Point?</label>
-                    </div>
-                    <div class="input-field col s6">
-                        <select name="nw_funct" id="nw_funct">
-                            <option value="" disabled selected>Choose your option</option>
-                            <option value="Yes- functional">Yes - Functional</option>
-                            <option value="No- broken down">No - Broken Down</option>
-                            <option value="Yes- but partly damaged">Yes - But Partly Damaged</option>
-                            <option value="No- still under construction">No - Still Under Construction</option>
-                        </select>
-                        <label for="nw_funct">Is The Water Point Functional?</label>
                     </div>
                 </div>
                 <div class="row">
@@ -206,6 +234,21 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         </select>
                         <label for="nw_chlorine">Season</label>
                     </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <select name="nw_quality" id="nw_quality">
+                            <option value="" disabled selected>Choose your option</option>
+                            <option value="Clean (good smell- taste and color)">Yes</option>
+                            <option value="Not clean">No</option>
+                            <option value="Unknown">Unknown</option>
+                        </select>
+                        <label for="nw_quality">Is The Water Chlorinated?</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <h5>Navigate To The Position</h5>
+                    <div id="mapCanvas"></div>
                 </div>
                 <div class="row">
                     <div class="input-field col s12">
