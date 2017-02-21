@@ -56,7 +56,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 map: map,
                 heatmap: { enabled: false },
                 query: {
-                    select: "col50",
+                    select: "col49",
                     from: "1aHLU3Qqsl9X_W_BEvZaPn_dkNV8UtXtJPnKedgKB",
                     where: "<?php
 

@@ -1,0 +1,22 @@
+body{
+    background: #eee;
+}
+
+header, main, footer {
+    padding-left: 0px;
+}
+
+@media screen and (min-width: 992px) {
+    header, main, footer {
+        padding-left: 300px;
+    }
+}
+
+.hidden {
+    display: none;
+}
+
+#mapCanvas {
+    width: 100%;
+    height: 500px;
+}

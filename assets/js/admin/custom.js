@@ -62,4 +62,29 @@ $(function(){
         $('#addwp').show();
     });
 
+    $('#submit-nwp').on('click', function () {
+
+        var data = $('#nwp-form').serialize();
+
+        $.ajax({
+            type: 'POST',
+            url: site_url + 'index.php/fusion/newdatarow',
+            data: data,
+            dataType: 'json',
+        }).done(function (data) {
+
+           if(data[0].rowid > 0){
+
+               Materialize.toast('Water Point Added!..Redirecting...', 4000);
+
+               window.setTimeout(function(){
+
+                   window.location.href = site_url+'index.php/dash';
+
+               }, 3000);
+           }
+
+        });
+    });
+
 });
