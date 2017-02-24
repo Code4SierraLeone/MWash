@@ -1,5 +1,9 @@
 $(function(){
 
+    setTimeout(function () {
+        $('.splash').css('display','none');
+    }, 4000);
+
     $('select').material_select();
 
     $('.tooltipped').tooltip({delay: 1});
