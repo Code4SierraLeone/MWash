@@ -138,26 +138,22 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <div class="row">
                 <div style="margin: 0px;" class="card">
                     <div class="card-image">
-                        <?php if(isset($_REQUEST['pr'])){ $pr = $_REQUEST['pr']; ?>
-                        <?php if($pr == ''){ ?>
+                        <?php if($province == 'all'){ ?>
                             <img src="<?php echo base_url(); ?>assets/img/sierraleone-c.jpg">
                             <span class="card-title">Sierra Leone</span>
-                        <?php }else if($pr == 'Northern'){ ?>
+                        <?php }else if($province == 'Northern'){ ?>
                             <img src="<?php echo base_url(); ?>assets/img/northern-p.jpg">
                             <span class="card-title">Northern Province</span>
-                        <?php }else if($pr == 'Southern'){ ?>
+                        <?php }else if($province == 'Southern'){ ?>
                             <img src="<?php echo base_url(); ?>assets/img/southern-p.jpg">
                             <span class="card-title">Southern Province</span>
-                        <?php }else if($pr == 'Eastern'){ ?>
+                        <?php }else if($province == 'Eastern'){ ?>
                             <img src="<?php echo base_url(); ?>assets/img/eastern-p.jpg">
                             <span class="card-title">Eastern Province</span>
-                        <?php }else if($pr == 'Western'){ ?>
+                        <?php }else if($province == 'Western'){ ?>
                             <img src="<?php echo base_url(); ?>assets/img/western-p.jpg">
                             <span class="card-title">Western Province</span>
-                        <?php } }else{ ?>
-                            <img src="<?php echo base_url(); ?>assets/img/sierraleone-c.jpg">
-                            <span class="card-title">Sierra Leone</span>
-                        <?php } ?>
+                        <?php }  ?>
 
                     </div>
                 </div>
