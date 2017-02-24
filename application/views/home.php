@@ -56,7 +56,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 </main>
 
 <div class="fixed-action-btn">
-    <a href="#message" class="modal-trigger btn btn-large btn-floating indigo waves-effect waves-light">
+    <a href="#message" class="modal-trigger btn btn-large btn-floating tooltipped indigo waves-effect waves-light" data-position="left" data-delay="1" data-tooltip="About Mwash">
         <i class="large material-icons">message</i>
     </a>
 </div>
@@ -65,6 +65,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <div class="modal-content">
         <h4>About MWash</h4>
         <p>We aim to provide information about basic facilities in ensuring the provision of safe drinking water for citizens in Sierra Leone, improve on information dissemination on sanitation and hygiene in the country especially slums and riverine communities and use technology to improve on information about water and sanitation at community level.</p>
+        <p>
+        <img src="<?= base_url() ?>assets/img/c4a.png" style="display: block; margin: 0 auto;" />
+        </p>
     </div>
     <div class="modal-footer">
         <a class="modal-action modal-close waves-effect btn-flat">close</a>
