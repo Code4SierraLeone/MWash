@@ -18,17 +18,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/custom.css">
 
     <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDYHe93URHILf69tc1EtK7wuVd0rwKEOHw"></script>
-    <script type="text/javascript" src="https://raw.githubusercontent.com/googlemaps/v3-utility-library/master/markerclusterer/src/markerclusterer.js"></script>
 
     <script type="text/javascript">
         function initialize() {
             google.maps.visualRefresh = true;
-            var isMobile = (navigator.userAgent.toLowerCase().indexOf('android') > -1) ||
-                (navigator.userAgent.match(/(iPod|iPhone|iPad|BlackBerry|Windows Phone|iemobile)/));
-            if (isMobile) {
-                var viewport = document.querySelector("meta[name=viewport]");
-                viewport.setAttribute('content', 'initial-scale=1.0, user-scalable=no');
-            }
 
             var body = document.body,
                 html = document.documentElement;
@@ -39,8 +32,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             var rheight = height - 64;
 
             var mapDiv = document.getElementById('googft-mapCanvas');
-            mapDiv.style.width = isMobile ? '100%' : '100%';
-            mapDiv.style.height = isMobile ? '100%' : rheight +'px';
+            mapDiv.style.width = '100%';
+            mapDiv.style.height = rheight +'px';
             var map = new google.maps.Map(mapDiv, {
                 center: new google.maps.LatLng(8.646785826402805, -11.696121582031306),
                 zoom: 8,
@@ -91,23 +84,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     templateId: 2
                 }
             });
-
-            if (isMobile) {
-                var legend = document.getElementById('googft-legend');
-                var legendOpenButton = document.getElementById('googft-legend-open');
-                var legendCloseButton = document.getElementById('googft-legend-close');
-                legend.style.display = 'none';
-                legendOpenButton.style.display = 'block';
-                legendCloseButton.style.display = 'block';
-                legendOpenButton.onclick = function() {
-                    legend.style.display = 'block';
-                    legendOpenButton.style.display = 'none';
-                }
-                legendCloseButton.onclick = function() {
-                    legend.style.display = 'none';
-                    legendOpenButton.style.display = 'block';
-                }
-            }
         }
 
         google.maps.event.addDomListener(window, 'load', initialize);
@@ -121,15 +97,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <div class="container"><a href="#" data-activates="nav-mobile" class="button-collapse top-nav waves-effect waves-light circle hide-on-large-only"><i class="material-icons">menu</i></a></div>
         <div class="col s12">
             <ul class="right">
-<!--                <li class="right">-->
-<!--                    <a href="" target="_blank" class="fa fa-facebook-square fa-2x waves-effect waves-light"><span class="icon-text"></span></a>-->
-<!--                </li>-->
                 <li class="right">
                     <a href="https://github.com/Code4SierraLeone/MWash/" target="_blank" class="fa fa-github-square fa-2x waves-effect waves-light"><span class="icon-text"></span></a>
                 </li>
-<!--                <li class="right">-->
-<!--                    <a href="" target="_blank" class="fa fa-twitter-square fa-2x waves-effect waves-light"><span class="icon-text"></span></a>-->
-<!--                </li>-->
             </ul>
         </div>
     </nav>
@@ -317,7 +287,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <i class="large material-icons">mode_edit</i>
     </a>
 </div>
-<div style="position: absolute !important; left: 0px !important; top: 0px !important; padding-top: 4px !important; z-index: 999 !important;">
+<div class="backhome">
     <a style="background-color: #fff0 !important;" class="btn-floating indigo btn-large"  href="<?php echo base_url(); ?>">
         <i class="large material-icons">arrow_back</i>
     </a>

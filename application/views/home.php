@@ -77,7 +77,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <footer class="page-footer indigo darken-3">
     <div class="footer-copyright indigo darken-4">
         <div class="container">
-            <time>&copy; 2017 MWash.</time>
+            <span>MWash is supported by Code For Sierra Leone in association with <a href="https://codeforafrica.org">Code For Africa</a></span>
         </div>
     </div>
 </footer>

@@ -25,8 +25,7 @@ main {
     border-left: 5px solid #283593 !important;
 }
 
-h1.title,
-.footer-copyright a {
+h1.title {
     font-family: 'Architects Daughter', cursive;
     text-transform: uppercase;
     font-weight: 900;
