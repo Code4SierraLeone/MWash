@@ -52,16 +52,6 @@ $(function(){
         });
     }
 
-    $('#dash_menu').on('click',function () {
-        $('#dashboard').show();
-        $('#addwp').hide();
-    });
-
-    $('#add_wp_menu').on('click',function () {
-        $('#dashboard').hide();
-        $('#addwp').show();
-    });
-
     $('#submit-nwp').on('click', function () {
 
         var data = $('#nwp-form').serialize();

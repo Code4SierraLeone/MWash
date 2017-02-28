@@ -123,8 +123,30 @@ class Admin extends CI_Controller {
         if(isset($_SESSION['user_id']) && isset($_SESSION['username']) && isset($_SESSION['logged_in'])){
 
             $data['username'] = $_SESSION['username'];
+            $data['page'] = 'dash';
 
-            $this->load->view('dashboard', $data);
+
+            $this->load->view('dashboard/header', $data);
+            $this->load->view('dash_summary');
+            $this->load->view('dashboard/footer');
+
+        }else{
+
+            redirect('/login');
+
+        }
+    }
+
+    public function newpoint(){
+
+        if(isset($_SESSION['user_id']) && isset($_SESSION['username']) && isset($_SESSION['logged_in'])){
+
+            $data['username'] = $_SESSION['username'];
+            $data['page'] = 'newpoint';
+
+            $this->load->view('dashboard/header', $data);
+            $this->load->view('dash_addnewpoint');
+            $this->load->view('dashboard/footer');
 
         }else{
 

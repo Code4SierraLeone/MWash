@@ -68,6 +68,7 @@ $route['login'] = 'admin/login';
 $route['register'] = 'admin/register';
 $route['logout'] = 'admin/logout';
 $route['dash'] = 'admin/dash';
+$route['dash/newpoint'] = 'admin/newpoint';
 
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
