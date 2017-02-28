@@ -75,10 +75,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     <a href="#!email"><span class="white-text email"></span></a>
                 </div></li>
             <li>
-                <a href="<?= base_url() ?>/index.php/dash"><i class="material-icons">dashboard</i>Dashboard</a>
+                <a href="<?= base_url() ?>index.php/dash"><i class="material-icons">dashboard</i>Dashboard</a>
             </li>
             <li>
-                <a href="<?= base_url() ?>/index.php/dash/newpoint"><i class="material-icons">add_circle</i>Add New Water Point</a>
+                <a href="<?= base_url() ?>index.php/dash/newpoint"><i class="material-icons">add_circle</i>Add New Water Point</a>
             </li>
         </ul>
     </div>
