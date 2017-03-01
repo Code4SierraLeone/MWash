@@ -58,7 +58,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <div class="col s12">
             <ul class="right">
                 <li class="right">
-                    <a href="<?= base_url() ?>index.php/logout" class="fa fa-sign-out fa-2x waves-effect waves-light"><span class="icon-text"></span></a>
+                    <a href="<?= base_url() ?>index.php/logout" class="fa fa-sign-out fa-2x waves-effect waves-light tooltipped" data-position="left" data-delay="1" data-tooltip="Logout"><span class="icon-text"></span></a>
                 </li>
             </ul>
         </div>
