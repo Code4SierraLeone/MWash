@@ -156,7 +156,16 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 </header>
 
 <main>
+
+    <div class="card" style="position: fixed; z-index: 99; width: 23%; right: 10px; background-color: rgba(255, 255, 255, 0.9) !important;">
+        <div id="wp-status" class="card-content">
+            <span style="display: none; font-weight: 400;" class="card-title">Number Of WaterPoints</span>
+            <h4 style="text-align: center;"></h4>
+        </div>
+    </div>
+
     <div id="googft-mapCanvas"></div>
+
 </main>
 
 <div id="modal1" class="modal">

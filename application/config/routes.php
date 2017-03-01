@@ -63,6 +63,7 @@ $route['fusion/get/(:num)'] = 'fusion/get_data/$1';
 $route['fusion/update/(:any)/(:num)/(:any)'] = 'fusion/update_row/$1/$2/$3';
 $route['fusion/getlast'] = 'fusion/get_lastrow';
 $route['fusion/newdatarow'] = 'fusion/insert_newrow';
+$route['fusion/count/(:any)/(:any)'] = 'fusion/count_waterpoints/$1/$2';
 
 $route['login'] = 'admin/login';
 $route['register'] = 'admin/register';
