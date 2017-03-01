@@ -32,6 +32,8 @@ $(function(){
 
     //console.log(province_array+' '+season_array);
 
+    count_waterpoints(province_array,season_array);
+
     if(province_array == 'Northern'){
         $('#nth').addClass('active indigo lighten-1');
     }else if(province_array == 'Southern'){
@@ -54,6 +56,36 @@ $(function(){
         $('#unk').addClass('active indigo lighten-1');
     }else if(season_array == 'all'){
         $('#alls').addClass('active indigo lighten-1');
+    }
+
+    $.fn.digits = function(){
+        return this.each(function(){
+            $(this).text( $(this).text().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,") );
+        })
+    }
+
+    function count_waterpoints(province,season){
+
+        $.ajax({
+            type: 'GET',
+            url: site_url + 'index.php/fusion/count/'+province+'/'+season,
+            dataType: 'json',
+            beforeSend: function () {
+                $('#wp-status').css({
+                    'background-image':'url('+site_url+'/assets/img/floader.gif',
+                    'background-position':'center',
+                    'background-repeat':'no-repeat'});
+            },
+            success: function (data) {
+                $('#wp-status').css({
+                    'background-image':'',
+                    'background-position':'',
+                    'background-repeat':''});
+                $('#wp-status span').show();
+                $('#wp-status h4').html(data[0].count).digits();
+                //console.log(data[0].count);
+            }
+        })
     }
 
     $(document).on('click', '#submit-wpu', function () {

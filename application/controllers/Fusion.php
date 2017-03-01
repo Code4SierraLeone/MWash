@@ -132,6 +132,59 @@ class Fusion extends CI_Controller {
         echo json_encode($this->combineColumnsAndRows($result));
     }
 
+    /**
+     * $param1 => province
+     * $param2 => season
+     **/
+
+    public function count_waterpoints($param1 = null, $param2 = null){
+
+        $service = $this->fusion_service();
+
+        if($param1 === 'all' && $param2 === 'all'){
+
+            $selectQuery = "select count(rowid) as count from 1aHLU3Qqsl9X_W_BEvZaPn_dkNV8UtXtJPnKedgKB";
+
+            $result = $service->query->sql($selectQuery);
+
+            echo json_encode($this->combineColumnsAndRows($result));
+
+        }else{
+
+            $preQuery = "select count(rowid) as count from 1aHLU3Qqsl9X_W_BEvZaPn_dkNV8UtXtJPnKedgKB WHERE ";
+
+            $conditions = array();
+
+            if($param1 != 'all'){
+                $conditions[] = "province = '$param1'";
+            }
+
+            if ($param2 == 'Unknown'){
+                $conditions[] = "season = ''";
+            }elseif ($param2 == 'Water'){
+                $conditions[] = "season = 'Water year-round'";
+            }elseif ($param2 == 'Dry'){
+                $conditions[] = "season = 'Dry Always / Never water'";
+            }elseif($param2 == 'Seasonal'){
+                $conditions[] = "season = 'Seasonal'";
+            }
+
+            if (count($conditions) > 0) {
+
+                $consql = implode(' and ', $conditions);
+
+                $selectQuery = $preQuery . $consql;
+
+                $result = $service->query->sql($selectQuery);
+
+                echo json_encode($this->combineColumnsAndRows($result));
+            }
+
+        }
+
+
+    }
+
     public function insert_newrow()
     {
         $newid = $this->input->post('newid');
