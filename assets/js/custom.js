@@ -12,9 +12,11 @@ $(function(){
 
     var wp; //water-point-id variable
 
-    var season_array;
+    var season_var;
 
-    var province_array
+    var province_var;
+
+    var funct_var;
 
     $('.modal').modal();
 
@@ -26,36 +28,50 @@ $(function(){
 
     var url_length = url.split('/').length;
 
-    season_array = url.split('/')[url_length-1];
+    funct_var = url.split('/')[url_length-1];
 
-    province_array = url.split('/')[url_length-2];
+    season_var = url.split('/')[url_length-2];
 
-    //console.log(province_array+' '+season_array);
+    province_var = url.split('/')[url_length-3];
 
-    count_waterpoints(province_array,season_array);
+    //console.log(province_var+' '+season_var+' '+funct_var);
 
-    if(province_array == 'Northern'){
+    count_waterpoints(province_var,season_var,funct_var);
+
+    if(province_var == 'Northern'){
         $('#nth').addClass('active indigo lighten-1');
-    }else if(province_array == 'Southern'){
+    }else if(province_var == 'Southern'){
         $('#sth').addClass('active indigo lighten-1');
-    }else if(province_array == 'Eastern'){
+    }else if(province_var == 'Eastern'){
         $('#est').addClass('active indigo lighten-1');
-    }else if(province_array == 'Western'){
+    }else if(province_var == 'Western'){
         $('#wst').addClass('active indigo lighten-1');
-    }else if(province_array == 'all'){
+    }else if(province_var == 'all'){
         $('#allp').addClass('active indigo lighten-1');
     }
 
-    if(season_array == 'Water'){
+    if(season_var == 'Water'){
         $('#wyr').addClass('active indigo lighten-1');
-    }else if(season_array == 'Seasonal'){
+    }else if(season_var == 'Seasonal'){
         $('#sea').addClass('active indigo lighten-1');
-    }else if(season_array == 'Dry'){
+    }else if(season_var == 'Dry'){
         $('#dry').addClass('active indigo lighten-1');
-    }else if(season_array == 'Unknown'){
+    }else if(season_var == 'Unknown'){
         $('#unk').addClass('active indigo lighten-1');
-    }else if(season_array == 'all'){
+    }else if(season_var == 'all'){
         $('#alls').addClass('active indigo lighten-1');
+    }
+
+    if(funct_var == 'functional'){
+        $('#func').addClass('active indigo lighten-1');
+    }else if(funct_var == 'bdown'){
+        $('#bdown').addClass('active indigo lighten-1');
+    }else if(funct_var == 'pdamage'){
+        $('#pdam').addClass('active indigo lighten-1');
+    }else if(funct_var == 'sucon'){
+        $('#sucon').addClass('active indigo lighten-1');
+    }else if(funct_var == 'all'){
+        $('#allf').addClass('active indigo lighten-1');
     }
 
     $.fn.digits = function(){
@@ -64,11 +80,11 @@ $(function(){
         })
     }
 
-    function count_waterpoints(province,season){
+    function count_waterpoints(province,season,functionality){
 
         $.ajax({
             type: 'GET',
-            url: site_url + 'index.php/fusion/count/'+province+'/'+season,
+            url: site_url + 'index.php/fusion/count/'+province+'/'+season+'/'+functionality,
             dataType: 'json',
             beforeSend: function () {
                 $('#wp-status').css({

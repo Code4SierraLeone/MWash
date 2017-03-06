@@ -137,11 +137,11 @@ class Fusion extends CI_Controller {
      * $param2 => season
      **/
 
-    public function count_waterpoints($param1 = null, $param2 = null){
+    public function count_waterpoints($param1 = null, $param2 = null, $param3 = null){
 
         $service = $this->fusion_service();
 
-        if($param1 === 'all' && $param2 === 'all'){
+        if($param1 === 'all' && $param2 === 'all' && $param3 === 'all'){
 
             $selectQuery = "select count(rowid) as count from 1aHLU3Qqsl9X_W_BEvZaPn_dkNV8UtXtJPnKedgKB";
 
@@ -167,6 +167,16 @@ class Fusion extends CI_Controller {
                 $conditions[] = "season = 'Dry Always / Never water'";
             }elseif($param2 == 'Seasonal'){
                 $conditions[] = "season = 'Seasonal'";
+            }
+
+            if($param3 == 'functional'){
+                $conditions[] = "funct = 'Yes- functional'";
+            }elseif ($param3 == 'bdown'){
+                $conditions[] = "funct = 'No- broken down'";
+            }elseif ($param3 == 'pdamaged'){
+                $conditions[] = "funct = 'Yes- but partly damaged'";
+            }elseif ($param3 == 'sucon'){
+                $conditions[] = "funct = 'No- still under construction'";
             }
 
             if (count($conditions) > 0) {

@@ -69,6 +69,16 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         $conditions[] = "season = 'Seasonal'";
                     }
 
+                    if($functionality == 'functional'){
+                        $conditions[] = "funct = 'Yes- functional'";
+                    }elseif ($functionality == 'bdown'){
+                        $conditions[] = "funct = 'No- broken down'";
+                    }elseif ($functionality == 'pdamaged'){
+                        $conditions[] = "funct = 'Yes- but partly damaged'";
+                    }elseif ($functionality == 'sucon'){
+                        $conditions[] = "funct = 'No- still under construction'";
+                    }
+
                     if (count($conditions) > 0) {
 
                         $sql = implode(' and ', $conditions);
@@ -132,22 +142,33 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <li class="bold"><a class="collapsible-header waves-effect waves-teal"><i class="material-icons">location_on</i>Filter By Province</a>
             <div class="collapsible-body" style="padding: 0px !important;">
                 <ul>
-                    <li id="allp"><a href="<?php echo base_url(); ?>index.php/explore/all/<?= $season ?>">All Provinces</a></li>
-                    <li id="nth"><a href="<?php echo base_url(); ?>index.php/explore/Northern/<?= $season ?>">Nothern</a></li>
-                    <li id="sth"><a href="<?php echo base_url(); ?>index.php/explore/Southern/<?= $season ?>">Southern</a></li>
-                    <li id="est"><a href="<?php echo base_url(); ?>index.php/explore/Eastern/<?= $season ?>">Eastern</a></li>
-                    <li id="wst"><a href="<?php echo base_url(); ?>index.php/explore/Western/<?= $season ?>">Western</a></li>
+                    <li id="allp"><a href="<?php echo base_url(); ?>index.php/explore/all/<?= $season ?>/<?= $functionality ?>">All Provinces</a></li>
+                    <li id="nth"><a href="<?php echo base_url(); ?>index.php/explore/Northern/<?= $season ?>/<?= $functionality ?>">Nothern</a></li>
+                    <li id="sth"><a href="<?php echo base_url(); ?>index.php/explore/Southern/<?= $season ?>/<?= $functionality ?>">Southern</a></li>
+                    <li id="est"><a href="<?php echo base_url(); ?>index.php/explore/Eastern/<?= $season ?>/<?= $functionality ?>">Eastern</a></li>
+                    <li id="wst"><a href="<?php echo base_url(); ?>index.php/explore/Western/<?= $season ?>/<?= $functionality ?>">Western</a></li>
                 </ul>
             </div>
         </li>
         <li class="bold"><a class="collapsible-header waves-effect waves-teal"><i class="material-icons">cloud</i>Filter By Season</a>
             <div class="collapsible-body" style="padding: 0px !important;">
                 <ul>
-                    <li id="alls"><a href="<?php echo base_url(); ?>index.php/explore/<?= $province ?>/all">All Seasons</a></li>
-                    <li id="wyr"><a href="<?php echo base_url(); ?>index.php/explore/<?= $province ?>/Water">Water Year Round</a></li>
-                    <li id="sea"><a href="<?php echo base_url(); ?>index.php/explore/<?= $province ?>/Seasonal">Seasonal</a></li>
-                    <li id="dry"><a href="<?php echo base_url(); ?>index.php/explore/<?= $province ?>/Dry">Dry Always / Never Water</a></li>
-                    <li id="unk"><a href="<?php echo base_url(); ?>index.php/explore/<?= $province ?>/Unknown">Unknown</a></li>
+                    <li id="alls"><a href="<?php echo base_url(); ?>index.php/explore/<?= $province ?>/all/<?= $functionality ?>">All Seasons</a></li>
+                    <li id="wyr"><a href="<?php echo base_url(); ?>index.php/explore/<?= $province ?>/Water/<?= $functionality ?>">Water Year Round</a></li>
+                    <li id="sea"><a href="<?php echo base_url(); ?>index.php/explore/<?= $province ?>/Seasonal/<?= $functionality ?>">Seasonal</a></li>
+                    <li id="dry"><a href="<?php echo base_url(); ?>index.php/explore/<?= $province ?>/Dry/<?= $functionality ?>">Dry Always / Never Water</a></li>
+                    <li id="unk"><a href="<?php echo base_url(); ?>index.php/explore/<?= $province ?>/Unknown/<?= $functionality ?>">Unknown</a></li>
+                </ul>
+            </div>
+        </li>
+        <li class="bold"><a class="collapsible-header waves-effect waves-teal"><i class="material-icons">settings</i>Filter By Functionality</a>
+            <div class="collapsible-body" style="padding: 0px !important;">
+                <ul>
+                    <li id="allf"><a href="<?php echo base_url(); ?>index.php/explore/<?= $province ?>/<?= $season ?>/all">All</a></li>
+                    <li id="func"><a href="<?php echo base_url(); ?>index.php/explore/<?= $province ?>/<?= $season ?>/functional">Functional</a></li>
+                    <li id="bdown"><a href="<?php echo base_url(); ?>index.php/explore/<?= $province ?>/<?= $season ?>/bdown">Broken Down</a></li>
+                    <li id="pdam"><a href="<?php echo base_url(); ?>index.php/explore/<?= $province ?>/<?= $season ?>/pdamaged">Working But Partly Damaged</a></li>
+                    <li id="sucon"><a href="<?php echo base_url(); ?>index.php/explore/<?= $province ?>/<?= $season ?>/sucon">Still Under Construction</a></li>
                 </ul>
             </div>
         </li>
