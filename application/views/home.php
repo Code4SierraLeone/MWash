@@ -48,7 +48,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
       <div class="center-align">
 
-        <a href="index.php/explore/all/all" class="waves-effect indigo waves-light btn">Explore</a>
+        <a href="index.php/explore/all/all/all" class="waves-effect indigo waves-light btn">Explore</a>
 
       </div>
 

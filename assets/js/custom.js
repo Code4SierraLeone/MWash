@@ -66,7 +66,7 @@ $(function(){
         $('#func').addClass('active indigo lighten-1');
     }else if(funct_var == 'bdown'){
         $('#bdown').addClass('active indigo lighten-1');
-    }else if(funct_var == 'pdamage'){
+    }else if(funct_var == 'pdamaged'){
         $('#pdam').addClass('active indigo lighten-1');
     }else if(funct_var == 'sucon'){
         $('#sucon').addClass('active indigo lighten-1');
