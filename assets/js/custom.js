@@ -98,8 +98,12 @@ $(function(){
                     'background-position':'',
                     'background-repeat':''});
                 $('#wp-status span').show();
-                $('#wp-status h4').html(data[0].count).digits();
-                //console.log(data[0].count);
+                if (data == null){
+                    $('#wp-status h4').html('0');
+                }else{
+                    $('#wp-status h4').html(data[0].count).digits();
+                }
+                //console.log(data);
             }
         })
     }

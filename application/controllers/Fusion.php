@@ -31,9 +31,11 @@ class Fusion extends CI_Controller {
         // use column names to create associative arrays in $rows
         $columns = $result->getColumns();
         $rows = $result->getRows();
-        array_walk($rows, function(&$row) use ($columns) {
-            $row = array_combine($columns, $row);
-        });
+        if($rows != null){
+            array_walk($rows, function(&$row) use ($columns) {
+                $row = array_combine($columns, $row);
+            });
+        }
         return $rows;
     }
 
