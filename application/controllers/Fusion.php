@@ -139,11 +139,11 @@ class Fusion extends CI_Controller {
      * $param2 => season
      **/
 
-    public function count_waterpoints($param1 = null, $param2 = null, $param3 = null){
+    public function count_waterpoints($param1 = null, $param2 = null, $param3 = null, $param4 = null){
 
         $service = $this->fusion_service();
 
-        if($param1 === 'all' && $param2 === 'all' && $param3 === 'all'){
+        if($param1 === 'all' && $param2 === 'all' && $param3 === 'all' && $param4 === 'all'){
 
             $selectQuery = "select count(rowid) as count from 1aHLU3Qqsl9X_W_BEvZaPn_dkNV8UtXtJPnKedgKB";
 
@@ -179,6 +179,14 @@ class Fusion extends CI_Controller {
                 $conditions[] = "funct = 'Yes- but partly damaged'";
             }elseif ($param3 == 'sucon'){
                 $conditions[] = "funct = 'No- still under construction'";
+            }
+
+            if($param4 == 'yes'){
+                $conditions[] = "mechanic = 'Yes'";
+            }elseif ($param4 == 'no'){
+                $conditions[] = "mechanic = 'No'";
+            }elseif ($param4 == 'unknown'){
+                $conditions[] = "mechanic = 'Unknown'";
             }
 
             if (count($conditions) > 0) {

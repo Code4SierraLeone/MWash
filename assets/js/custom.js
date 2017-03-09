@@ -20,6 +20,8 @@ $(function () {
 
     var funct_var;
 
+    var mechanic_var;
+
     $('.modal').modal();
 
     $('.modal-trigger').modal();
@@ -30,13 +32,15 @@ $(function () {
 
     var url_length = url.split('/').length;
 
-    funct_var = url.split('/')[url_length - 1];
+    mechanic_var = url.split('/')[url_length - 1];
 
-    season_var = url.split('/')[url_length - 2];
+    funct_var = url.split('/')[url_length - 2];
 
-    province_var = url.split('/')[url_length - 3];
+    season_var = url.split('/')[url_length - 3];
 
-    count_waterpoints(province_var, season_var, funct_var);
+    province_var = url.split('/')[url_length - 4];
+
+    count_waterpoints(province_var, season_var, funct_var, mechanic_var);
 
     if (province_var == 'Northern') {
         $('#nth').addClass('active indigo lighten-1');
@@ -74,17 +78,27 @@ $(function () {
         $('#allf').addClass('active indigo lighten-1');
     }
 
+    if (mechanic_var == 'yes') {
+        $('#yesm').addClass('active indigo lighten-1');
+    } else if (mechanic_var == 'no') {
+        $('#nom').addClass('active indigo lighten-1');
+    } else if (mechanic_var == 'unknown') {
+        $('#unknwm').addClass('active indigo lighten-1');
+    } else if (mechanic_var == 'all') {
+        $('#allm').addClass('active indigo lighten-1');
+    }
+
     $.fn.digits = function () {
         return this.each(function () {
             $(this).text($(this).text().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,"));
         });
     };
 
-    function count_waterpoints(province, season, functionality) {
+    function count_waterpoints(province, season, functionality, mechanic) {
 
         $.ajax({
             type: 'GET',
-            url: site_url + 'index.php/fusion/count/' + province + '/' + season + '/' + functionality,
+            url: site_url + 'index.php/fusion/count/' + province + '/' + season + '/' + functionality + '/' + mechanic,
             dataType: 'json',
             beforeSend: function beforeSend() {
                 $('#wp-status').css({
