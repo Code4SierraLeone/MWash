@@ -51,7 +51,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 */
 //$route['default_controller'] = 'welcome';
 $route['default_controller'] = 'home';
-$route['explore/(:any)/(:any)/(:any)'] = 'explore/index/$1/$2/$3';
+$route['explore/(:any)/(:any)/(:any)/(:any)'] = 'explore/index/$1/$2/$3/$4';
 
 $route['subserv/add/one'] = 'subscription/add_subscriber_one';
 $route['subserv/add/two'] = 'subscription/add_subscriber_two';
@@ -63,7 +63,7 @@ $route['fusion/get/(:num)'] = 'fusion/get_data/$1';
 $route['fusion/update/(:any)/(:num)/(:any)'] = 'fusion/update_row/$1/$2/$3';
 $route['fusion/getlast'] = 'fusion/get_lastrow';
 $route['fusion/newdatarow'] = 'fusion/insert_newrow';
-$route['fusion/count/(:any)/(:any)/(:any)'] = 'fusion/count_waterpoints/$1/$2/$3';
+$route['fusion/count/(:any)/(:any)/(:any)/(:any)'] = 'fusion/count_waterpoints/$1/$2/$3/$4';
 
 $route['login'] = 'admin/login';
 $route['register'] = 'admin/register';
