@@ -216,17 +216,10 @@ $(function () {
 
         if (wp == 'wsm') {
             wp_update = $('#wsm_update').val();
-<<<<<<< HEAD
-        }else if(wp == 'mngr'){
-			var caps = capitalize_Words($('#mngr_update').val());
-			wp_update = caps.replace(/ /g, '');
-        }else if(wp == 'chw'){
-=======
         } else if (wp == 'mngr') {
             var caps = capitalize_Words($('#mngr_update').val());
             wp_update = caps.replace(/ /g, '');
         } else if (wp == 'chw') {
->>>>>>> 327bb4c... syntax transformed with Babel
             wp_update = $('#chw_update').val();
         } else if (wp == 'wsq') {
             wp_update = $('#wsq_update').val();
@@ -400,14 +393,8 @@ $(function () {
     });
 });
 
-<<<<<<< HEAD
-function capitalize_Words(str)
-{
- return str.replace(/\w\S*/g, function(txt){return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();});
-=======
 function capitalize_Words(str) {
     return str.replace(/\w\S*/g, function (txt) {
         return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
     });
->>>>>>> 327bb4c... syntax transformed with Babel
 }
