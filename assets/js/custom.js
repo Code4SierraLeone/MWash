@@ -44,7 +44,9 @@ $(function () {
 
     province_var = url.split('/')[url_length - 5];
 
-    count_waterpoints(province_var, season_var, funct_var, mechanic_var, parts_var);
+    if (url_length > 10) {
+        count_waterpoints(province_var, season_var, funct_var, mechanic_var, parts_var);
+    }
 
     if (province_var == 'Northern') {
         $('#nth').addClass('active indigo lighten-1');
