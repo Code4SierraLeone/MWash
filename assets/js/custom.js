@@ -44,7 +44,7 @@ $(function () {
 
     province_var = url.split('/')[url_length - 5];
 
-    if (url_length > 10) {
+    if (url_length >= 10) {
         count_waterpoints(province_var, season_var, funct_var, mechanic_var, parts_var);
     }
 
