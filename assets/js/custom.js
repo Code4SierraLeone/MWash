@@ -22,6 +22,8 @@ $(function () {
 
     var mechanic_var;
 
+    var parts_var;
+
     $('.modal').modal();
 
     $('.modal-trigger').modal();
@@ -32,15 +34,17 @@ $(function () {
 
     var url_length = url.split('/').length;
 
-    mechanic_var = url.split('/')[url_length - 1];
+    parts_var = url.split('/')[url_length - 1];
 
-    funct_var = url.split('/')[url_length - 2];
+    mechanic_var = url.split('/')[url_length - 2];
 
-    season_var = url.split('/')[url_length - 3];
+    funct_var = url.split('/')[url_length - 3];
 
-    province_var = url.split('/')[url_length - 4];
+    season_var = url.split('/')[url_length - 4];
 
-    count_waterpoints(province_var, season_var, funct_var, mechanic_var);
+    province_var = url.split('/')[url_length - 5];
+
+    count_waterpoints(province_var, season_var, funct_var, mechanic_var, parts_var);
 
     if (province_var == 'Northern') {
         $('#nth').addClass('active indigo lighten-1');
@@ -88,17 +92,27 @@ $(function () {
         $('#allm').addClass('active indigo lighten-1');
     }
 
+    if (parts_var == 'm20') {
+        $('#m20').addClass('active indigo lighten-1');
+    } else if (parts_var == 'wcom') {
+        $('#wcom').addClass('active indigo lighten-1');
+    } else if (parts_var == 'w20') {
+        $('#w20').addClass('active indigo lighten-1');
+    } else if (parts_var == 'all') {
+        $('#allp').addClass('active indigo lighten-1');
+    }
+
     $.fn.digits = function () {
         return this.each(function () {
             $(this).text($(this).text().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,"));
         });
     };
 
-    function count_waterpoints(province, season, functionality, mechanic) {
+    function count_waterpoints(province, season, functionality, mechanic, parts) {
 
         $.ajax({
             type: 'GET',
-            url: site_url + 'index.php/fusion/count/' + province + '/' + season + '/' + functionality + '/' + mechanic,
+            url: site_url + 'index.php/fusion/count/' + province + '/' + season + '/' + functionality + '/' + mechanic + '/' + parts,
             dataType: 'json',
             beforeSend: function beforeSend() {
                 $('#wp-status').css({

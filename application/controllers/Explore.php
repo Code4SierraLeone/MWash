@@ -9,10 +9,10 @@ class Explore extends CI_Controller {
         $this->load->helper('url_helper');
     }
 
-    public function index($param1, $param2, $param3, $param4)
+    public function index($param1, $param2, $param3, $param4, $param5)
     {
 
-        if(isset($param1) && isset($param2) && isset($param3) && isset($param4)){
+        if(isset($param1) && isset($param2) && isset($param3) && isset($param4) && isset($param5)){
 
             $data['province'] = $param1;
 
@@ -21,6 +21,8 @@ class Explore extends CI_Controller {
             $data['functionality'] = $param3;
 
             $data['mechanic'] = $param4;
+
+            $data['parts'] = $param5;
 
             $this->load->view('explore', $data);
         }else{

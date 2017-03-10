@@ -139,11 +139,11 @@ class Fusion extends CI_Controller {
      * $param2 => season
      **/
 
-    public function count_waterpoints($param1 = null, $param2 = null, $param3 = null, $param4 = null){
+    public function count_waterpoints($param1 = null, $param2 = null, $param3 = null, $param4 = null, $param5 = null){
 
         $service = $this->fusion_service();
 
-        if($param1 === 'all' && $param2 === 'all' && $param3 === 'all' && $param4 === 'all'){
+        if($param1 === 'all' && $param2 === 'all' && $param3 === 'all' && $param4 === 'all' && $param5 === 'all'){
 
             $selectQuery = "select count(rowid) as count from 1aHLU3Qqsl9X_W_BEvZaPn_dkNV8UtXtJPnKedgKB";
 
@@ -187,6 +187,14 @@ class Fusion extends CI_Controller {
                 $conditions[] = "mechanic = 'No'";
             }elseif ($param4 == 'unknown'){
                 $conditions[] = "mechanic = 'Unknown'";
+            }
+
+            if($param5 == 'm20'){
+                $conditions[] = "parts = 'More than 20 miles'";
+            }elseif ($param5 == 'wcom'){
+                $conditions[] = "parts = 'In this community'";
+            }elseif ($param5 == 'w20'){
+                $conditions[] = "parts = 'Within 20 miles'";
             }
 
             if (count($conditions) > 0) {
