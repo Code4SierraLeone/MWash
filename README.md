@@ -1,4 +1,5 @@
-#MWash
+\MWash
+============
 
 The application is built using [Codeigniter](https://github.com/Code4SierraLeone/MWash/blob/master/readme.rst).
 
