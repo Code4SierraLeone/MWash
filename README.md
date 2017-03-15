@@ -1,4 +1,4 @@
-\MWash
+MWash
 ============
 
 The application is built using [Codeigniter](https://github.com/Code4SierraLeone/MWash/blob/master/readme.rst).
@@ -28,9 +28,9 @@ Import the [sql.db](https://github.com/Code4SierraLeone/MWash/blob/master/db.sql
 
 ##### 5. Configuration
 
-Open the application/config/config.php file with a text editor and set your base URL. If you intend to use encryption or sessions, set your encryption key.
+Open the `application/config/config.php` file with a text editor and set your base URL. If you intend to use encryption or sessions, set your encryption key.
 
-Open the application/config/database.php file with a text editor and set your database settings
+Open the `application/config/database.php` file with a text editor and set your database settings
 
 
 
