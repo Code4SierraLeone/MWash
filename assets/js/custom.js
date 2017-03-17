@@ -24,7 +24,20 @@ $(function () {
 
     var parts_var;
 
-    $('.modal').modal();
+    $('.modal').modal(
+        {
+            complete: function() {
+
+                $('#sub1').parent().parent().show();
+                $('#sub2').parent().parent().show();
+                $('#prov_id').parent().parent().hide();
+                $('#dist_id').parent().parent().hide();
+                $('#chief_id').parent().parent().hide();
+                $('#phone').parent().parent().hide();
+
+            }
+        }
+    );
 
     $('.modal-trigger').modal();
 
