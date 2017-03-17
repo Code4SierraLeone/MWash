@@ -30,6 +30,7 @@ $(function () {
 
                 $('#sub1').parent().parent().show();
                 $('#sub2').parent().parent().show();
+                $("#subcription-form")[0].reset();
                 $('#waterp_id').parent().parent().hide();
                 $('#prov_id').parent().parent().hide();
                 $('#dist_id').parent().parent().hide();
