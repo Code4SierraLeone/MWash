@@ -7,7 +7,7 @@ class Fusion extends CI_Controller {
     {
         parent::__construct();
         $this->load->helper('url_helper');
-        $this->load->model('community_model');
+
     }
 
     private function fusion_service()
@@ -118,6 +118,7 @@ class Fusion extends CI_Controller {
 
     public function create_contribution($waterpointid, $column, $condition)
     {
+        $this->load->model('community_model');
 
         $this->community_model->contribution($waterpointid, $column, $condition);
 
