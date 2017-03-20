@@ -22,15 +22,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <script type="text/javascript">
         function initialize() {
             google.maps.visualRefresh = true;
-
             var body = document.body,
                 html = document.documentElement;
-
             var height = Math.max( body.scrollHeight, body.offsetHeight,
                 html.clientHeight, html.scrollHeight, html.offsetHeight );
-
             var rheight = height - 64;
-
             var mapDiv = document.getElementById('googft-mapCanvas');
             mapDiv.style.width = '100%';
             mapDiv.style.height = rheight +'px';
@@ -44,7 +40,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     position: google.maps.ControlPosition.LEFT_TOP
                 }
             });
-
             layer = new google.maps.FusionTablesLayer({
                 map: map,
                 heatmap: { enabled: false },
@@ -52,58 +47,48 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     select: "col49",
                     from: "1aHLU3Qqsl9X_W_BEvZaPn_dkNV8UtXtJPnKedgKB",
                     where: "<?php
+                        $conditions = array();
 
-                    $conditions = array();
-
-                    if($province != 'all'){
-                        $conditions[] = "province = '$province'";
-                    }
-
-                    if ($season == 'Unknown'){
-                        $conditions[] = "season = ''";
-                    }elseif ($season == 'Water'){
-                        $conditions[] = "season = 'Water year-round'";
-                    }elseif ($season == 'Dry'){
-                        $conditions[] = "season = 'Dry Always / Never water'";
-                    }elseif($season == 'Seasonal'){
-                        $conditions[] = "season = 'Seasonal'";
-                    }
-
-                    if($functionality == 'functional'){
-                        $conditions[] = "funct = 'Yes- functional'";
-                    }elseif ($functionality == 'bdown'){
-                        $conditions[] = "funct = 'No- broken down'";
-                    }elseif ($functionality == 'pdamaged'){
-                        $conditions[] = "funct = 'Yes- but partly damaged'";
-                    }elseif ($functionality == 'sucon'){
-                        $conditions[] = "funct = 'No- still under construction'";
-                    }
-
-                    if($mechanic == 'yes'){
-                        $conditions[] = "mechanic = 'Yes'";
-                    }elseif ($mechanic == 'no'){
-                        $conditions[] = "mechanic = 'No'";
-                    }elseif ($mechanic == 'unknown'){
-                        $conditions[] = "mechanic = 'Unknown'";
-                    }
-
-                    if($parts == 'm20'){
-                        $conditions[] = "parts = 'More than 20 miles'";
-                    }elseif ($parts == 'wcom'){
-                        $conditions[] = "parts = 'In this community'";
-                    }elseif ($parts == 'w20'){
-                        $conditions[] = "parts = 'Within 20 miles'";
-                    }
-
-                    if (count($conditions) > 0) {
-
-                        $sql = implode(' and ', $conditions);
-
-                        echo $sql;
-                    }
-
-                    ?>"
-
+                        if($province != 'all'){
+                            $conditions[] = "province = '$province'";
+                        }
+                        if ($season == 'Unknown'){
+                            $conditions[] = "season = ''";
+                        }elseif ($season == 'Water'){
+                            $conditions[] = "season = 'Water year-round'";
+                        }elseif ($season == 'Dry'){
+                            $conditions[] = "season = 'Dry Always / Never water'";
+                        }elseif($season == 'Seasonal'){
+                            $conditions[] = "season = 'Seasonal'";
+                        }
+                        if($functionality == 'functional'){
+                            $conditions[] = "funct = 'Yes- functional'";
+                        }elseif ($functionality == 'bdown'){
+                            $conditions[] = "funct = 'No- broken down'";
+                        }elseif ($functionality == 'pdamaged'){
+                            $conditions[] = "funct = 'Yes- but partly damaged'";
+                        }elseif ($functionality == 'sucon'){
+                            $conditions[] = "funct = 'No- still under construction'";
+                        }
+                        if($mechanic == 'yes'){
+                            $conditions[] = "mechanic = 'Yes'";
+                        }elseif ($mechanic == 'no'){
+                            $conditions[] = "mechanic = 'No'";
+                        }elseif ($mechanic == 'unknown'){
+                            $conditions[] = "mechanic = 'Unknown'";
+                        }
+                        if($parts == 'm20'){
+                            $conditions[] = "parts = 'More than 20 miles'";
+                        }elseif ($parts == 'wcom'){
+                            $conditions[] = "parts = 'In this community'";
+                        }elseif ($parts == 'w20'){
+                            $conditions[] = "parts = 'Within 20 miles'";
+                        }
+                        if (count($conditions) > 0) {
+                            $sql = implode(' and ', $conditions);
+                            echo $sql;
+                        }
+                        ?>"
                 },
                 options: {
                     styleId: 2,
@@ -111,7 +96,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 }
             });
         }
-
         google.maps.event.addDomListener(window, 'load', initialize);
     </script>
 
