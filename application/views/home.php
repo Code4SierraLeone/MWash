@@ -65,6 +65,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <div class="modal-content">
         <h4>About MWash</h4>
         <p>We aim to provide information about basic facilities in ensuring the provision of safe drinking water for citizens in Sierra Leone, improve on information dissemination on sanitation and hygiene in the country especially slums and riverine communities and use technology to improve on information about water and sanitation at community level.</p>
+        <p>The need and desire to address waste management issues has already been variously identified. The application can be used as a way for citizens to report in real time issues around waste management service delivery.</p>
         <p style="text-align: center;">Supported By</p>
         <img src="<?= base_url() ?>assets/img/c4a.png" style="display: block; margin: 0 auto;" />
         </p>
