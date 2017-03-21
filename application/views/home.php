@@ -88,7 +88,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 </script>
 <script src='<?php echo base_url(); ?>assets/js/materialize.min.js'></script>
 
-<script src="<?php echo base_url(); ?>assets/js/custom.js"></script>
+<script src="<?php echo base_url(); ?>assets/js/home_custom.js"></script>
 
 </body>
 </html>
