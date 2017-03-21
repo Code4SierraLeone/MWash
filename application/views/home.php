@@ -87,7 +87,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <script>if (!window.jQuery) { document.write('<script src="<?php echo base_url(); ?>assets/js/jquery-2.1.4.min.js"><\/script>'); }
 </script>
 <script src='<?php echo base_url(); ?>assets/js/materialize.min.js'></script>
-
 <script src="<?php echo base_url(); ?>assets/js/home_custom.js"></script>
 
 </body>
