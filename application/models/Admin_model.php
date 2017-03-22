@@ -51,6 +51,9 @@ class Admin_model extends CI_Model {
         $this->db->select('password');
         $this->db->from('users');
         $this->db->where('username', $username);
+        $this->db->where('is_confirmed', '1');
+        $this->db->where('is_deleted', '0');
+        $this->db->where('password_forgot', '0');
         $hash = $this->db->get()->row('password');
 
         return $this->verify_password_hash($password, $hash);
@@ -62,7 +65,7 @@ class Admin_model extends CI_Model {
      *
      * @access public
      * @param mixed $email
-     * @return int the user id
+     * @return string|bool could be a string on success, or bool false on failure
      */
     public function resolve_email($email) {
 
@@ -81,7 +84,7 @@ class Admin_model extends CI_Model {
      * @access public
      * @param mixed $username
      * @param mixed $password
-     * @return string|bool could be a string on success, or bool false on failure
+     * @return bool
      */
     public function update_password_reset_status($userid) {
 
