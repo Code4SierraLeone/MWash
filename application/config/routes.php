@@ -67,6 +67,7 @@ $route['fusion/count/(:any)/(:any)/(:any)/(:any)/(:any)'] = 'fusion/count_waterp
 
 $route['login'] = 'admin/login';
 $route['register'] = 'admin/register';
+$route['forgotpassword'] = 'admin/forgotpassword';
 $route['logout'] = 'admin/logout';
 $route['dash'] = 'admin/dash';
 $route['dash/newpoint'] = 'admin/newpoint';

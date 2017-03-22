@@ -50,9 +50,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col s6"></div>
                             <div class="col s6">
-                                <p class="margin right-align medium-small"><a href="<?= base_url(); ?>">Forgot password?</a></p>
+                                <p class="margin left-align medium-small"><a href="<?= base_url(); ?>index.php/register">Register As Admin</a></p>
+                            </div>
+                            <div class="col s6">
+                                <p class="margin right-align medium-small"><a href="<?= base_url(); ?>index.php/forgotpassword">Forgot Password?</a></p>
                             </div>
                         </div>
                     </div>

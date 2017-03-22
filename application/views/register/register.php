@@ -58,7 +58,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         </div>
                         <div class="row">
                             <div class="input-field col s12">
-                                <input type="submit" class="btn-large waves-effect waves-light col s12" value="Login">
+                                <input type="submit" class="btn-large waves-effect waves-light col s12" value="Create">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col s6"></div>
+                            <div class="col s6">
+                                <p class="margin right-align medium-small"><a href="<?= base_url(); ?>index.php/login">Back To Login</a></p>
                             </div>
                         </div>
                     </div>
