@@ -17,6 +17,8 @@ class Admin extends CI_Controller {
         // create the data object
         $data = new stdClass();
 
+        $data->title = 'Register';
+
         // load form helper and validation library
         $this->load->helper('form');
         $this->load->library('form_validation');
@@ -30,7 +32,7 @@ class Admin extends CI_Controller {
         if ($this->form_validation->run() === false) {
 
             // validation not ok, send validation errors to the view
-            $this->load->view('header');
+            $this->load->view('header', $data);
             $this->load->view('register/register');
             $this->load->view('footer');
 
@@ -52,7 +54,7 @@ class Admin extends CI_Controller {
                 $data->error = 'There was a problem creating your new account. Please try again.';
 
                 // send error to the view
-                $this->load->view('header');
+                $this->load->view('header', $data);
                 $this->load->view('register/register', $data);
                 $this->load->view('footer');
 
@@ -67,6 +69,8 @@ class Admin extends CI_Controller {
         // create the data object
         $data = new stdClass();
 
+        $data->title = 'Login';
+
         // load form helper and validation library
         $this->load->helper('form');
         $this->load->library('form_validation');
@@ -78,7 +82,7 @@ class Admin extends CI_Controller {
         if ($this->form_validation->run() == false) {
 
             // validation not ok, send validation errors to the view
-            $this->load->view('header');
+            $this->load->view('header', $data);
             $this->load->view('login/login');
             $this->load->view('footer');
 
@@ -109,8 +113,58 @@ class Admin extends CI_Controller {
                 $data->error = 'Wrong username or password.';
 
                 // send error to the view
-                $this->load->view('header');
+                $this->load->view('header', $data);
                 $this->load->view('login/login', $data);
+                $this->load->view('footer');
+
+            }
+
+        }
+    }
+
+    public function forgotpassword(){
+
+        // create the data object
+        $data = new stdClass();
+
+        $data->title = 'Forgot Password';
+
+        // load form helper and validation library
+        $this->load->helper('form');
+        $this->load->library('form_validation');
+
+        // set validation rules
+        $this->form_validation->set_rules('email', 'Email', 'trim|required|valid_email');
+
+        if ($this->form_validation->run() == false) {
+
+            // validation not ok, send validation errors to the view
+            $this->load->view('header',$data);
+            $this->load->view('forgotpassword/forgotpassword');
+            $this->load->view('footer');
+
+        } else {
+
+            // set variables from the form
+            $email = $this->input->post('email');
+
+            if ($this->admin_model->resolve_email($email)) {
+
+                $data->verified = 'The system admin will send you link to your email with an hour. Click <a href="'.base_url().'">Here</a>';
+
+                // send error to the view
+                $this->load->view('header', $data);
+                $this->load->view('forgotpassword/forgotpassword', $data);
+                $this->load->view('footer');
+
+            } else {
+
+                // login failed
+                $data->error = 'Invalid Email.';
+
+                // send error to the view
+                $this->load->view('header', $data);
+                $this->load->view('forgotpassword/forgotpassword', $data);
                 $this->load->view('footer');
 
             }

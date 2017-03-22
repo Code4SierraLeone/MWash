@@ -9,6 +9,7 @@ CREATE TABLE IF NOT EXISTS `users` (
   `is_admin` tinyint(1) unsigned NOT NULL DEFAULT '0',
   `is_confirmed` tinyint(1) unsigned NOT NULL DEFAULT '0',
   `is_deleted` tinyint(1) unsigned NOT NULL DEFAULT '0',
+  `password_reset` tinyint(1) unsigned NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`)
 );
 CREATE TABLE IF NOT EXISTS `ci_sessions` (

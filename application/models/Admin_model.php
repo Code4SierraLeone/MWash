@@ -58,6 +58,42 @@ class Admin_model extends CI_Model {
     }
 
     /**
+     * resolve_email function.
+     *
+     * @access public
+     * @param mixed $email
+     * @return int the user id
+     */
+    public function resolve_email($email) {
+
+        $this->db->select('id');
+        $this->db->from('users');
+        $this->db->where('email', $email);
+        $userid = $this->db->get()->row('id');
+
+        return $this->update_password_reset_status($userid);
+
+    }
+
+    /**
+     * update_password_reset_status function.
+     *
+     * @access public
+     * @param mixed $username
+     * @param mixed $password
+     * @return string|bool could be a string on success, or bool false on failure
+     */
+    public function update_password_reset_status($userid) {
+
+        $this->db->set('password', '0');
+        $this->db->set('password_reset', '1');
+        $this->db->set('updated_at', date('Y-m-j H:i:s'));
+        $this->db->where('id', $userid);
+
+        return $this->db->update('users');
+    }
+
+    /**
      * get_user_id_from_username function.
      *
      * @access public
