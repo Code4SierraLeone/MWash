@@ -19,7 +19,7 @@ git clone https://github.com/Code4SierraLeone/MWash.git
 
 Run the `composer install` command in the root of the cloned project's directory. This command will download and install the dependencies.
 
-Incase of help please see the [installation section](https://codeigniter.com/user_guide3/installation/index.html) of the CodeIgniter User Guide.
+Incase of help please see the [installation section](https://codeigniter.com/user_guide/#installation) of the CodeIgniter User Guide.
 
 
 ##### 4. Import Database
