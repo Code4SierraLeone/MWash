@@ -24,3 +24,7 @@ header, main, footer {
 #card-username {
     text-shadow: 1px 1px 1px black;
 }
+
+#e_resp {
+    color: red;
+}

@@ -214,6 +214,7 @@ class Admin extends CI_Controller {
         if(isset($_SESSION['user_id']) && isset($_SESSION['username']) && isset($_SESSION['logged_in'])){
 
             $data['username'] = $_SESSION['username'];
+            $data['userid'] = $_SESSION['user_id'];
             $data['page'] = 'users';
 
             $this->load->view('dashboard/header', $data);
@@ -223,6 +224,50 @@ class Admin extends CI_Controller {
         }else{
 
             redirect('/login');
+
+        }
+
+    }
+
+    public function update_user_info() {
+
+        if(isset($_SESSION['user_id']) && isset($_SESSION['username']) && isset($_SESSION['logged_in'])){
+
+            if(isset($_POST['new_email']) && $_POST['new_email'] != null){
+
+                $newemail = $_POST['new_email'];
+
+                if(!filter_var($newemail, FILTER_VALIDATE_EMAIL)){
+
+                    $response = array('resp'=>'Invalid Email');
+
+                    echo json_encode($response);
+
+                }else{
+
+                    $userid = $_SESSION['user_id'];
+
+                    if($this->admin_model->update_user_email($userid, $newemail)){
+
+                        $response = array('resp'=>'1');
+
+                        echo json_encode($response);
+
+                    }
+                }
+
+            }else{
+
+                $response = array('resp'=>'Your Field Is Empty');
+
+                echo json_encode($response);
+            }
+
+        }else{
+
+            $response = array('resp'=>'User Session Has Ended Please Login Again');
+
+            echo json_encode($response);
 
         }
 
