@@ -209,6 +209,25 @@ class Admin extends CI_Controller {
         }
     }
 
+    public function dash_users() {
+
+        if(isset($_SESSION['user_id']) && isset($_SESSION['username']) && isset($_SESSION['logged_in'])){
+
+            $data['username'] = $_SESSION['username'];
+            $data['page'] = 'users';
+
+            $this->load->view('dashboard/header', $data);
+            $this->load->view('dash_users');
+            $this->load->view('dashboard/footer');
+
+        }else{
+
+            redirect('/login');
+
+        }
+
+    }
+
     public function logout() {
 
         // create the data object

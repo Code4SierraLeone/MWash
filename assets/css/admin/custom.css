@@ -20,3 +20,7 @@ header, main, footer {
     width: 100%;
     height: 500px;
 }
+
+#card-username {
+    text-shadow: 1px 1px 1px black;
+}

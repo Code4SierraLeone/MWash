@@ -71,6 +71,7 @@ $route['forgotpassword'] = 'admin/forgotpassword';
 $route['logout'] = 'admin/logout';
 $route['dash'] = 'admin/dash';
 $route['dash/newpoint'] = 'admin/newpoint';
+$route['dash/users'] = 'admin/dash_users';
 
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
