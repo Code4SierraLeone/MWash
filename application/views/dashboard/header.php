@@ -80,6 +80,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <li>
                 <a href="<?= base_url() ?>index.php/dash/newpoint"><i class="material-icons">add_circle</i>Add New Water Point</a>
             </li>
+            <li>
+                <a href="<?= base_url() ?>index.php/dash/users"><i class="material-icons">account_circle</i>Users</a>
+            </li>
         </ul>
     </div>
 
