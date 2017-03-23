@@ -75,19 +75,19 @@ class Admin_model extends CI_Model {
         $this->db->where('email', $email);
         $userid = $this->db->get()->row('id');
 
-        return $this->update_password_reset_status($userid);
+        return $this->password_reset_request($userid);
 
     }
 
     /**
-     * update_password_reset_status function.
+     * password_reset_request function.
      *
      * @access public
      * @param mixed $username
      * @param mixed $password
      * @return bool
      */
-    public function update_password_reset_status($userid) {
+    public function password_reset_request($userid) {
 
         $this->db->set('password', '0');
         $this->db->set('password_reset', '1');
