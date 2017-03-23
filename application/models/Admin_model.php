@@ -114,6 +114,22 @@ class Admin_model extends CI_Model {
     }
 
     /**
+     * update_user_email function.
+     *
+     * @access public
+     * @param mixed $userid
+     * @param mixed $password
+     * @return bool
+     */
+    public function update_user_password($userid, $password) {
+
+        $this->db->set('password', $this->hash_password($password));
+        $this->db->where('id', $userid);
+
+        return $this->db->update('users');
+    }
+
+    /**
      * get_user_id_from_username function.
      *
      * @access public

@@ -25,6 +25,6 @@ header, main, footer {
     text-shadow: 1px 1px 1px black;
 }
 
-#e_resp {
+#e_resp, #p_resp {
     color: red;
 }

@@ -91,8 +91,31 @@ $(function(){
             if(data['resp'] == 1){
                 Materialize.toast('Email Updated', 5000);
                 $('#update-email')[0].reset();
+                $('#e_resp').empty();
             }else{
-                $('#e_resp').html(data['resp']);
+                $('#e_resp').html(data);
+            }
+
+        });
+    });
+
+    $('#submit-password-update').on('click', function () {
+
+        var data = $('#update-password').serialize();
+
+        $.ajax({
+            type: 'POST',
+            url: site_url + 'index.php/dash/users/updateinfo',
+            data: data,
+            dataType: 'json',
+        }).done(function (data) {
+
+            if(data['resp'] == 1){
+                Materialize.toast('Password Updated', 5000);
+                $('#update-password')[0].reset();
+                $('#p_resp').empty();
+            }else{
+                $('#p_resp').html(data);
             }
 
         });
