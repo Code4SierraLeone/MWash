@@ -174,7 +174,7 @@ class Admin extends CI_Controller {
 
     public function dash()
     {
-        if(isset($_SESSION['user_id']) && isset($_SESSION['username']) && isset($_SESSION['logged_in'])){
+        if(isset($_SESSION['user_id']) && isset($_SESSION['username']) && isset($_SESSION['logged_in'])) {
 
             $data['username'] = $_SESSION['username'];
             $data['page'] = 'dash';
@@ -184,7 +184,7 @@ class Admin extends CI_Controller {
             $this->load->view('dash_summary');
             $this->load->view('dashboard/footer');
 
-        }else{
+        } else {
 
             redirect('/login');
 
@@ -193,7 +193,7 @@ class Admin extends CI_Controller {
 
     public function newpoint(){
 
-        if(isset($_SESSION['user_id']) && isset($_SESSION['username']) && isset($_SESSION['logged_in'])){
+        if(isset($_SESSION['user_id']) && isset($_SESSION['username']) && isset($_SESSION['logged_in'])) {
 
             $data['username'] = $_SESSION['username'];
             $data['page'] = 'newpoint';
@@ -202,7 +202,7 @@ class Admin extends CI_Controller {
             $this->load->view('dash_addnewpoint');
             $this->load->view('dashboard/footer');
 
-        }else{
+        } else {
 
             redirect('/login');
 
@@ -211,7 +211,7 @@ class Admin extends CI_Controller {
 
     public function dash_users() {
 
-        if(isset($_SESSION['user_id']) && isset($_SESSION['username']) && isset($_SESSION['logged_in'])){
+        if(isset($_SESSION['user_id']) && isset($_SESSION['username']) && isset($_SESSION['logged_in'])) {
 
             $data['username'] = $_SESSION['username'];
             $data['userid'] = $_SESSION['user_id'];
@@ -221,7 +221,7 @@ class Admin extends CI_Controller {
             $this->load->view('dash_users');
             $this->load->view('dashboard/footer');
 
-        }else{
+        } else {
 
             redirect('/login');
 
@@ -233,17 +233,15 @@ class Admin extends CI_Controller {
 
         if(isset($_SESSION['user_id']) && isset($_SESSION['username']) && isset($_SESSION['logged_in'])){
 
-            if(isset($_POST['new_email']) && $_POST['new_email'] != null){
+            if(isset($_POST['new_email']) && $_POST['new_email'] != null) {
 
-                $newemail = $_POST['new_email'];
+                $this->load->library('form_validation');
 
-                if(!filter_var($newemail, FILTER_VALIDATE_EMAIL)){
+                $this->form_validation->set_rules('new_email', 'Email', 'trim|required|valid_email|is_unique[users.email]');
 
-                    $response = array('resp'=>'Invalid Email');
+                $newemail = $this->input->post('new_email');
 
-                    echo json_encode($response);
-
-                }else{
+                if($this->form_validation->run() == TRUE) {
 
                     $userid = $_SESSION['user_id'];
 
@@ -254,16 +252,50 @@ class Admin extends CI_Controller {
                         echo json_encode($response);
 
                     }
+
+                }else{
+
+                    $response = strip_tags(validation_errors());
+
+                    echo json_encode($response);
                 }
 
-            }else{
+            } else if(isset($_POST['new_password'])) {
+
+                $this->load->library('form_validation');
+
+                $this->form_validation->set_rules('new_password', 'Password', 'trim|required|min_length[6]');
+
+                $newpassword = $this->input->post('new_password');
+
+                if($this->form_validation->run() == TRUE) {
+
+                    $userid = $_SESSION['user_id'];
+
+                    if($this->admin_model->update_user_password($userid, $newpassword)) {
+
+                        $response = array('resp'=>'1');
+
+                        echo json_encode($response);
+
+                    }
+
+                } else {
+
+                    $response = strip_tags(validation_errors());
+
+                    echo json_encode($response);
+                }
+
+
+            } else {
 
                 $response = array('resp'=>'Your Field Is Empty');
 
                 echo json_encode($response);
             }
 
-        }else{
+        } else {
 
             $response = array('resp'=>'User Session Has Ended Please Login Again');
 
