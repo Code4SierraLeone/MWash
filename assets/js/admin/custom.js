@@ -77,4 +77,24 @@ $(function(){
         });
     });
 
+    $('#submit-email-update').on('click', function () {
+
+        var data = $('#update-email').serialize();
+
+        $.ajax({
+            type: 'POST',
+            url: site_url + 'index.php/dash/users/updateinfo',
+            data: data,
+            dataType: 'json',
+        }).done(function (data) {
+
+            if(data['resp'] == 1){
+                Materialize.toast('Email Updated', 5000);
+                $('#update-email')[0].reset();
+            }else{
+                $('#e_resp').html(data['resp']);
+            }
+
+        });
+    });
 });
