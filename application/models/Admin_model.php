@@ -114,7 +114,7 @@ class Admin_model extends CI_Model {
     }
 
     /**
-     * update_user_email function.
+     * update_user_password function.
      *
      * @access public
      * @param mixed $userid
