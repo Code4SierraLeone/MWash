@@ -85,9 +85,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     <div class="background">
                         <img src="<?php echo base_url(); ?>assets/img/office.jpg">
                     </div>
-                    <a href="#!user"><img class="circle" src="<?php echo base_url(); ?>assets/img/avatar.jpg"></a>
+                    <a href="#!user" data-target="!user"><img class="circle tooltipped" data-position="right" data-delay="1" data-tooltip="Edit User Info"  src="<?php echo base_url(); ?>assets/img/avatar.jpg"></a>
                     <a href="#!name"><span class="white-text name"><?= ucfirst($username); ?></span></a>
-                    <a href="#!email"><span class="white-text email"></span></a>
+                    <a href="#!email"><span class="white-text email"><?= $email ?></span></a>
                 </div></li>
             <li>
                 <a href="<?= base_url() ?>index.php/dash"><i class="material-icons">dashboard</i>Dashboard</a>

@@ -98,6 +98,22 @@ class Admin_model extends CI_Model {
     }
 
     /**
+     * update_user_username function.
+     *
+     * @access public
+     * @param mixed $userid
+     * @param mixed $username
+     * @return bool
+     */
+    public function update_user_username($userid, $username) {
+
+        $this->db->set('username', $username);
+        $this->db->where('id', $userid);
+
+        return $this->db->update('users');
+    }
+
+    /**
      * update_user_email function.
      *
      * @access public
