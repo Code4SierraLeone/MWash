@@ -58,19 +58,19 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <div class="col s12">
             <ul class="right">
                 <li class="right">
-                    <a href="<?= base_url() ?>index.php/logout" class="modal-trigger fa fa-sign-out fa-2x waves-effect waves-light tooltipped" data-position="left" data-delay="1" data-tooltip="Logout"><span class="icon-text"></span></a>
+                    <a href="<?= base_url() ?>index.php/logout" class="modal-trigger fa fa-sign-out fa-2x waves-effect waves-light tooltipped" data-position="down" data-delay="1" data-tooltip="Logout"><span class="icon-text"></span></a>
                 </li>
                 <?php if($page === 'dash'): ?>
                 <li class="right">
-                    <a data-target="modal1" href="#modal1" class="modal-trigger fa fa-question-circle fa-2x waves-effect waves-light tooltipped" data-position="left" data-delay="1" data-tooltip="Help"><span class="icon-text"></span></a>
+                    <a data-target="modal1" href="#modal1" class="modal-trigger fa fa-question-circle fa-2x waves-effect waves-light tooltipped" data-position="down" data-delay="1" data-tooltip="Quick Help"><span class="icon-text"></span></a>
                 </li>
                 <?php elseif ($page === 'newpoint'): ?>
                     <li class="right">
-                        <a data-target="modal1" href="#modal1" class="modal-trigger fa fa-question-circle fa-2x waves-effect waves-light tooltipped" data-position="left" data-delay="1" data-tooltip="Help"><span class="icon-text"></span></a>
+                        <a data-target="modal1" href="#modal1" class="modal-trigger fa fa-question-circle fa-2x waves-effect waves-light tooltipped" data-position="down" data-delay="1" data-tooltip="Quick Help"><span class="icon-text"></span></a>
                     </li>
                 <?php elseif ($page === 'users'): ?>
                     <li class="right">
-                        <a data-target="modal1" href="#modal1" class="modal-trigger fa fa-question-circle fa-2x waves-effect waves-light tooltipped" data-position="left" data-delay="1" data-tooltip="Help"><span class="icon-text"></span></a>
+                        <a data-target="modal1" href="#modal1" class="modal-trigger fa fa-question-circle fa-2x waves-effect waves-light tooltipped" data-position="down" data-delay="1" data-tooltip="Quick Help"><span class="icon-text"></span></a>
                     </li>
                 <?php else: ?>
 
