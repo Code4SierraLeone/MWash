@@ -4,7 +4,18 @@ $(function(){
 
     $('select').material_select();
 
-    $('.modal').modal();
+    $('.modal').modal({
+        complete: function() {
+
+            $('#update-username')[0].reset();
+            $('#u_resp').empty();
+            $('#update-email')[0].reset();
+            $('#e_resp').empty();
+            $('#update-password')[0].reset();
+            $('#p_resp').empty();
+
+        }
+    });
 
     $('.button-collapse').sideNav();
 
@@ -66,15 +77,36 @@ $(function(){
         }).done(function (data) {
 
            if(data[0].rowid > 0){
-
                Materialize.toast('Water Point Added!..Redirecting...', 4000);
-
                window.setTimeout(function(){
-
                    window.location.href = site_url+'index.php/dash';
-
                }, 3000);
            }
+
+        });
+    });
+
+    $('#submit-username-update').on('click', function () {
+
+        var data = $('#update-username').serialize();
+
+        $.ajax({
+            type: 'POST',
+            url: site_url + 'index.php/dash/users/updateinfo',
+            data: data,
+            dataType: 'json',
+        }).done(function (data) {
+
+            if(data['resp'] == 1){
+                Materialize.toast('Username Updated, You will be logged out out in 5 seconds...', 5000);
+                window.setTimeout(function () {
+                    window.location.href = site_url + 'index.php/logout';
+                }, 5000);
+                $('#update-username')[0].reset();
+                $('#u_resp').empty();
+            }else{
+                $('#u_resp').html(data);
+            }
 
         });
     });
@@ -122,4 +154,5 @@ $(function(){
 
         });
     });
+
 });

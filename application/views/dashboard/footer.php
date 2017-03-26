@@ -17,12 +17,55 @@ defined('BASEPATH') OR exit('No direct script access allowed');
    <?php elseif ($page === 'users'): ?>
        <div class="modal-content">
            <h4>Users Page Info</h4>
-           <p><strong>User Profile:</strong> You can edit your email and password.</p>
            <p><strong>User Accesss Privilege:</strong> Comming Soon....provides access to the dashboard for other users.</p>
        </div>
    <?php else: ?>
 
    <?php endif; ?>
+    <div class="modal-footer">
+        <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Close</a>
+    </div>
+</div>
+
+<div id="!user" class="modal">
+    <div class="modal-content">
+        <div class="card">
+            <div class="card-content">
+                <ul class="collapsible" data-collapsible="accordion">
+                    <li>
+                        <div class="collapsible-header"><i class="material-icons">mode_edit</i>Change Username</div>
+                        <div class="collapsible-body">
+                            <form id="update-username">
+                                <label class="red-text" id="u_resp"></label>
+                                <input placeholder="New Username" id="new_username" name="new_username" type="text" class="validate">
+                                <a style="color: #ffffff !important;" class="waves-effect indigo lighten-1 waves-green btn-flat" id="submit-username-update">Update</a>
+                            </form>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="collapsible-header"><i class="material-icons">mode_edit</i>Change Email</div>
+                        <div class="collapsible-body">
+                            <form id="update-email">
+                                <label class="red-text" id="e_resp"></label>
+                                <input placeholder="New Email" id="new_email" name="new_email" type="text" class="validate">
+                                <a style="color: #ffffff !important;" class="waves-effect indigo lighten-1 waves-green btn-flat" id="submit-email-update">Update</a>
+                            </form>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="collapsible-header"><i class="material-icons">mode_edit</i>Change Password</div>
+                        <div class="collapsible-body">
+                            <form id="update-password">
+                                <label class="red-text" id="p_resp"></label>
+                                <input placeholder="New Password" id="new_password" name="new_password" type="text" class="validate">
+                                <a style="color: #ffffff !important;" class="waves-effect indigo lighten-1 waves-green btn-flat" id="submit-password-update">Update</a>
+                            </form>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
     <div class="modal-footer">
         <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Close</a>
     </div>

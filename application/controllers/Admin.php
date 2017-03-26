@@ -100,6 +100,7 @@ class Admin extends CI_Controller {
                 // set session user datas
                 $_SESSION['user_id']      = (int)$user->id;
                 $_SESSION['username']     = (string)$user->username;
+                $_SESSION['email']     = (string)$user->email;
                 $_SESSION['logged_in']    = (bool)true;
                 $_SESSION['is_confirmed'] = (bool)$user->is_confirmed;
                 $_SESSION['is_admin']     = (bool)$user->is_admin;
@@ -177,6 +178,7 @@ class Admin extends CI_Controller {
         if(isset($_SESSION['user_id']) && isset($_SESSION['username']) && isset($_SESSION['logged_in'])) {
 
             $data['username'] = $_SESSION['username'];
+            $data['email'] = $_SESSION['email'];
             $data['page'] = 'dash';
 
 
@@ -196,6 +198,7 @@ class Admin extends CI_Controller {
         if(isset($_SESSION['user_id']) && isset($_SESSION['username']) && isset($_SESSION['logged_in'])) {
 
             $data['username'] = $_SESSION['username'];
+            $data['email'] = $_SESSION['email'];
             $data['page'] = 'newpoint';
 
             $this->load->view('dashboard/header', $data);
@@ -214,6 +217,7 @@ class Admin extends CI_Controller {
         if(isset($_SESSION['user_id']) && isset($_SESSION['username']) && isset($_SESSION['logged_in'])) {
 
             $data['username'] = $_SESSION['username'];
+            $data['email'] = $_SESSION['email'];
             $data['userid'] = $_SESSION['user_id'];
             $data['page'] = 'users';
 
@@ -287,6 +291,32 @@ class Admin extends CI_Controller {
                     echo json_encode($response);
                 }
 
+            }else if(isset($_POST['new_username'])) {
+
+                $this->load->library('form_validation');
+
+                $this->form_validation->set_rules('new_username', 'Username', 'trim|required|alpha_numeric|min_length[4]|is_unique[users.username]', array('is_unique' => 'This username already exists. Please choose another one.'));
+
+                $newusername = $this->input->post('new_username');
+
+                if($this->form_validation->run() == TRUE) {
+
+                    $userid = $_SESSION['user_id'];
+
+                    if($this->admin_model->update_user_username($userid, $newusername)) {
+
+                        $response = array('resp'=>'1');
+
+                        echo json_encode($response);
+
+                    }
+
+                } else {
+
+                    $response = strip_tags(validation_errors());
+
+                    echo json_encode($response);
+                }
 
             }
 
