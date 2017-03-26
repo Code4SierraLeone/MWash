@@ -233,7 +233,7 @@ class Admin extends CI_Controller {
 
         if(isset($_SESSION['user_id']) && isset($_SESSION['username']) && isset($_SESSION['logged_in'])){
 
-            if(isset($_POST['new_email']) && $_POST['new_email'] != null) {
+            if(isset($_POST['new_email'])) {
 
                 $this->load->library('form_validation');
 
@@ -288,11 +288,6 @@ class Admin extends CI_Controller {
                 }
 
 
-            } else {
-
-                $response = array('resp'=>'Your Field Is Empty');
-
-                echo json_encode($response);
             }
 
         } else {
