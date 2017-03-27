@@ -215,7 +215,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <div id="modal1" class="modal">
     <div class="modal-content">
         <h4>Water Point Update</h4>
-        <p id="init_msg">Hi, you can take part in providing an update about the condition of water points where you live. You will only be able to update only some few attributes. Select which attribute you want to update. Below</p>
+        <p id="init_msg">Hi, you can take part in providing an update about the condition of water points where you live. You will only be able to update only some few attributes. Select which attribute you want to update then click the SUBMIT button.</p>
         <div class="row">
             <form id="update-form" class="col s12">
                 <div class="row">
@@ -232,7 +232,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 <div class="row" style="display: none;">
                     <div class="input-field col s12">
                         <input name="wp_id" id="wp_id" type="text" class="validate">
-                        <label for="text">Provide WaterPoint ID</label>
+                        <label for="text">Provide Water Point ID</label>
                     </div>
                 </div>
                 <div class="row" style="display: none;">

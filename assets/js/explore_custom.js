@@ -157,7 +157,7 @@ $(function () {
             Materialize.toast('You have not selected an attribute!', 4000);
         } else {
             $('#submit-wpu').attr('id', 'submit-wp-id');
-
+            $('#init_msg').empty().append('Now type the Water Point ID of the water source and click the SUBMIT button for more instructions..');
             $("#wp_id").parent().parent().show();
             $("#wpu").parent().parent().hide();
         }
@@ -207,9 +207,9 @@ $(function () {
                         $("#wsm_update").parent().parent().show();
                         $('.wp_column_name').html('mechanic');
                         if (data[0].mechanic == 'No' || data[0].mechanic == null) {
-                            $('#init_msg').empty().append('The water point currently does not have a Mechanic. If you wish to update type the word Yes then click the update button');
+                            $('#init_msg').empty().append('The water point currently does not have a Mechanic. If you wish to update type the word Yes then click the UPDATE button');
                         } else if (data[0].mechanic == 'Yes') {
-                            $('#init_msg').empty().append('The water point currently has a Mechanic. If you wish to update type the word No then click the update button');
+                            $('#init_msg').empty().append('The water point currently has a Mechanic. If you wish to update type the word No then click the UPDATE button');
                         }
                     } else if (wp == 'mngr') {
 
