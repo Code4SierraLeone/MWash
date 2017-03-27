@@ -107,7 +107,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <div class="container"><a href="#" data-activates="nav-mobile" class="button-collapse top-nav waves-effect waves-light circle hide-on-large-only"><i class="material-icons">menu</i></a></div>
         <div class="col s12">
             <ul class="right">
-                <li class="right tooltipped" data-position="bottom" data-delay="1" data-tooltip="Open Source Repository">
+                <li class="right tooltipped" data-position="bottom" data-delay="1" data-tooltip="Github">
                     <a href="https://github.com/Code4SierraLeone/MWash/" target="_blank" class="fa fa-github-square fa-2x waves-effect waves-light"><span class="icon-text"></span></a>
                 </li>
                 <li class="right tooltipped" data-position="bottom" data-delay="1" data-tooltip="Dashboard">
