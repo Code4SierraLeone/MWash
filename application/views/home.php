@@ -25,15 +25,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <nav class="row indigo darken-4">
         <div class="col s12">
             <ul class="right">
-<!--                <li class="right">-->
-<!--                    <a href="" target="_blank" class="fa fa-facebook-square fa-2x waves-effect waves-light"><span class="icon-text"></span></a>-->
-<!--                </li>-->
-                <li class="right">
+                <li class="right tooltipped" data-position="bottom" data-delay="1" data-tooltip="Github">
                     <a href="https://github.com/Code4SierraLeone/MWash/" target="_blank" class="fa fa-github-square fa-2x waves-effect waves-light"><span class="icon-text"></span></a>
                 </li>
-<!--                <li class="right">-->
-<!--                    <a href="" target="_blank" class="fa fa-twitter-square fa-2x waves-effect waves-light"><span class="icon-text"></span></a>-->
-<!--                </li>-->
+                <li class="right tooltipped" data-position="bottom" data-delay="1" data-tooltip="Dashboard">
+                    <a href="<?php echo base_url(); ?>index.php/login" target="_blank" class="fa fa-user fa-2x waves-effect waves-light"><span class="icon-text"></span></a>
+                </li>
             </ul>
         </div>
     </nav>
@@ -78,7 +75,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <footer class="page-footer indigo darken-3">
     <div class="footer-copyright indigo darken-4">
         <div class="container">
-            <span>MWash is supported by Code For Sierra Leone as part of the wider <a href="https://codeforafrica.org">Code For Africa </a>federation</span>
+            <span>MWash is supported by Code For Sierra Leone as part of the wider <a href="https://codeforafrica.org" target="_blank">Code For Africa </a>federation. All code on this website is <a href="https://github.com/Code4SierraLeone/MWash/" target="_blank">Open Source.</a></span>
         </div>
     </div>
 </footer>
