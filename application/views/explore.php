@@ -107,11 +107,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <div class="container"><a href="#" data-activates="nav-mobile" class="button-collapse top-nav waves-effect waves-light circle hide-on-large-only"><i class="material-icons">menu</i></a></div>
         <div class="col s12">
             <ul class="right">
-                <li class="right tooltipped" data-position="bottom" data-delay="1" data-tooltip="Github">
-                    <a href="https://github.com/Code4SierraLeone/MWash/" target="_blank" class="fa fa-github-square fa-2x waves-effect waves-light"><span class="icon-text"></span></a>
+                <li class="right">
+                    <a href="https://github.com/Code4SierraLeone/MWash/" target="_blank" class="fa fa-github-square fa-2x waves-effect waves-light tooltipped" data-position="bottom" data-delay="1" data-tooltip="Github"><span class="icon-text"></span></a>
                 </li>
-                <li class="right tooltipped" data-position="bottom" data-delay="1" data-tooltip="Dashboard">
-                    <a href="<?php echo base_url(); ?>index.php/login" target="_blank" class="fa fa-user fa-2x waves-effect waves-light"><span class="icon-text"></span></a>
+                <li class="right">
+                    <a href="<?php echo base_url(); ?>index.php/login" target="_blank" class="fa fa-user fa-2x waves-effect waves-light tooltipped" data-position="bottom" data-delay="1" data-tooltip="Dashboard"><span class="icon-text"></span></a>
+                </li>
+                <li class="right">
+                    <a data-target="modal3" href="#modal3" class="modal-trigger fa fa-question-circle fa-2x waves-effect waves-light tooltipped" data-position="down" data-delay="1" data-tooltip="Quick Help"><span class="icon-text"></span></a>
                 </li>
             </ul>
         </div>
@@ -332,6 +335,37 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <div class="modal-footer">
         <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat left">Close</a>
         <a style="color: #ffffff !important; display: none;" class="waves-effect indigo lighten-1 waves-green btn-flat" id="submit-subscription">Submit</a>
+    </div>
+</div>
+
+<div id="modal3" class="modal">
+    <div class="modal-content">
+        <h4>A Quick User Guide</h4>
+        <p>1.) What Can I Do On This Page?</p>
+        <ul class="collapsible" data-collapsible="accordion">
+            <li>
+                <div class="collapsible-header"><i class="material-icons">filter_list</i>Filter Data</div>
+                <div class="collapsible-body">
+                    <span>This application provides you with options to filter data easily by Province, Seasons, Functionality, Mechanic and Parts Availability.</span>
+                    <p><strong>Filter By Province:</strong> You can click and select one of 4 provinces in Sierra Leone.</p>
+                    <p><strong>Filter By Seasons:</strong> You can click and select one of the water seasons experienced in Sierra Leone.</p>
+                    <p><strong>Filter By Functionality:</strong> You can click and select the water point operational mechanism.</p>
+                    <p><strong>Filter By Mechanic:</strong> You can click and select one of the options that answers the question; Whether the water point has an available individual that repairs the water point incase of any incidence.</p>
+                    <p><strong>Filter By Parts Availability:</strong> You can click and select one of the options that answers the question;  How far are people able to access spare parts and tools to fix and maintain the water points near them.</p>
+                </div>
+            </li>
+            <li>
+                <div class="collapsible-header"><i class="material-icons">phone_android</i>Subscribe</div>
+                <div class="collapsible-body"><span>You can easily subscribe to updates and get SMS alerts on your phone about specific water points that you require information by providing your phone number.</span></div>
+            </li>
+            <li>
+                <div class="collapsible-header"><i class="material-icons">mode_edit</i>Contribute</div>
+                <div class="collapsible-body"><span>You can easily update the current water point data by updating some attributes about the condition of the water point.</span></div>
+            </li>
+        </ul>
+    </div>
+    <div class="modal-footer">
+        <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat left">Close</a>
     </div>
 </div>
 
