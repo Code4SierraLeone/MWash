@@ -94,5 +94,4 @@ defined('EXIT__AUTO_MAX')      OR define('EXIT__AUTO_MAX', 125); // highest auto
 */
 define('BOT_TOKEN', '343768089:AAHmS2wolDVlghf5IorunK0nFaCAC6G9N64');
 define('API_URL', 'https://api.telegram.org/bot'.BOT_TOKEN.'/');
-
 define('WEBHOOK_URL', 'https://mwash.herokuapp.com/index.php/mwashbot');

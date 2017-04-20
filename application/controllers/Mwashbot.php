@@ -162,10 +162,13 @@ class Mwashbot extends CI_Controller
 //define('WEBHOOK_URL', 'https://bot.wayo.info/telebot.php?botname=matatu');
 ////https://api.telegram.org/bot265473909:AAH3inSgM1k0wMrnl-yasAc09WeLSm2rO_4/setWebhook?url=https://bot.wayo.info/telebot.php?botname=matatu
 //
+
+$mwashbot = new Mwashbot();
+
 if (php_sapi_name() == 'cli')
 {
     // if run from console, set or delete webhook
-    $this->apiRequest('setWebhook', array('url' => isset($argv[1]) && $argv[1] == 'delete' ? '' : WEBHOOK_URL));
+    $mwashbot->apiRequest('setWebhook', array('url' => isset($argv[1]) && $argv[1] == 'delete' ? '' : WEBHOOK_URL));
 exit;
 }
 
@@ -178,5 +181,5 @@ if (!$update) {
 }
 
 if (isset($update["message"])) {
-    $this->processMessage($update["message"]);
+    $mwashbot->processMessage($update["message"]);
 }
