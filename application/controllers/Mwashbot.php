@@ -89,7 +89,7 @@ class Mwashbot extends CI_Controller
         curl_setopt($handle, CURLOPT_CONNECTTIMEOUT, 5);
         curl_setopt($handle, CURLOPT_TIMEOUT, 60);
 
-        return exec_curl_request($handle);
+        return $this->exec_curl_request($handle);
     }
 
     public function apiRequestJson($method, $parameters)
@@ -115,7 +115,7 @@ class Mwashbot extends CI_Controller
         curl_setopt($handle, CURLOPT_POSTFIELDS, json_encode($parameters));
         curl_setopt($handle, CURLOPT_HTTPHEADER, array("Content-Type: application/json"));
 
-        return exec_curl_request($handle);
+        return $this->exec_curl_request($handle);
     }
 
     public function processMessage($message)
@@ -127,22 +127,22 @@ class Mwashbot extends CI_Controller
         $text = $message['text'];
 
         //show action (MwashBot is typing...)
-        apiRequest("sendChatAction", array('chat_id' => $chat_id, "action" => 'typing'));
+        $this->apiRequest("sendChatAction", array('chat_id' => $chat_id, "action" => 'typing'));
 
         if (isset($text)) {
 
             if ($text === "/start") {
 
-                apiRequest("sendMessage", array('chat_id' => $chat_id, "text" => 'At least am working///'));
+                $this->apiRequest("sendMessage", array('chat_id' => $chat_id, "text" => 'At least am working///'));
 
             } else {
 
-                apiRequest("sendMessage", array('chat_id' => $chat_id, "text" => 'We aint there yet'));
+                $this->apiRequest("sendMessage", array('chat_id' => $chat_id, "text" => 'We aint there yet'));
             }
 
         } else {
 
-            apiRequestJson("sendMessage", array('chat_id' => $chat_id, "text" => 'I understand only text messages', 'reply_markup' => array(
+            $this->apiRequestJson("sendMessage", array('chat_id' => $chat_id, "text" => 'I understand only text messages', 'reply_markup' => array(
                 'keyboard' => array(array('/start')),
                 'one_time_keyboard' => true,
                 'resize_keyboard' => true)));
@@ -159,7 +159,7 @@ class Mwashbot extends CI_Controller
 if (php_sapi_name() == 'cli')
 {
     // if run from console, set or delete webhook
-apiRequest('setWebhook', array('url' => isset($argv[1]) && $argv[1] == 'delete' ? '' : WEBHOOK_URL));
+    $this->apiRequest('setWebhook', array('url' => isset($argv[1]) && $argv[1] == 'delete' ? '' : WEBHOOK_URL));
 exit;
 }
 
@@ -172,5 +172,5 @@ if (!$update) {
 }
 
 if (isset($update["message"])) {
-    processMessage($update["message"]);
+    $this->processMessage($update["message"]);
 }
