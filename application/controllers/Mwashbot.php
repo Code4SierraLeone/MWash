@@ -7,7 +7,6 @@ class Mwashbot extends CI_Controller
     {
         parent::__construct();
         $this->load->helper('url_helper');
-        $this->load->library(array('session'));
     }
 
     public function apiRequestWebhook($method, $parameters)
@@ -139,7 +138,7 @@ class Mwashbot extends CI_Controller
 
             if ($text === "/start") {
 
-                $this->apiRequest("sendMessage", array('chat_id' => $chat_id, "text" => 'At least am working///'));
+                $this->apiRequest("sendMessage", array('chat_id' => $chat_id, "text" => 'At least am working..'));
 
             } else {
 
