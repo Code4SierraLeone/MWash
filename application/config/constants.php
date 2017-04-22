@@ -83,15 +83,3 @@ defined('EXIT_USER_INPUT')     OR define('EXIT_USER_INPUT', 7); // invalid user 
 defined('EXIT_DATABASE')       OR define('EXIT_DATABASE', 8); // database error
 defined('EXIT__AUTO_MIN')      OR define('EXIT__AUTO_MIN', 9); // lowest automatically-assigned error code
 defined('EXIT__AUTO_MAX')      OR define('EXIT__AUTO_MAX', 125); // highest automatically-assigned error code
-
-/*
-|--------------------------------------------------------------------------
-| TelegramBot
-|--------------------------------------------------------------------------
-|
-|https://api.telegram.org/bot343768089:AAHmS2wolDVlghf5IorunK0nFaCAC6G9N64/setWebhook?url=https://mwash.herokuapp.com/index.php/mwashbot
-|
-*/
-define('BOT_TOKEN', '343768089:AAHmS2wolDVlghf5IorunK0nFaCAC6G9N64');
-define('API_URL', 'https://api.telegram.org/bot'.BOT_TOKEN.'/');
-define('WEBHOOK_URL', 'https://mwash.herokuapp.com/index.php/mwashbot');

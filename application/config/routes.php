@@ -74,7 +74,5 @@ $route['dash/newpoint'] = 'admin/newpoint';
 $route['dash/users'] = 'admin/dash_users';
 $route['dash/users/updateinfo'] = 'admin/update_user_info';
 
-$route['mwashbot'] = 'mwashbot';
-
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
