@@ -23,6 +23,7 @@ CREATE TABLE IF NOT EXISTS `ci_sessions` (
 CREATE TABLE IF NOT EXISTS `subscribers` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `water_point_id` varchar(255) DEFAULT NULL,
+  `telegram_chat_id` varchar(255) DEFAULT NULL,
   `province` varchar(255) DEFAULT NULL,
   `district` varchar(255) DEFAULT NULL,
   `chiefdom` varchar(255)DEFAULT NULL,

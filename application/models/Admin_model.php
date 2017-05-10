@@ -27,12 +27,33 @@ class Admin_model extends CI_Model {
      */
     public function create_user($username, $email, $password) {
 
-        $data = array(
-            'username'   => $username,
-            'email'      => $email,
-            'password'   => $this->hash_password($password),
-            'created_at' => date('Y-m-j H:i:s'),
-        );
+        if($this->count_users() == 0){
+
+            $data = array(
+                'username' => $username,
+                'email' => $email,
+                'password' => $this->hash_password($password),
+                'created_at' => date('Y-m-j H:i:s'),
+                'is_admin' => '1',
+                'is_confirmed' => '1',
+                'is_deleted' => '0',
+                'password_reset' => '0'
+            );
+
+        }else{
+
+            $data = array(
+                'username'   => $username,
+                'email'      => $email,
+                'password'   => $this->hash_password($password),
+                'created_at' => date('Y-m-j H:i:s'),
+                'is_admin' => '0',
+                'is_confirmed' => '0',
+                'is_deleted' => '0',
+                'password_reset' => '0'
+            );
+
+        }
 
         return $this->db->insert('users', $data);
 
@@ -174,6 +195,19 @@ class Admin_model extends CI_Model {
         $this->db->from('users');
         $this->db->where('id', $user_id);
         return $this->db->get()->row();
+
+    }
+
+    /**
+     * count_users function.
+     *
+     * @access public
+     * @return integer
+     */
+    public function count_users() {
+
+        $this->db->from('users');
+        return $this->db->count_all_results();
 
     }
 
