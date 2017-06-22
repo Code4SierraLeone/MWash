@@ -77,7 +77,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <footer class="page-footer indigo darken-3">
     <div class="footer-copyright indigo darken-4">
         <div class="container">
-            <span>MWash is supported by Code For Sierra Leone as part of the wider <a href="https://codeforafrica.org" target="_blank">Code For Africa </a>federation. All code on this website is <a href="https://github.com/Code4SierraLeone/MWash/" target="_blank">Open Source.</a></span>
+            <span>MWash is supported by <a href="https://codeforsierraleone.org/" target="_blank">Code For Sierra Leone</a> as part of the wider <a href="https://codeforafrica.org" target="_blank">Code For Africa </a>federation. All code on this website is <a href="https://github.com/Code4SierraLeone/MWash/" target="_blank">Open Source.</a></span>
         </div>
     </div>
 </footer>
