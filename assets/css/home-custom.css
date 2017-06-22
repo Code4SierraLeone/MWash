@@ -13,7 +13,7 @@ main {
 }
 
 .back-img {
-    background-image: url('../img/cover.jpg');
+    background-image: url('../img/cover-min.jpg');
     background-size: cover;
     background-repeat: no-repeat;
     -webkit-background-size: cover;
