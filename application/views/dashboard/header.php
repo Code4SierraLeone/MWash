@@ -7,6 +7,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
     <title>Dashboard</title>
 
+    <link rel="icon" href="<?php echo base_url(); ?>assets/img/favicon.png" type="image/x-icon"/>
+
     <!-- CSS  -->
     <link rel='stylesheet prefetch' href='<?php echo base_url(); ?>assets/css/materialize.min.css'>
     <link rel='stylesheet prefetch' href='<?php echo base_url(); ?>assets/css/admin/custom.css'>

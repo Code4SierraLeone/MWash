@@ -10,6 +10,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <meta name="description" content="">
     <title>MWash | Explore</title>
 
+    <link rel="icon" href="<?php echo base_url(); ?>assets/img/favicon.png" type="image/x-icon"/>
+
     <link rel='stylesheet prefetch' href='<?php echo base_url(); ?>assets/css/materialize.min.css'>
     <link rel='stylesheet prefetch' href='https://fonts.googleapis.com/icon?family=Material+Icons'>
     <link rel='stylesheet prefetch' href='https://fonts.googleapis.com/css?family=Architects+Daughter|Roboto&subset=latin,devanagari'>
