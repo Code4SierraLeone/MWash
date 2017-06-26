@@ -12,20 +12,25 @@ class Subscription extends CI_Controller {
 
     public function add_subscriber_one(){
 
-        $province = $this->input->post('prov_id');
-        $district = $this->input->post('dist_id');
-        $chiefdom = $this->input->post('chief_id');
-        $phone = $this->input->post('phone');
+        $data =array(
+            'province' => $this->input->post('prov_id'),
+            'district' => $this->input->post('dist_id'),
+            'chiefdom' => $this->input->post('chief_id'),
+            'phone_number' => $this->input->post('phone'),
+            'created_at' => date('Y-m-j H:i:s')
+        );
 
-        if ($this->subscribers_model->create_subscriber_one($province, $district, $chiefdom, $phone)) {
+        $data = $this->security->xss_clean($data);
 
-            $success = TRUE;
-            echo json_encode($success);
+        if ($this->subscribers_model->create_subscriber_one($data)) {
+
+            $resp = 1;
+            echo json_encode($resp);
 
         }else{
 
-            $success = FALSE;
-            echo json_encode($success);
+            $resp = 0;
+            echo json_encode($resp);
 
         }
 
@@ -33,18 +38,23 @@ class Subscription extends CI_Controller {
 
     public function add_subscriber_two(){
 
-        $waterpoint_id = $this->input->post('waterp_id');
-        $phone = $this->input->post('phone');
+        $data = array(
+            'water_point_id' => $this->input->post('waterp_id'),
+            'phone_number' => $this->input->post('phone'),
+            'created_at' => date('Y-m-j H:i:s')
+        );
 
-        if ($this->subscribers_model->create_subscriber_two($waterpoint_id, $phone)) {
+        $data = $this->security->xss_clean($data);
 
-            $success = TRUE;
-            echo json_encode($success);
+        if ($this->subscribers_model->create_subscriber_two($data)) {
+
+            $resp = 1;
+            echo json_encode($resp);
 
         }else{
 
-            $success = FALSE;
-            echo json_encode($success);
+            $resp = 0;
+            echo json_encode($resp);
 
         }
 

@@ -10,9 +10,9 @@ $(function () {
 
     var wp; //water-point-id variable
 
-    var season_var;
-
     var province_var;
+
+    var season_var;
 
     var funct_var;
 
@@ -20,22 +20,19 @@ $(function () {
 
     var parts_var;
 
-    $('.modal').modal(
-        {
-            complete: function() {
+    $('.modal').modal({
+        complete: function complete() {
 
-                $('#sub1').parent().parent().show();
-                $('#sub2').parent().parent().show();
-                $("#subcription-form")[0].reset();
-                $('#waterp_id').parent().parent().hide();
-                $('#prov_id').parent().parent().hide();
-                $('#dist_id').parent().parent().hide();
-                $('#chief_id').parent().parent().hide();
-                $('#phone').parent().parent().hide();
-
-            }
+            $('#sub1').parent().parent().show();
+            $('#sub2').parent().parent().show();
+            $("#subcription-form")[0].reset();
+            $('#waterp_id').parent().parent().hide();
+            $('#prov_id').parent().parent().hide();
+            $('#dist_id').parent().parent().hide();
+            $('#chief_id').parent().parent().hide();
+            $('#phone').parent().parent().hide();
         }
-    );
+    });
 
     $('.modal-trigger').modal();
 
@@ -302,7 +299,7 @@ $(function () {
                     $('#init_msg').empty();
                     $('div.modal-content h4').css('text-align', 'center');
                     $('div.modal-content h4').html('Thank You For Your Contribution');
-                    window.location.href = site_url + 'index.php/explore/' + province_array + '/' + season_array;
+                    window.location.href = site_url + 'index.php/explore/' + province_var + '/' + season_var + '/' + funct_var + '/' + mechanic_var + '/' + parts_var;
                 }
                 console.log(data);
             }
@@ -370,11 +367,20 @@ $(function () {
                     $('#chief_id').parent().parent().hide();
                     $('#phone').parent().parent().hide();
                     $('div.modal-content h4').css('text-align', 'center');
-                    $('div.modal-content h4').html('Awesome, check your phone later for a confirmation message...');
-                    window.setTimeout(function () {
 
-                        window.location.href = site_url + 'index.php/explore/' + province_array + '/' + season_array;
-                    }, 3000);
+                    if (data == 1) {
+                        $('div.modal-content h4').html('Awesome, heck your phone later for a confirmation message...');
+                        window.setTimeout(function () {
+
+                            window.location.href = site_url + 'index.php/explore/' + province_var + '/' + season_var + '/' + funct_var + '/' + mechanic_var + '/' + parts_var;
+                        }, 3000);
+                    } else if (data == 0) {
+                        $('div.modal-content h4').html('Your Are Not Yet Subscribed!!');
+                        window.setTimeout(function () {
+
+                            window.location.href = site_url + 'index.php/explore/' + province_var + '/' + season_var + '/' + funct_var + '/' + mechanic_var + '/' + parts_var;
+                        }, 3000);
+                    }
 
                     console.log(data);
                 }
@@ -419,11 +425,20 @@ $(function () {
                     $('#waterp_id').parent().parent().hide();
                     $('#phone').parent().parent().hide();
                     $('div.modal-content h4').css('text-align', 'center');
-                    $('div.modal-content h4').html('Awesome, check your phone later for a confirmation message...');
-                    window.setTimeout(function () {
 
-                        window.location.href = site_url + 'index.php/explore/' + province_array + '/' + season_array;
-                    }, 3000);
+                    if (data == 1) {
+                        $('div.modal-content h4').html('Awesome, check your phone later for a confirmation message...');
+                        window.setTimeout(function () {
+
+                            window.location.href = site_url + 'index.php/explore/' + province_var + '/' + season_var + '/' + funct_var + '/' + mechanic_var + '/' + parts_var;
+                        }, 3000);
+                    } else if (data == 0) {
+                        $('div.modal-content h4').html('Your Are Not Yet Subscribed!!');
+                        window.setTimeout(function () {
+
+                            window.location.href = site_url + 'index.php/explore/' + province_var + '/' + season_var + '/' + funct_var + '/' + mechanic_var + '/' + parts_var;
+                        }, 3000);
+                    }
 
                     console.log(data);
                 }
