@@ -10,7 +10,7 @@ application/logs/*
 
 /application/tests/build/
 /application/tests/_ci_phpunit_test/tmp/
-/application/tests/_ci_phpunit_test/patcher/debug.lo
+/application/tests/_ci_phpunit_test/patcher/debug.log
 
 user_guide_src/build/*
 user_guide_src/cilexer/build/*
