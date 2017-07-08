@@ -1,6 +1,8 @@
 MWash
 ============
 
+[![Build Status](https://travis-ci.org/Code4SierraLeone/MWash.svg?branch=master)](https://travis-ci.org/Code4SierraLeone/MWash)
+
 The application is built using [Codeigniter](https://github.com/Code4SierraLeone/MWash/blob/master/readme.rst).
 
 ### Application Set Up
