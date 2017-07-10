@@ -61,7 +61,7 @@ class Fusion extends CI_Controller {
     }
 
     /**
-     * $parameter1 => column name (e.g. mechanic,manager)
+     * $parameter1 => column name (e.g. mechanic,manager,chlorine,qual)
      * $parameter2 => row id
      * $paramter3 => row update (e.g yes,no,clean,empty)
      **/

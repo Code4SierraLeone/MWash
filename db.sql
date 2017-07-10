@@ -26,7 +26,7 @@ CREATE TABLE IF NOT EXISTS `subscribers` (
   `telegram_chat_id` varchar(255) DEFAULT NULL,
   `province` varchar(255) DEFAULT NULL,
   `district` varchar(255) DEFAULT NULL,
-  `chiefdom` varchar(255)DEFAULT NULL,
+  `chiefdom` varchar(255) DEFAULT NULL,
   `phone_number` varchar(255) NOT NULL DEFAULT '',
   `created_at` datetime NOT NULL,
   `updated_at` datetime DEFAULT NULL,
