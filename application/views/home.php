@@ -3,7 +3,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 ?><!DOCTYPE html>
 <html >
 <head>
-    meta charset="UTF-8">
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="keywords" content="mwash,mwash app,water sanitation,water in sierra leone,">
     <meta name="description" content="Mapping the availability of water and sanitation points in Sierra Leone.">
