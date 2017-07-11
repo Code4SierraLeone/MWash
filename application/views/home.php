@@ -3,9 +3,32 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 ?><!DOCTYPE html>
 <html >
 <head>
-    <meta charset="UTF-8">
-    <title>MWASH | Home</title>
+    meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="keywords" content="mwash,mwash app,water sanitation,water in sierra leone,">
+    <meta name="description" content="Mapping the availability of water and sanitation points in Sierra Leone.">
+
+    <title>MWASH | Home</title>
+
+    <!-- Facebook Open Graph -->
+    <meta property="og:title" content="MWash App" />
+    <meta property="og:description" content="Mapping the availability of water and sanitation points in Sierra Leone." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="" />
+    <meta property="og:image" content="" />
+
+    <!-- Twitter Cards -->
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:site" content="" />
+    <meta name="twitter:url" content="" />
+    <meta name="twitter:title" content="Mwash App" />
+    <meta name="twitter:description" content="Mapping the availability of water and sanitation points in Sierra Leone." />
+    <meta name="twitter:image" content="" />
+
+    <!-- Google Plus Snippet -->
+    <meta itemprop="name" content="MWash App">
+    <meta itemprop="description" content="Mapping the availability of water and sanitation points in Sierra Leone.">
+    <meta itemprop="image" content="">
 
     <link rel="icon" href="<?php echo base_url(); ?>assets/img/favicon.png" type="image/x-icon"/>
 
