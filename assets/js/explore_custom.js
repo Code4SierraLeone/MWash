@@ -109,7 +109,7 @@ $(function () {
     } else if (parts_var == 'w20') {
         $('#w20').addClass('active indigo lighten-1');
     } else if (parts_var == 'all') {
-        $('#allp').addClass('active indigo lighten-1');
+        $('#allpa').addClass('active indigo lighten-1');
     }
 
     $.fn.digits = function () {

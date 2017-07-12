@@ -193,7 +193,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <li class="bold"><a class="collapsible-header waves-effect waves-teal"><i class="material-icons">extension</i>Filter By Parts Availability</a>
             <div class="collapsible-body" style="padding: 0px !important;">
                 <ul>
-                    <li id="allp"><a href="<?php echo base_url(); ?>index.php/explore/<?= $province ?>/<?= $season ?>/<?= $functionality ?>/<?= $mechanic ?>/all">All</a></li>
+                    <li id="allpa"><a href="<?php echo base_url(); ?>index.php/explore/<?= $province ?>/<?= $season ?>/<?= $functionality ?>/<?= $mechanic ?>/all">All</a></li>
                     <li id="m20"><a href="<?php echo base_url(); ?>index.php/explore/<?= $province ?>/<?= $season ?>/<?= $functionality ?>/<?= $mechanic ?>/m20">More Than 20 Miles</a></li>
                     <li id="wcom"><a href="<?php echo base_url(); ?>index.php/explore/<?= $province ?>/<?= $season ?>/<?= $functionality ?>/<?= $mechanic ?>/wcom">In This Community</a></li>
                     <li id="w20"><a href="<?php echo base_url(); ?>index.php/explore/<?= $province ?>/<?= $season ?>/<?= $functionality ?>/<?= $mechanic ?>/w20">Within 20 Miles</a></li>
