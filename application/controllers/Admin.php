@@ -8,7 +8,7 @@ class Admin extends CI_Controller {
         parent::__construct();
         $this->load->helper('url_helper');
         $this->load->library(array('session'));
-        //$this->load->helper(array('url'));
+        $this->load->library('recaptcha');
         $this->load->model('admin_model');
     }
 
@@ -91,8 +91,12 @@ class Admin extends CI_Controller {
             // set variables from the form
             $username = $this->input->post('username');
             $password = $this->input->post('password');
+            $captcha_answer = $this->input->post('g-recaptcha-response');
 
-            if ($this->admin_model->resolve_user_login($username, $password)) {
+            $authResponse = $this->admin_model->resolve_user_login($username, $password);
+            $captchaResponse = $this->recaptcha->verifyResponse($captcha_answer);
+
+            if ($authResponse == TRUE && $captchaResponse['success'] == TRUE) {
 
                 $user_id = $this->admin_model->get_user_id_from_username($username);
                 $user    = $this->admin_model->get_user($user_id);
