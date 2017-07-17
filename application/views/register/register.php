@@ -57,6 +57,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                             </div>
                         </div>
                         <div class="row">
+                            <?php echo $this->recaptcha->render(); ?>
+                        </div>
+                        <div class="row">
                             <div class="input-field col s12">
                                 <input type="submit" class="btn-large waves-effect waves-light col s12" value="Create">
                             </div>

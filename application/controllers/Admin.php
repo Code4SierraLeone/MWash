@@ -42,11 +42,18 @@ class Admin extends CI_Controller {
             $username = $this->input->post('username');
             $email    = $this->input->post('email');
             $password = $this->input->post('password');
+            $captcha_answer = $this->input->post('g-recaptcha-response');
 
-            if ($this->admin_model->create_user($username, $email, $password)) {
+            $captchaResponse = $this->recaptcha->verifyResponse($captcha_answer);
 
-                // user creation ok
-                redirect('/login');
+            if ($captchaResponse['success'] == TRUE) {
+
+                $authResponse = $this->admin_model->create_user($username, $email, $password);
+
+                if($authResponse == TRUE){
+                    // user creation ok
+                    redirect('/login');
+                }
 
             } else {
 
