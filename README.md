@@ -34,6 +34,6 @@ Open the `application/config/config.php` file with a text editor and set your ba
 
 Open the `application/config/database.php` file with a text editor and set your database settings
 
-Incase your running the application on your local server or unsecure http:// please visit this [issue](https://github.com/Code4SierraLeone/MWash/issues/1)
+**!IMPORTANT**: Incase your running the application on your local server or unsecure http:// please visit this [issue](https://github.com/Code4SierraLeone/MWash/issues/1)
 
 
