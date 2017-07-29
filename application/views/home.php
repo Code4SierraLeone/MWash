@@ -50,11 +50,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <nav class="row indigo darken-4">
         <div class="col s12">
             <ul class="right">
-                <li class="right tooltipped" data-position="bottom" data-delay="1" data-tooltip="Github">
-                    <a href="https://github.com/Code4SierraLeone/MWash/" target="_blank" class="fa fa-github-square fa-2x waves-effect waves-light"><span class="icon-text"></span></a>
+                <li class="right">
+                    <a href="https://github.com/Code4SierraLeone/MWash/" target="_blank" class="fa fa-github-square fa-2x waves-effect waves-light tooltipped" data-position="bottom" data-delay="1" data-tooltip="Github"><span class="icon-text"></span></a>
                 </li>
-                <li class="right tooltipped" data-position="bottom" data-delay="1" data-tooltip="Dashboard">
-                    <a href="<?php echo base_url(); ?>index.php/login" target="_blank" class="fa fa-user fa-2x waves-effect waves-light"><span class="icon-text"></span></a>
+                <li class="right">
+                    <a href="<?php echo base_url(); ?>index.php/login" target="_blank" class="fa fa-user fa-2x waves-effect waves-light tooltipped" data-position="bottom" data-delay="1" data-tooltip="Dashboard"><span class="icon-text"></span></a>
                 </li>
             </ul>
         </div>
@@ -70,7 +70,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
       <div class="center-align">
 
-        <a href="index.php/explore/all/all/all/all/all" class="waves-effect indigo waves-light btn">Explore</a>
+        <a href="index.php/explore/all/all/all/all/all" class="waves-effect indigo waves-light btn">Explore Water Points</a>
 
       </div>
 
