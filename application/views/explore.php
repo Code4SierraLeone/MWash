@@ -8,7 +8,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="msapplication-tap-highlight" content="no">
     <meta name="description" content="">
-    <title>MWash | Explore</title>
+    <title>MWash | Explore Water Points In Sierra Leone</title>
 
     <link rel="icon" href="<?php echo base_url(); ?>assets/img/favicon.png" type="image/x-icon"/>
 

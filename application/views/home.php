@@ -8,7 +8,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <meta name="keywords" content="mwash,mwash app,water sanitation,water in sierra leone,">
     <meta name="description" content="Mapping the availability of water and sanitation points in Sierra Leone.">
 
-    <title>MWASH | Home</title>
+    <title>MWASH | Water & Sanitation Mapping Site</title>
 
     <!-- Facebook Open Graph -->
     <meta property="og:title" content="MWash App" />
