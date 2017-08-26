@@ -212,6 +212,22 @@ class Admin_model extends CI_Model {
     }
 
     /**
+     * get registered unapproved users
+     *
+     * unapproved_user function
+     *
+     * @access public
+     * return object
+     *
+     **/
+    public function get_unapproved_users() {
+
+        $query = $this->db->query('SELECT username,email FROM users WHERE is_admin = 0 AND is_confirmed = 0 AND is_deleted = 0 AND password_reset = 0');
+
+        return $query->result();
+    }
+
+    /**
      * hash_password function.
      *
      * @access private

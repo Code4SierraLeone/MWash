@@ -232,8 +232,10 @@ class Admin extends CI_Controller {
             $data['userid'] = $_SESSION['user_id'];
             $data['page'] = 'users';
 
+            $data['users'] = $this->admin_model->get_unapproved_users();
+
             $this->load->view('dashboard/header', $data);
-            $this->load->view('dash_users');
+            $this->load->view('dash_users', $data);
             $this->load->view('dashboard/footer');
 
         } else {
