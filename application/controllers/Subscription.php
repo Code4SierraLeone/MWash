@@ -7,6 +7,7 @@ class Subscription extends CI_Controller {
     {
         parent::__construct();
         $this->load->helper('url_helper');
+        $this->load->library(array('session'));
         $this->load->model('subscribers_model');
     }
 
@@ -62,9 +63,13 @@ class Subscription extends CI_Controller {
 
     public function get_subscribers(){
 
-        $subno = $this->subscribers_model->get_subscribers_number();
+        if(isset($_SESSION['user_id']) && isset($_SESSION['username']) && isset($_SESSION['logged_in'])) {
 
-        echo json_encode($subno);
+            $subno = $this->subscribers_model->get_subscribers_number();
+
+            echo json_encode($subno);
+
+        }
 
     }
 }

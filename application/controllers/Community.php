@@ -7,14 +7,19 @@ class Community extends CI_Controller {
     {
         parent::__construct();
         $this->load->helper('url_helper');
+        $this->load->library(array('session'));
         $this->load->model('community_model');
     }
 
     public function get_updates(){
 
-        $subno = $this->community_model->get_update_number();
+        if(isset($_SESSION['user_id']) && isset($_SESSION['username']) && isset($_SESSION['logged_in'])) {
 
-        echo json_encode($subno);
+            $subno = $this->community_model->get_update_number();
+
+            echo json_encode($subno);
+
+        }
     }
 
 }
