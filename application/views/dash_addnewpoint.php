@@ -16,7 +16,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     </div>
                     <div class="input-field col s6">
                         <select name="nw_used" id="nw_used">
-                            <option value="" disabled selected>Choose your option</option>
+                            <option value="0" disabled selected>Choose your option</option>
                             <option value="true">True</option>
                             <option value="false">False</option>
                             <option value="Unknown">Unknown</option>
@@ -47,7 +47,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 <div class="row">
                     <div class="input-field col s6">
                         <select name="nw_parts" id="nw_parts">
-                            <option value="" disabled selected>Choose your option</option>
+                            <option value="0" disabled selected>Choose your option</option>
                             <option value="More than 20 miles">More Than 20 Miles</option>
                             <option value="Within 20 mile">Within 20 Miles</option>
                             <option value="In this community">In This Community</option>
@@ -56,7 +56,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     </div>
                     <div class="input-field col s6">
                         <select name="nw_mechanic" id="nw_mechanic">
-                            <option value="" disabled selected>Choose your option</option>
+                            <option value="0" disabled selected>Choose your option</option>
                             <option value="Yes">Yes</option>
                             <option value="No">No</option>
                             <option value="Unknown">Unknown</option>

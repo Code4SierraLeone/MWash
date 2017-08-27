@@ -69,21 +69,50 @@ $(function(){
 
         var data = $('#nwp-form').serialize();
 
-        $.ajax({
-            type: 'POST',
-            url: site_url + 'index.php/fusion/newdatarow',
-            data: data,
-            dataType: 'json',
-        }).done(function (data) {
+        var newid = $('#newid').val().length;
+        var nwlon = $('#nw_lon').val().length;
+        var nwlat = $('#nw_lat').val().length;
+        var nwname = $('#nw_name').val().length;
+        var nwused = $('#nw_used').val();
+        var nwprov = $('#nw_prov').val().length;
+        var nwdist = $('#nw_dist').val().length;
+        var nwchief = $('#nw_chief').val().length;
+        var nwsection = $('#nw_section').val().length;
+        var nwparts = $('#nw_parts').val();
+        var nwmechanic = $('#nw_mechanic').val();
+        var nwmoney = $('#nw_money').val();
+        var nwage = $('#nw_age').val().length;
+        var nwmanager = $('#nw_manager').val().length;
+        var nwfunct = $('#nw_funct').val();
+        var nwwtype = $('#nw_wtype').val();
+        var nwchlorine = $('#nw_chlorine').val();
+        var nwseason = $('#nw_season').val();
+        var nwquality = $('#nw_quality').val();
 
-           if(data[0].rowid > 0){
-               Materialize.toast('Water Point Added!..Redirecting...', 4000);
-               window.setTimeout(function(){
-                   window.location.href = site_url+'index.php/dash';
-               }, 3000);
-           }
+        if(newid > 0 && nwlon > 0 && nwlat > 0 && nwname > 0 && nwused != null && nwprov > 0 && nwdist > 0 && nwchief > 0 && nwsection > 0 && nwparts != null && nwmechanic != null && nwmoney != null && nwage > 0 && nwmanager > 0 && nwfunct != null && nwwtype != null && nwchlorine != null && nwseason != null && nwquality != null) {
 
-        });
+            $.ajax({
+                type: 'POST',
+                url: site_url + 'index.php/fusion/newdatarow',
+                data: data,
+                dataType: 'json',
+            }).done(function (data) {
+
+               if(data[0].rowid > 0){
+                   Materialize.toast('Water Point Added!..Redirecting...', 4000);
+                   window.setTimeout(function(){
+                       window.location.href = site_url+'index.php/dash';
+                   }, 3000);
+               }
+
+            });
+
+        }else{
+
+            Materialize.toast('You Have Empty Fields!');
+
+        }
+
     });
 
     $('#submit-username-update').on('click', function () {
