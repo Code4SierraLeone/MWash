@@ -7,6 +7,7 @@ class Fusion extends CI_Controller {
     {
         parent::__construct();
         $this->load->helper('url_helper');
+        $this->load->library(array('session'));
 
     }
 
@@ -217,6 +218,7 @@ class Fusion extends CI_Controller {
     public function insert_newrow()
     {
         if(isset($_SESSION['user_id']) && isset($_SESSION['username']) && isset($_SESSION['logged_in'])){
+
             $newid = $this->input->post('newid');
             $longitude = $this->input->post('nw_lon');
             $latitude = $this->input->post('nw_lat');
