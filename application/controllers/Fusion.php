@@ -217,7 +217,7 @@ class Fusion extends CI_Controller {
 
     public function insert_newrow()
     {
-        if(isset($_SESSION['user_id']) && isset($_SESSION['username']) && isset($_SESSION['logged_in'])){
+        if(isset($_SESSION['user_auth']) && isset($_SESSION['username']) && isset($_SESSION['logged_in'])){
 
             $newid = $this->input->post('newid');
             $longitude = $this->input->post('nw_lon');

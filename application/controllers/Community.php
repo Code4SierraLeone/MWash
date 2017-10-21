@@ -13,7 +13,7 @@ class Community extends CI_Controller {
 
     public function get_updates(){
 
-        if(isset($_SESSION['user_id']) && isset($_SESSION['username']) && isset($_SESSION['logged_in'])) {
+        if(isset($_SESSION['user_auth']) && isset($_SESSION['username']) && isset($_SESSION['logged_in'])) {
 
             $subno = $this->community_model->get_update_number();
 

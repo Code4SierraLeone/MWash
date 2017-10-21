@@ -25,11 +25,12 @@ class Admin_model extends CI_Model {
      * @param mixed $password
      * @return bool true on success, false on failure
      */
-    public function create_user($username, $email, $password) {
+    public function create_user($authkey, $username, $email, $password) {
 
         if($this->count_users() == 0){
 
             $data = array(
+            	'auth' => $authkey,
                 'username' => $username,
                 'email' => $email,
                 'password' => $this->hash_password($password),
@@ -43,6 +44,7 @@ class Admin_model extends CI_Model {
         }else{
 
             $data = array(
+				'auth' => $authkey,
                 'username'   => $username,
                 'email'      => $email,
                 'password'   => $this->hash_password($password),
@@ -126,10 +128,10 @@ class Admin_model extends CI_Model {
      * @param mixed $username
      * @return bool
      */
-    public function update_user_username($userid, $username) {
+    public function update_user_username($userauth, $username) {
 
         $this->db->set('username', $username);
-        $this->db->where('id', $userid);
+        $this->db->where('auth', $userauth);
 
         return $this->db->update('users');
     }
@@ -142,10 +144,10 @@ class Admin_model extends CI_Model {
      * @param mixed $email
      * @return bool
      */
-    public function update_user_email($userid, $email) {
+    public function update_user_email($userauth, $email) {
 
         $this->db->set('email', $email);
-        $this->db->where('id', $userid);
+        $this->db->where('auth', $userauth);
 
         return $this->db->update('users');
     }
@@ -158,10 +160,10 @@ class Admin_model extends CI_Model {
      * @param mixed $password
      * @return bool
      */
-    public function update_user_password($userid, $password) {
+    public function update_user_password($userauth, $password) {
 
         $this->db->set('password', $this->hash_password($password));
-        $this->db->where('id', $userid);
+        $this->db->where('auth', $userauth);
 
         return $this->db->update('users');
     }
@@ -226,6 +228,43 @@ class Admin_model extends CI_Model {
 
         return $query->result();
     }
+
+	/**
+	 * check for authkey for user
+	 *
+	 * verify_authkey function
+	 *
+	 * @access public
+	 * return bool
+	 *
+	 **/
+	public function verify_authkey($username) {
+
+		$this->db->select('auth');
+		$this->db->from('users');
+		$this->db->where('username', $username);
+
+		return $this->db->get()->row('auth');
+	}
+
+	/**
+	 * add authkey to existing user
+	 *
+	 * add_authkey function
+	 *
+	 * @access public
+	 * return bool
+	 *
+	 **/
+	public function add_authkey($userid, $authkey)
+	{
+
+		$this->db->set('auth', $authkey);
+		$this->db->where('id', $userid);
+
+		return $this->db->update('users');
+
+	}
 
     /**
      * hash_password function.

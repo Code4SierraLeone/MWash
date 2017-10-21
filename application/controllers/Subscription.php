@@ -63,7 +63,7 @@ class Subscription extends CI_Controller {
 
     public function get_subscribers(){
 
-        if(isset($_SESSION['user_id']) && isset($_SESSION['username']) && isset($_SESSION['logged_in'])) {
+        if(isset($_SESSION['user_auth']) && isset($_SESSION['username']) && isset($_SESSION['logged_in'])) {
 
             $subno = $this->subscribers_model->get_subscribers_number();
 

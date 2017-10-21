@@ -48,7 +48,9 @@ class Admin extends CI_Controller {
 
             if ($captchaResponse['success'] == TRUE) {
 
-                $authResponse = $this->admin_model->create_user($username, $email, $password);
+				$authkey = $this->generate_authkey($password);
+
+                $authResponse = $this->admin_model->create_user($authkey, $username, $email, $password);
 
                 if($authResponse == TRUE){
                     // user creation ok
@@ -102,14 +104,24 @@ class Admin extends CI_Controller {
 
             $authResponse = $this->admin_model->resolve_user_login($username, $password);
             $captchaResponse = $this->recaptcha->verifyResponse($captcha_answer);
+            $verifyauthkey = $this->admin_model->verify_authkey($username);
 
             if ($authResponse == TRUE && $captchaResponse['success'] == TRUE) {
 
-                $user_id = $this->admin_model->get_user_id_from_username($username);
-                $user    = $this->admin_model->get_user($user_id);
+				$user_id = $this->admin_model->get_user_id_from_username($username);
+
+				if($verifyauthkey == null){ //applies to existing
+
+					$authkey = $this->generate_authkey($password);
+
+					$this->admin_model->add_authkey($user_id, $authkey);
+
+				}
+
+				$user = $this->admin_model->get_user($user_id);
 
                 // set session user datas
-                $_SESSION['user_id']      = (int)$user->id;
+                $_SESSION['user_auth']      = (string)$user->auth;
                 $_SESSION['username']     = (string)$user->username;
                 $_SESSION['email']     = (string)$user->email;
                 $_SESSION['logged_in']    = (bool)true;
@@ -186,7 +198,7 @@ class Admin extends CI_Controller {
 
     public function dash()
     {
-        if(isset($_SESSION['user_id']) && isset($_SESSION['username']) && isset($_SESSION['logged_in'])) {
+        if(isset($_SESSION['user_auth']) && isset($_SESSION['username']) && isset($_SESSION['logged_in'])) {
 
             $data['username'] = $_SESSION['username'];
             $data['email'] = $_SESSION['email'];
@@ -206,7 +218,7 @@ class Admin extends CI_Controller {
 
     public function newpoint(){
 
-        if(isset($_SESSION['user_id']) && isset($_SESSION['username']) && isset($_SESSION['logged_in'])) {
+        if(isset($_SESSION['user_auth']) && isset($_SESSION['username']) && isset($_SESSION['logged_in'])) {
 
             $data['username'] = $_SESSION['username'];
             $data['email'] = $_SESSION['email'];
@@ -225,11 +237,11 @@ class Admin extends CI_Controller {
 
     public function dash_users() {
 
-        if(isset($_SESSION['user_id']) && isset($_SESSION['username']) && isset($_SESSION['logged_in'])) {
+        if(isset($_SESSION['user_auth']) && isset($_SESSION['username']) && isset($_SESSION['logged_in'])) {
 
             $data['username'] = $_SESSION['username'];
             $data['email'] = $_SESSION['email'];
-            $data['userid'] = $_SESSION['user_id'];
+            $data['userauth'] = $_SESSION['user_auth'];
             $data['page'] = 'users';
 
             $data['users'] = $this->admin_model->get_unapproved_users();
@@ -248,7 +260,7 @@ class Admin extends CI_Controller {
 
     public function update_user_info() {
 
-        if(isset($_SESSION['user_id']) && isset($_SESSION['username']) && isset($_SESSION['logged_in'])){
+        if(isset($_SESSION['user_auth']) && isset($_SESSION['username']) && isset($_SESSION['logged_in'])){
 
             if(isset($_POST['new_email'])) {
 
@@ -260,9 +272,9 @@ class Admin extends CI_Controller {
 
                 if($this->form_validation->run() == TRUE) {
 
-                    $userid = $_SESSION['user_id'];
+                    $userauth = $_SESSION['user_auth'];
 
-                    if($this->admin_model->update_user_email($userid, $newemail)){
+                    if($this->admin_model->update_user_email($userauth, $newemail)){
 
                         $response = array('resp'=>'1');
 
@@ -287,9 +299,9 @@ class Admin extends CI_Controller {
 
                 if($this->form_validation->run() == TRUE) {
 
-                    $userid = $_SESSION['user_id'];
+                    $userauth = $_SESSION['user_auth'];
 
-                    if($this->admin_model->update_user_password($userid, $newpassword)) {
+                    if($this->admin_model->update_user_password($userauth, $newpassword)) {
 
                         $response = array('resp'=>'1');
 
@@ -314,9 +326,9 @@ class Admin extends CI_Controller {
 
                 if($this->form_validation->run() == TRUE) {
 
-                    $userid = $_SESSION['user_id'];
+                    $userauth = $_SESSION['user_auth'];
 
-                    if($this->admin_model->update_user_username($userid, $newusername)) {
+                    if($this->admin_model->update_user_username($userauth, $newusername)) {
 
                         $response = array('resp'=>'1');
 
@@ -342,6 +354,14 @@ class Admin extends CI_Controller {
         }
 
     }
+
+	public function generate_authkey($password){
+
+		$timestamp = date("YmdHis",time());
+		$authkey = base64_encode(hash("sha256", $password.$timestamp));
+
+		return $authkey;
+	}
 
     public function logout() {
 
