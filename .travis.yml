@@ -10,7 +10,7 @@ env:
   - DB=mysql
 
 before_script:
-	- if [[ "$DB" == "mysql" ]]; then mysql -e "create database IF NOT EXISTS mwash_db;" -u root; fi
+  - if [[ "$DB" == "mysql" ]]; then mysql -e "create database IF NOT EXISTS mwash_db;" -u root; fi
   - composer install
 
 script:
