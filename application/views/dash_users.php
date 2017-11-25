@@ -22,7 +22,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                             <span class="card-title">Email: <?php echo $user->email; ?></span>
                         </div>
                         <div class="card-action">
-                            <a href="#">Activate User</a>
+                            <a href="<?php echo $userauth; ?>">Activate User</a>
                         </div>
                     </div>
                 </div>
