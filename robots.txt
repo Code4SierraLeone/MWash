@@ -1,0 +1,6 @@
+User-agent: *
+Disallow: /index.php/login
+Disallow: /index.php/register
+Disallow: /index.php/forgotpassword
+
+Sitemap: https://mwash.codeforsierraleone.org/sitemap.xml
