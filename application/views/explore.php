@@ -33,9 +33,23 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             mapDiv.style.width = '100%';
             mapDiv.style.height = rheight +'px';
             var map = new google.maps.Map(mapDiv, {
-                center: new google.maps.LatLng(8.646785826402805, -11.696121582031306),
-                zoom: 8,
-                mapTypeId: google.maps.MapTypeId.ROADMAP,
+            	<?php if ($province == 'Northern'){ ?>
+				center: new google.maps.LatLng(8.9851565, -11.9271358),
+				zoom: 9,
+            	<?php }elseif ($province == 'Southern'){ ?>
+				center: new google.maps.LatLng(7.7202549, -12.0994481),
+				zoom: 10,
+            	<?php }elseif ($province == 'Eastern'){?>
+				center: new google.maps.LatLng(8.1509098, -11.0891087),
+				zoom: 9,
+            	<?php }elseif ($province == 'Western'){ ?>
+				center: new google.maps.LatLng(8.3456411, -13.1650893),
+				zoom: 12,
+				<?php }else{ ?>
+				center: new google.maps.LatLng(8.646785826402805, -11.696121582031306),
+				zoom: 9,
+				<?php } ?>
+				mapTypeId: google.maps.MapTypeId.ROADMAP,
                 streetViewControl: false,
                 zoomControl: true,
                 zoomControlOptions: {
@@ -51,7 +65,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     where: "<?php
                         $conditions = array();
 
-                        if($province != 'all'){
+                        if ($province != 'all'){
                             $conditions[] = "province = '$province'";
                         }
                         if ($season == 'Unknown'){
@@ -92,10 +106,31 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         }
                         ?>"
                 },
+				styles: [{
+					where: "funct = 'Yes- functional'",
+					markerOptions: {
+						iconName: "small_green"
+					}
+				}, {
+					where: "funct = 'No- broken down'",
+					markerOptions: {
+						iconName: "small_red"
+					}
+				}, {
+					where: "funct = 'Yes- but partly damaged'",
+					markerOptions: {
+						iconName: "small_yellow"
+					}
+				}, {
+					where: "funct = 'No- still under construction'",
+					markerOptions: {
+						iconName: "small_blue"
+					}
+				}],
                 options: {
                     styleId: 2,
                     templateId: 2
-                }
+                },
             });
         }
         google.maps.event.addDomListener(window, 'load', initialize);
