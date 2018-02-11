@@ -2,6 +2,8 @@
 
 $(function () {
 
+	var winwidth = $( window ).width();
+
     $('select').material_select();
 
     $('.tooltipped').tooltip({ delay: 1 });
@@ -125,21 +127,37 @@ $(function () {
             url: site_url + 'index.php/fusion/count/' + province + '/' + season + '/' + functionality + '/' + mechanic + '/' + parts,
             dataType: 'json',
             beforeSend: function beforeSend() {
-                $('#wp-status').css({
-                    'background-image': 'url(' + site_url + '/assets/img/floader.gif',
-                    'background-position': 'center',
-                    'background-repeat': 'no-repeat' });
+
+            	if (winwidth >= 992 ){
+					$('#wp-status-desk').css({
+						'background-image': 'url(' + site_url + '/assets/img/floader.gif',
+						'background-position': 'center',
+						'background-repeat': 'no-repeat' });
+				}else{
+					$('#wp-status-mob').css({
+						'background-image': 'url(' + site_url + '/assets/img/floader.gif',
+						'background-position': 'center',
+						'background-repeat': 'no-repeat' });
+				}
             },
             success: function success(data) {
-                $('#wp-status').css({
-                    'background-image': '',
-                    'background-position': '',
-                    'background-repeat': '' });
-                $('#wp-status span').show();
+
+				if (winwidth >= 992 ){
+					$('#wp-status-desk').css({
+						'background-image': '',
+						'background-position': '',
+						'background-repeat': '' });
+				}else{
+					$('#wp-status-mob').css({
+						'background-image': '',
+						'background-position': '',
+						'background-repeat': '' });
+				}
+                //$('#wp-status span').show();
                 if (data == null) {
-                    $('#wp-status h4').html('0');
+                    $('#wp-status-mob h4, #wp-status-desk h4').html('0');
                 } else {
-                    $('#wp-status h4').html(data[0].count).digits();
+                    $('#wp-status-mob h4, #wp-status-desk h4').html(data[0].count + ' Waterpoints').digits();
                 }
                 //console.log(data);
             }

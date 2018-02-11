@@ -143,17 +143,28 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <nav class="nav-wrapper indigo darken-4">
         <div class="container"><a href="#" data-activates="nav-mobile" class="button-collapse top-nav waves-effect waves-light circle hide-on-large-only"><i class="material-icons">menu</i></a></div>
         <div class="col s12">
-            <ul class="right">
+            <ul class="right desk">
                 <li class="right">
-                    <a href="https://github.com/Code4SierraLeone/MWash/" target="_blank" class="fa fa-github-square fa-2x waves-effect waves-light tooltipped" data-position="bottom" data-delay="1" data-tooltip="Github"><span class="icon-text"></span></a>
+                    <a href="https://github.com/Code4SierraLeone/MWash/" target="_blank">Github</a>
+                </li>
+                <li class="right des">
+                    <a href="<?php echo base_url(); ?>index.php/login" target="_blank">Dashboard</a>
                 </li>
                 <li class="right">
-                    <a href="<?php echo base_url(); ?>index.php/login" target="_blank" class="fa fa-user fa-2x waves-effect waves-light tooltipped" data-position="bottom" data-delay="1" data-tooltip="Dashboard"><span class="icon-text"></span></a>
-                </li>
-                <li class="right">
-                    <a data-target="modal3" href="#modal3" class="modal-trigger fa fa-question-circle fa-2x waves-effect waves-light tooltipped" data-position="down" data-delay="1" data-tooltip="Quick Help"><span class="icon-text"></span></a>
+                    <a data-target="modal3" href="#modal3" class="modal-trigger">Quick Help</a>
                 </li>
             </ul>
+			<ul class="right mob">
+				<li class="right">
+					<a href="https://github.com/Code4SierraLeone/MWash/" target="_blank" class="fa fa-github-square fa-2x waves-effect waves-light tooltipped" data-position="bottom" data-delay="1" data-tooltip="Github"><span class="icon-text"></span></a>
+				</li>
+				<li class="right">
+					<a href="<?php echo base_url(); ?>index.php/login" target="_blank" class="fa fa-user fa-2x waves-effect waves-light tooltipped" data-position="bottom" data-delay="1" data-tooltip="Dashboard"><span class="icon-text"></span></a>
+				</li>
+				<li class="right">
+					<a data-target="modal3" href="#modal3" class="modal-trigger fa fa-question-circle fa-2x waves-effect waves-light tooltipped" data-position="down" data-delay="1" data-tooltip="Quick Help"><span class="icon-text"></span></a>
+				</li>
+			</ul>
         </div>
     </nav>
     <ul id="nav-mobile" style="border: 0px !important;" class="side-nav fixed collapsible collapsible-accordion">
@@ -241,12 +252,17 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 <main>
 
-    <div class="card" style="position: fixed; z-index: 99; width: 20%; right: 10px; background-color: rgba(255, 255, 255, 0.9) !important;">
-        <div id="wp-status" class="card-content">
-            <span style="display: none; font-weight: 400;" class="card-title">Number Of WaterPoints</span>
+    <div class="card desk" style="position: fixed; z-index: 99; width: 20%; right: 10px; background-color: rgba(255, 255, 255, 0.9) !important;">
+        <div id="wp-status-desk" class="card-content">
             <h4 style="text-align: center;"></h4>
         </div>
     </div>
+
+	<div class="card mob" style="margin: 0 !important;">
+		<div id="wp-status-mob" class="card-content">
+			<h4 style="text-align: center;"></h4>
+		</div>
+	</div>
 
     <div id="googft-mapCanvas"></div>
 
@@ -378,7 +394,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <div id="modal3" class="modal">
     <div class="modal-content">
         <h4>A Quick User Guide</h4>
-        <p>1.) What Can I Do On This Page?</p>
+        <p>What You Can Do On This Page</p>
         <ul class="collapsible" data-collapsible="accordion">
             <li>
                 <div class="collapsible-header"><i class="material-icons">filter_list</i>Filter Data</div>

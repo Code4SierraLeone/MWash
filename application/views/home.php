@@ -48,16 +48,16 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 <header class="navbar-fixed">
     <nav class="row indigo darken-4">
-        <div class="col s12">
-            <ul class="right">
-                <li class="right">
-                    <a href="https://github.com/Code4SierraLeone/MWash/" target="_blank" class="fa fa-github-square fa-2x waves-effect waves-light tooltipped" data-position="bottom" data-delay="1" data-tooltip="Github"><span class="icon-text"></span></a>
-                </li>
-                <li class="right">
-                    <a href="<?php echo base_url(); ?>index.php/login" target="_blank" class="fa fa-user fa-2x waves-effect waves-light tooltipped" data-position="bottom" data-delay="1" data-tooltip="Dashboard"><span class="icon-text"></span></a>
-                </li>
-            </ul>
-        </div>
+		<div class="col s12">
+			<ul class="right desk">
+				<li class="right">
+					<a href="https://github.com/Code4SierraLeone/MWash/" target="_blank">Github</a>
+				</li>
+				<li class="right des">
+					<a href="<?php echo base_url(); ?>index.php/login" target="_blank">Dashboard</a>
+				</li>
+			</ul>
+		</div>
     </nav>
 </header>
 
